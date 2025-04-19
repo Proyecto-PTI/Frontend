@@ -1,8 +1,6 @@
 import React from 'react';
 
 function AccessAlerts() {
-    return (
-    
-    ); 
+  return <h2>AccessAlerts</h2>;
 }
   export default AccessAlerts;
