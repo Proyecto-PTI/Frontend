@@ -1,5 +1,6 @@
 # Frontend
 
+- react + css modular
 - se trabaja en src
 - para ejecutar : 
 $npm run dev
@@ -8,14 +9,14 @@ vistas a realizar:
 ~~LogIn~~
 ~~SignUp~~
 AccessAlerts
-AlertSettings      
+AlertSettings
 SystemEntry
-AccessLogs  
-Dashboard 
+AccessLogs
+Dashboard
 SystemSettings
-AddEntry    
-EditAccount     
+AddEntry
+EditAccount
 UserProfile
-AddUser     
-EntryPoints    
+AddUser
+EntryPoints
 Users
