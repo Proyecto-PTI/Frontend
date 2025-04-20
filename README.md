@@ -6,17 +6,17 @@
 $npm run dev
 
 vistas a realizar: 
-~~LogIn~~
-~~SignUp~~
-AccessAlerts
-AlertSettings
-SystemEntry
-AccessLogs
-Dashboard
-SystemSettings
-AddEntry
-EditAccount
-UserProfile
-AddUser
-EntryPoints
-Users
+- ~~LogIn~~
+- ~~SignUp~~
+- AccessAlerts
+- AlertSettings
+- SystemEntry
+- AccessLogs
+- Dashboard
+- SystemSettings
+- AddEntry
+- EditAccount
+- UserProfile
+- AddUser
+- EntryPoints
+- Users
