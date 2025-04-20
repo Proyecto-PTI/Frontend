@@ -1,9 +1,9 @@
-.login {
+.signup {
     color: #fff;
     background-color: #222;
     flex-direction: column;
     align-items: center;
-    padding: 63px 68px 439px;
+    padding: 68px 68px 318px;
     font-family:
       Outfit,
       -apple-system,
@@ -15,20 +15,13 @@
     display: flex;
     overflow: hidden;
   }
-  
   @media (width<=991px) {
-    .login {
+    .signup {
       padding-bottom: 100px;
       padding-left: 20px;
       padding-right: 20px;
     }
   }
-  
-  .header {
-    width: 100%;
-    position: relative;
-  }
-  
   .facepass {
     color: #ff9800;
     letter-spacing: 5.4px;
@@ -40,57 +33,45 @@
     top: 50px;
     left: 40px;
   }
-  
-  
-  .logo {
-    aspect-ratio: 1;
-    object-fit: contain;
-    object-position: center;
-    width: 99px;
-    margin-top: 104px;
-  }
-  
-  @media (width<=991px) {
-    .logo {
-      margin-top: 40px;
-    }
-  }
-  
-  .loginHeading {
+
+  .createaNewAdminAccount {
     text-align: center;
-    margin-top: 12px;
+    margin-top: 50px;
     font-size: 24px;
     font-weight: 500;
   }
-  
-  .loginForm {
+  @media (width<=991px) {
+    .createaNewAdminAccount {
+      margin-top: 40px;
+    }
+  }
+
+  .signupForm {
     width: 100%;
     max-width: 878px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
   }
-  
-  .formGroup {
+
+  .FormInput {
     width: 100%;
     margin-bottom: 16px;
   }
-  
-  .email {
+
+  .userName {
     align-self: flex-start;
-    margin-top: 11px;
+    margin-top: 10px;
     margin-left: 0;
     display: block;
     text-align: left;
     width: 100%;
   }
-  
   @media (width<=991px) {
-    .email {
+    .userName {
       margin-left: 10px;
     }
   }
-  
-  .emailbox {
+  .userbox {
     font-family:
       Outfit,
       -apple-system,
@@ -99,56 +80,8 @@
       sans-serif;
     white-space: nowrap;
     background-color: #036;
-    border-radius: 20px;
-    width: 878px;
-    max-width: 100%;
-    margin-top: 17px;
-    padding: 11px 26px;
-    font-size: 16px;
-    color: #fff;
-    border: none;
-    outline: none;
-    box-sizing: border-box;
-  }
-  
-  @media (width<=991px) {
-    .emailbox {
-      white-space: initial;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
-
-  .emailbox::placeholder {
-    font-family:
-      Outfit,
-      -apple-system,
-      Roboto,
-      Helvetica,
-      sans-serif;
-    color: rgba(255, 255, 255, 0.5);
-  }
-  
-  .password {
-    align-self: flex-start;
-    margin-top: 19px;
-     margin-left: 0;
-    font-size: 18px;
-    display: block;
-    text-align: left;
-    width: 100%;
-  }
-  
-  @media (width<=991px) {
-    .password {
-      margin-left: 10px;
-    }
-  }
-  
-  .passwordbox {
-    white-space: nowrap;
-    background-color: #036;
-    border-radius: 20px;
+    border-radius: 20px; 
+   
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
@@ -158,25 +91,196 @@
     margin-top: 13px;
     padding: 7px 28px;
     font-size: 16px;
-    display: flex;
     border: none;
     outline: none;
     box-sizing: border-box;
   }
-  
   @media (width<=991px) {
-    .passwordbox {
+    .userbox {
       white-space: initial;
       padding-left: 20px;
       padding-right: 20px;
     }
   }
+  .email {
+    align-self: flex-start;
+    margin-top: 20px;
+    margin-left: 0;
+    display: block;
+    text-align: left;
+    width: 100%;
+  }
+  @media (width<=991px) {
+    .email {
+      margin-left: 10px;
+    }
+  }
+  .emailbox {
+    font-family:
+      Outfit,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    white-space: nowrap;
+    background-color: #036;
+    border-radius: 20px; 
+   
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    width: 878px;
+    max-width: 100%;
+    margin-top: 13px;
+    padding: 7px 28px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+  }
+  @media (width<=991px) {
+    .emailbox {
+      white-space: initial;
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+  }
   
-  .passwordInput {
+  .password {
+    align-self: flex-start;
+    margin-top: 20px;
+    margin-left: 0;
+    display: block;
+    text-align: left;
+    width: 100%;
+  }
+  @media (width<=991px) {
+    .password {
+      margin-left: 10px;
+    }
+  }
+  .passwordbox {
+    font-family:
+      Outfit,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    white-space: nowrap;
+    background-color: #036;
+    border-radius: 20px; 
+   
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    width: 878px;
+    max-width: 100%;
+    margin-top: 13px;
+    padding: 7px 28px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+  }
+  @media (width<=991px) {
+    .passwordbox {
+      white-space: initial;
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+  }
+  .confirmPassword {
+    align-self: flex-start;
+    margin-top: 20px;
+    margin-left: 0;
+    display: block;
+    text-align: left;
+    width: 100%;
+  }
+  @media (width<=991px) {
+    .confirmPassword {
+      margin-left: 10px;
+    }
+  }
+  .passwordbox2 {
+    font-family:
+      Outfit,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    white-space: nowrap;
+    background-color: #036;
+    border-radius: 20px; 
+   
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    width: 878px;
+    max-width: 100%;
+    margin-top: 13px;
+    padding: 7px 28px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+  }
+  @media (width<=991px) {
+    .passwordbox2 {
+      white-space: initial;
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+  }
+  .signupbutton {
+    text-align: center;
+    background-color: #ff9800;
+    border-radius: 20px;
+    max-width: 100%;
+    margin-top: 50px;
+    width: 429px;
+    max-width: 100%;
+    padding: 13px 70px 7px;
+    font-weight: 700;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    align-self: center;
+  }
+  @media (width<=991px) {
+    .signupbutton {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  .alreadyhaveanaccount {
+    color: white; 
+    text-align: center;
+    margin-top: 14px;
+    font-size: 16px;
+  }
+  @media (width<=991px) {
+    .alreadyhaveanaccount {
+      max-width: 100%;
+    }
+  }
+  .loginLink {
+    text-decoration: underline;
+    color: #00c8c8;;
+    cursor: pointer;
+  }
+  .loginText {
+    color: #fff;
+  }
+  .inputField {
+    width: 100%;
     background: transparent;
     border: none;
     color: #fff;
-    flex-grow: 1;
     outline: none;
     font-size: 16px;
     font-family:
@@ -188,96 +292,13 @@
     flex: 1; 
     min-width: 0;
   }
-  
-  .passwordInput::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+  .inputField::placeholder {
+      font-family:
+        Outfit,
+        -apple-system,
+        Roboto,
+        Helvetica,
+        sans-serif;
+      color: rgba(255, 255, 255, 0.5);
   }
-  
-  .visibilityButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    outline: none; 
-  }
-
-  .visibilityButton:focus {
-    outline: none;
-  }
-  
-  .eyeIcon {
-    width: 23px;
-    height: 23px;
-    flex-shrink: 0;
-    color: #fff;
-  }
-  
-  .forgotPassword {
-    color: #00c8c8;
-    text-align: right;
-    align-self: flex-end;
-    margin-top: 16px;
-    text-decoration: none;
-  }
-  
-  .loginbutton {
-    text-align: center;
-    background-color: #ff9800;
-    border-radius: 20px;
-    width: 429px;
-    max-width: 100%;
-    margin-top: 31px;
-    padding: 13px 70px 7px;
-    font-weight: 700;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-    align-self: center;
-  }
-  
-  @media (width<=991px) {
-    .loginbutton {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
-  
-  .createadminacount {
-    color: white; 
-    text-align: center;
-    margin-top: 15px;
-    font-size: 16px;
-  }
-  
-  .signupLink {
-    text-decoration: underline;
-    color: #00c8c8;
-    cursor: pointer;
-  }
-  
-  .inputLabel {
-    display: block;
-    margin-bottom: 8px;
-    text-align: left;
-  }
-
-
-  
-  .inputField {
-    width: 100%;
-    background-color: #036;
-    border-radius: 20px;
-    padding: 11px 26px;
-    font-size: 16px;
-    color: #fff;
-    border: none;
-    outline: none;
-    box-sizing: border-box;
-  }
-
-
   
