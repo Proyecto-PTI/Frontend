@@ -30,9 +30,11 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div >
         {/* Barra de navegación */}
-        <NavBar />
+        {/* <NavBar /> */}
+
+
 
         {/* Rutas */}
         <Routes>
