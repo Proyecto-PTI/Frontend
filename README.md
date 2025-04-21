@@ -9,13 +9,13 @@ vistas a realizar:
 - ~~LogIn~~
 - ~~SignUp~~
 - ~~EditAccount~~
+- ~~AddEntry~~
 - AccessAlerts
 - AlertSettings
 - SystemEntry
 - AccessLogs
 - Dashboard
 - SystemSettings
-- AddEntry
 - UserProfile
 - AddUser
 - EntryPoints
