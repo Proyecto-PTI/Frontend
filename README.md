@@ -8,6 +8,7 @@ $npm run dev
 vistas a realizar: 
 - ~~LogIn~~
 - ~~SignUp~~
+- ~~EditAccount~~
 - AccessAlerts
 - AlertSettings
 - SystemEntry
@@ -15,7 +16,6 @@ vistas a realizar:
 - Dashboard
 - SystemSettings
 - AddEntry
-- EditAccount
 - UserProfile
 - AddUser
 - EntryPoints
