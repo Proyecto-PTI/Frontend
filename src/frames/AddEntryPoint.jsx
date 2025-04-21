@@ -1,31 +1,37 @@
-"use client";
 import React, { useState } from "react";
 import styles from "./AddEntryPoint.module.css";
 
-// Label tag component
+// Label tag component with SVG icon
 const EntryLabel = ({ text, onRemove }) => {
   return (
-    <div className={styles.div5}>
+    <div className={styles.divlabel}>
       <div>{text}</div>
-      <img
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/e7723e513be19db8e36db8b7cfcab75172afa5b0?placeholderIfAbsent=true&apiKey=61a77727fee44ba9b3bc5c61b3d4dc53"
-        alt="Remove label"
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
         className={styles.img}
         onClick={onRemove}
-      />
+        style={{ cursor: "pointer" }}
+      >
+        <path
+          fillRule="evenodd"
+          d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+          clipRule="evenodd"
+        />
+      </svg>
     </div>
   );
 };
 
+
+
+
+
 function AddEntryPoint() {
-  // State for form fields
-  const [formData, setFormData] = useState({
-    entryName: "A5S103",
-    entryLocation: "Campus Nord",
-    accessCameraId: "89-12-LD",
-    accessLockId: "457898765D",
-    accessAdministrator: "pepe.admin@gmail.com",
-  });
+
+  // State for labels
+  const [labels, setLabels] = useState([{ id: 1, text: "ETSETB" }]);
 
   // Handler for input changes
   const handleInputChange = (e) => {
@@ -36,19 +42,48 @@ function AddEntryPoint() {
     }));
   };
 
-  // Handler functions for buttons
-  const handleRemoveAllLabels = () => {
-    console.log("Remove all labels");
+  // Handler to remove a specific label
+  const handleRemoveLabel = (labelId) => {
+    setLabels((prevLabels) =>
+      prevLabels.filter((label) => label.id !== labelId),
+    );
   };
 
+  // Handler to remove all labels
+  const handleRemoveAllLabels = () => {
+    setLabels([]);
+  };
+
+  // Handler to add a new label
   const handleAddNewLabel = () => {
-    console.log("Add new label");
+    // This would typically open a modal or prompt for the label text
+    const newLabelText = prompt("Enter new label text:");
+    if (newLabelText && newLabelText.trim() !== "") {
+      const newLabel = {
+        id: Date.now(), // Use timestamp as a simple unique ID
+        text: newLabelText.trim(),
+      };
+      setLabels((prevLabels) => [...prevLabels, newLabel]);
+    }
   };
 
   const handleCreateEntryPoint = () => {
-    console.log("Creating entry point with data:", formData);
+    console.log("Creating entry point with data:", {
+      ...formData,
+      labels: labels.map((label) => label.text),
+    });
     // Here you would typically send the data to an API
   };
+
+
+  //variables para las propiedades de la entrada 
+  const [entryName, setEntryName] = useState('');
+  const [entryLocation, setEntryLocation] = useState('');
+  const [accessCameraId, setAccessCameraId] = useState('');
+  const [accessLockId, setAccessLockId] = useState('');
+  const [accessAdministrator, setAccessAdministrator] = useState('');
+
+
 
   return (
     <section className={styles.addEntryPoint}>
@@ -57,115 +92,117 @@ function AddEntryPoint() {
         <h2 className={styles.addSystemEntryPoint}>Add System Entry Point</h2>
       </header>
 
-      <form className={styles.div}>
+
+
+
+      <form className={styles.form}>
         <div className={styles.div2}>
-          {/* Form labels column */}
-          <div className={styles.column}>
-            <div className={styles.div3}>
-              <label htmlFor="entryName">Entry Name</label>
-              <label htmlFor="entryLocation" className={styles.entryLocation}>
-                Entry Location
-              </label>
-              <label htmlFor="accessCameraId" className={styles.accessCameraId}>
-                Access Camera ID
-              </label>
-              <label htmlFor="accessLockId" className={styles.accessLockId}>
-                Access Lock ID
-              </label>
-              <label
-                htmlFor="accessAdministrator"
-                className={styles.accessAdministrator}
-              >
-                Access Administrator
-              </label>
-            </div>
-          </div>
-
-          {/* Form values column - now editable */}
-          <div className={styles.column2}>
-            <div className={styles.div4}>
-              <input
-                type="text"
-                id="entryName"
-                name="entryName"
-                value={formData.entryName}
-                onChange={handleInputChange}
-                className={styles.emailbox}
-                placeholder="Enter name"
-              />
-
-              <input
-                type="text"
-                id="entryLocation"
-                name="entryLocation"
-                value={formData.entryLocation}
-                onChange={handleInputChange}
-                className={styles.userrolebox}
-                placeholder="Enter location"
-              />
-
-              <input
-                type="text"
-                id="accessCameraId"
-                name="accessCameraId"
-                value={formData.accessCameraId}
-                onChange={handleInputChange}
-                className={styles.emailbox2}
-                placeholder="Enter camera ID"
-              />
-
-              <input
-                type="text"
-                id="accessLockId"
-                name="accessLockId"
-                value={formData.accessLockId}
-                onChange={handleInputChange}
-                className={styles.numberbox}
-                placeholder="Enter lock ID"
-              />
-
-              <input
-                type="email"
-                id="accessAdministrator"
-                name="accessAdministrator"
-                value={formData.accessAdministrator}
-                onChange={handleInputChange}
-                className={styles.numberbox2}
-                placeholder="Enter administrator email"
-              />
-            </div>
-          </div>
+          <label className={styles.entryName} htmlFor="name">
+            Entry Name
+          </label>
+          <input
+            id="name"
+            type="text"
+            className={styles.namebox}
+            placeholder="Enter the entry name..."
+            onChange={(e) => setEntryName(e.target.value)}
+          />
+        </div>
+        <div className={styles.div3}>
+          <label className={styles.entryLocation} htmlFor="location">
+            Entry Location 
+          </label>
+          <input
+            id="location"
+            type="text"
+            className={styles.locationbox}
+            placeholder="Enter the entry location..."
+            onChange={(e) => setEntryLocation(e.target.value)}
+          />
+        </div>
+        <div className={styles.div4}>
+          <label className={styles.accessCameraId} htmlFor="cameraid">
+            Access Camera ID
+          </label>
+          <input
+            id="cameraid"
+            type="text"
+            className={styles.cameraidbox}
+            placeholder="Enter the camera ID..."
+            onChange={(e) => setAccessCameraId(e.target.value)}
+          />
+        </div>
+        <div className={styles.div5}>
+          <label className={styles.accessLockId} htmlFor="lockid">
+            Access Lock ID
+          </label>
+          <input
+            id="lockid"
+            type="text"
+            className={styles.lockidbox}
+            placeholder="Enter the lock ID..."
+            onChange={(e) => setAccessLockId(e.target.value)}
+          />
+        </div>
+        <div className={styles.div6}>
+          <label className={styles.AccessAdministrator} htmlFor="administrator">
+            Access Administrator
+          </label>
+          <input
+            id="administrator"
+            type="text"
+            className={styles.administratorbox}
+            placeholder="Enter the administrator name..."
+            onChange={(e) => setAccessAdministrator(e.target.value)}
+          />
         </div>
       </form>
+
+
+
+
 
       <section>
         <h3 className={styles.entrylabels}>Entry labels</h3>
 
+      {/*labels area*/}
         <div className={styles.base}>
-          <EntryLabel
-            text="ETSETB"
-            onRemove={() => console.log("Remove ETSETB label")}
-          />
-          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/a0b3c1017b7345e61c5a6719bf5427ff60e0b1ec?placeholderIfAbsent=true&apiKey=61a77727fee44ba9b3bc5c61b3d4dc53" alt="Label image" className={styles.img2} />
+          {labels.map((label) => (
+            <EntryLabel
+              key={label.id}
+              text={label.text}
+              onRemove={() => handleRemoveLabel(label.id)}
+            />
+          ))}
         </div>
 
-        <div className={styles.div6}>
+        <div className={styles.div}>
+
+          {/*remove all button*/}
           <button
-            className={styles.div7}
+            className={styles.removeallbutton}
             onClick={handleRemoveAllLabels}
             type="button"
+            disabled={labels.length === 0}
           >
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e7723e513be19db8e36db8b7cfcab75172afa5b0?placeholderIfAbsent=true&apiKey=61a77727fee44ba9b3bc5c61b3d4dc53" alt="Remove icon" className={styles.img3} />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={styles.img3}>
+              <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd"/>
+            </svg>
             <span className={styles.removeAllLabels}>Remove All Labels</span>
           </button>
 
+          {/*add new label button*/}
           <button
-            className={styles.addNewEntryLabel}
+            className={styles.addNewEntrybutton}
             onClick={handleAddNewLabel}
             type="button"
           >
-            + Add New Entry Label
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={styles.img4}>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            <span className={styles.addNewEntryLabel}>Add New Entry Label</span>
           </button>
+
         </div>
       </section>
 

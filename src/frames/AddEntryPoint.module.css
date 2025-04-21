@@ -1,382 +1,448 @@
 .addEntryPoint {
-    background-color: #222;
-    flex-direction: column;
-    padding: 51px 42px 257px;
-    display: flex;
-    overflow: hidden;
+  background-color: #222;
+  flex-direction: column;
+  padding: 51px 42px 257px;
+  display: flex;
+  overflow: hidden;
+}
+@media (width<=991px) {
+  .addEntryPoint {
+    padding-bottom: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  @media (width<=991px) {
-    .addEntryPoint {
-      padding-bottom: 100px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
-  .facepass {
-    color: #ff9800;
-    letter-spacing: 5.4px;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 815px;
+}
+
+.facepass {
+  color: #ff9800;
+  letter-spacing: 5.4px;
+  align-self: flex-start;
+  font-size: 36px;
+  font-weight: 300;
+  margin: 0;
+  position: absolute;
+  top: 50px;
+  left: 40px;
+}
+
+.addSystemEntryPoint {
+  color: #fff;
+  text-align: center;
+  margin-top: 70px;
+  margin-left: 13px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+
+
+.form {
+  align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.div2,
+.div3,
+.div4,
+.div5,
+.div6 {
+  align-items: center;
+  gap: 20px;
+  width: 804px;
+  max-width: 100%;
+  margin-top: 30px;
+  margin-left: 0px;
+  font-weight: 500;
+  display: flex;
+}
+
+/* Entry Name */
+.entryName {
+  color: #fff;
+  align-self: start;
+  font-size: 18px;
+  width: 200px;
+  text-align: left;
+}
+
+.namebox {
+  color: white;
+  flex: 1 0 0;
+  background-color: #036;
+  border-radius: 15px;
+  padding: 9px 26px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  width: 600px;
+  outline: none;
+  font-family:
+    Outfit,
+    -apple-system
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (width<=991px) {
+  .namebox {
     max-width: 100%;
-    font-family:
-      Outfit,
-      -apple-system,
-      Roboto,
-      Helvetica,
-      sans-serif;
-    font-size: 36px;
-    font-weight: 300;
+    white-space: initial;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  .addSystemEntryPoint {
-    color: #fff;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 500;
-  }
-  .div {
-    align-self: center;
-    width: 832px;
+}
+
+.namebox::placeholder {
+  color: #00c8c8;
+  opacity: 50%;
+}
+
+/* Entry Location */
+.entryLocation {
+  color: #fff;
+  align-self: start;
+  font-size: 18px;
+  width: 200px;
+  text-align: left;
+}
+
+.locationbox {
+  color: white;
+  flex: 1 0 0;
+  background-color: #036;
+  border-radius: 15px;
+  padding: 9px 26px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  width: 600px;
+  outline: none;
+  font-family:
+    Outfit,
+    -apple-system
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (width<=991px) {
+  .locationbox {
     max-width: 100%;
-    margin-top: 77px;
-    margin-left: 13px;
+    white-space: initial;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  @media (width<=991px) {
-    .div {
-      margin-top: 40px;
-    }
+}
+
+.locationbox::placeholder {
+  color: #00c8c8;
+  opacity: 50%;
+}
+
+
+/* Access Camera ID */
+.accessCameraId {
+  color: #fff;
+  align-self: start;
+  font-size: 18px;
+  width: 200px;
+  text-align: left;
+}
+
+.cameraidbox {
+  color: white;
+  flex: 1 0 0;
+  background-color: #036;
+  border-radius: 15px;
+  padding: 9px 26px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  width: 600px;
+  outline: none;
+  font-family:
+    Outfit,
+    -apple-system
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (width<=991px) {
+  .cameraidbox {
+    max-width: 100%;
+    white-space: initial;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  .div2 {
-    gap: 20px;
-    display: flex;
+}
+
+.cameraidbox::placeholder {
+  color: #00c8c8;
+  opacity: 50%;
+}
+
+
+/* Access Lock ID */
+.accessLockId {
+  color: #fff;
+  align-self: start;
+  font-size: 18px;
+  width: 200px;
+  text-align: left;
+}
+
+.lockidbox {
+  color: white;
+  flex: 1 0 0;
+  background-color: #036;
+  border-radius: 15px;
+  padding: 9px 26px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  width: 600px;
+  outline: none;
+  font-family:
+    Outfit,
+    -apple-system
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (width<=991px) {
+  .lockidbox {
+    max-width: 100%;
+    white-space: initial;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  @media (width<=991px) {
-    .div2 {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 0;
-    }
+}
+
+.lockidbox::placeholder {
+  color: #00c8c8;
+  opacity: 50%;
+}
+
+
+/* Access Administrator */
+.AccessAdministrator {
+  color: #fff;
+  align-self: start;
+  font-size: 18px;
+  width: 200px;
+  text-align: left;
+}
+
+.administratorbox {
+  color: white;
+  flex: 1 0 0;
+  background-color: #036;
+  border-radius: 15px;
+  padding: 9px 26px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  width: 600px;
+  outline: none;
+  font-family:
+    Outfit,
+    -apple-system
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (width<=991px) {
+  .administratorbox {
+    max-width: 100%;
+    white-space: initial;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  .column {
-    flex-direction: column;
-    align-items: stretch;
-    width: 22%;
-    margin-left: 0;
-    line-height: normal;
-    display: flex;
-  }
-  @media (width<=991px) {
-    .column {
-      width: 100%;
-    }
-  }
-  .div3 {
-    color: #fff;
-    flex-direction: column;
-    align-self: stretch;
-    align-items: start;
-    margin-top: auto;
-    margin-bottom: auto;
-    font-family:
-      Outfit,
-      -apple-system,
-      Roboto,
-      Helvetica,
-      sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    display: flex;
-  }
-  @media (width<=991px) {
-    .div3 {
-      margin-top: 40px;
-    }
-  }
-  .entryLocation {
-    margin-top: 37px;
-  }
-  .accessCameraId {
-    margin-top: 40px;
-  }
-  .accessLockId {
-    margin-top: 44px;
-  }
-  @media (width<=991px) {
-    .accessLockId {
-      margin-top: 40px;
-    }
-  }
-  .accessAdministrator {
-    align-self: stretch;
-    margin-top: 48px;
-  }
-  @media (width<=991px) {
-    .accessAdministrator {
-      margin-top: 40px;
-    }
-  }
-  .column2 {
-    flex-direction: column;
-    align-items: stretch;
-    width: 78%;
-    margin-left: 20px;
-    line-height: normal;
-    display: flex;
-  }
-  @media (width<=991px) {
-    .column2 {
-      width: 100%;
-    }
-  }
-  .div4 {
-    color: #00c8c8;
-    flex-grow: 1;
-    font-family:
-      Outfit,
-      -apple-system,
-      Roboto,
-      Helvetica,
-      sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-  }
-  @media (width<=991px) {
-    .div4 {
-      max-width: 100%;
-      margin-top: 40px;
-    }
-  }
-  .emailbox {
-    white-space: nowrap;
-    background-color: #036;
-    border-radius: 15px;
-    padding: 9px 24px;
-  }
-  @media (width<=991px) {
-    .emailbox {
-      max-width: 100%;
-      white-space: initial;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
-  .userrolebox {
-    background-color: #036;
-    border-radius: 15px;
-    margin-top: 27px;
-    padding: 7px 21px;
-    font-weight: 500;
-  }
-  @media (width<=991px) {
-    .userrolebox {
-      max-width: 100%;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
-  .emailbox2 {
-    white-space: nowrap;
-    background-color: #036;
-    border-radius: 15px;
-    margin-top: 26px;
-    padding: 9px 24px;
-  }
-  @media (width<=991px) {
-    .emailbox2 {
-      max-width: 100%;
-      white-space: initial;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
-  .numberbox {
-    white-space: nowrap;
-    background-color: #036;
-    border-radius: 15px;
-    margin-top: 27px;
-    padding: 9px 24px;
-  }
-  @media (width<=991px) {
-    .numberbox {
-      max-width: 100%;
-      white-space: initial;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
-  .numberbox2 {
-    white-space: nowrap;
-    background-color: #036;
-    border-radius: 15px;
-    margin-top: 31px;
-    padding: 7px 24px;
-  }
-  @media (width<=991px) {
-    .numberbox2 {
-      max-width: 100%;
-      white-space: initial;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
-  .entrylabels {
-    color: #fff;
-    align-self: start;
-    margin-top: 58px;
-    margin-left: 300px;
-    font-family:
-      Outfit,
-      -apple-system,
-      Roboto,
-      Helvetica,
-      sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-  }
-  @media (width<=991px) {
-    .entrylabels {
-      margin-top: 40px;
-      margin-left: 10px;
-    }
-  }
+}
+
+.administratorbox::placeholder {
+  color: #00c8c8;
+  opacity: 50%;
+}
+
+
+
+
+
+.entrylabels {
+  color: #fff;
+  text-align: center;
+  margin-top: 70px;
+  margin-left: 13px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+.base {
+
+  background-color: #2e2e2e;
+  border-radius: 20px;
+  flex: 1 0 0;
+  flex-wrap: wrap;
+  align-self: center;
+  align-items: stretch;
+  gap: 23px;
+  max-width: 100%; 
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 23px 21px 23px 21px;
+  font-family:
+    Outfit,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  box-sizing: border-box;
+}
+
+@media (width<=991px) {
   .base {
-    color: #fff;
-    white-space: nowrap;
-    background-color: #2e2e2e;
-    border-radius: 20px;
-    flex-wrap: wrap;
-    align-self: center;
-    align-items: stretch;
-    gap: 23px;
-    width: 831px;
-    max-width: 100%;
-    margin-top: 32px;
-    margin-left: 37px;
-    padding: 23px 80px 23px 21px;
-    font-family:
-      Outfit,
-      -apple-system,
-      Roboto,
-      Helvetica,
-      sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  @media (width<=991px) {
-    .base {
-      white-space: initial;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
+}
+
+
+
+
+
+
+.div {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* espacio entre botones */
+  margin-top: 20px;
+  flex-wrap: wrap; /* para que en pantallas pequeñas se apilen */
+}
+@media (width<=991px) {
+  .div {
+    justify-content: end;
   }
-  .div5 {
-    background-color: #ff9800;
-    border-radius: 12px;
-    align-items: stretch;
-    gap: 29px;
-    padding: 6px 19px;
-    display: flex;
+}
+
+.removeallbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 260px;
+}
+
+
+.addNewEntrybutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #00c8c8;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 30px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 260px;
+}
+
+
+.removeallbutton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Optional: SVG size normalization */
+.img3,
+.img4 {
+  width: 20px;
+  height: 20px;
+}
+
+
+/*labels style*/ 
+.divlabel {
+  background-color: #ff9800;
+  border-radius: 12px;
+  align-items: stretch;
+  gap: 29px;
+  padding: 6px 19px;
+  display: flex;
+}
+@media (width<=991px) {
+  .divlabel {
+    white-space: initial;
+    padding-left: 20px;
   }
-  @media (width<=991px) {
-    .div5 {
-      white-space: initial;
-      padding-left: 20px;
-    }
-  }
-  .img {
-    aspect-ratio: 1;
-    object-fit: contain;
-    object-position: center;
-    flex-shrink: 0;
-    align-self: start;
-    width: 24px;
-  }
-  .img2 {
-    aspect-ratio: 2.44;
-    object-fit: contain;
-    object-position: center;
-    border-radius: 12px;
-    flex-shrink: 0;
-    width: 93px;
-  }
-  .div6 {
-    text-align: center;
-    flex-wrap: wrap;
-    align-self: end;
-    align-items: stretch;
-    gap: 40px 77px;
-    width: 604px;
-    max-width: 100%;
-    margin-top: 24px;
-    font-family:
-      Outfit,
-      -apple-system,
-      Roboto,
-      Helvetica,
-      sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    display: flex;
-  }
-  .div7 {
-    color: #fff;
-    align-items: stretch;
-    gap: 14px;
-    margin-top: auto;
-    margin-bottom: auto;
-    display: flex;
-  }
-  .img3 {
-    aspect-ratio: 1;
-    object-fit: contain;
-    object-position: center;
-    flex-shrink: 0;
-    width: 24px;
-  }
-  .removeAllLabels {
-    flex-basis: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-  .addNewEntryLabel {
-    color: #222;
-    background-color: #fff;
-    border-radius: 12px;
-    flex: 1 0 0;
-    width: fit-content;
-    padding: 10px 60px;
-  }
-  @media (width<=991px) {
-    .addNewEntryLabel {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
+}
+.img {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+  align-self: start;
+  width: 24px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.createEntryPoint {
+  color: #fff;
+  text-align: center;
+  background-color: #036;
+  border-radius: 20px;
+  align-self: center;
+  width: 345px;
+  max-width: 100%;
+  margin-top: 90px;
+  padding: 12px 70px;
+  font-family:
+    Outfit,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+@media (width<=991px) {
   .createEntryPoint {
-    color: #fff;
-    text-align: center;
-    background-color: #036;
-    border-radius: 12px;
-    align-self: center;
-    width: 345px;
-    max-width: 100%;
-    margin-top: 83px;
-    padding: 17px 70px;
-    font-family:
-      Outfit,
-      -apple-system,
-      Roboto,
-      Helvetica,
-      sans-serif;
-    font-size: 18px;
-    font-weight: 700;
+    margin-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  @media (width<=991px) {
-    .createEntryPoint {
-      margin-top: 40px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
-  
+}
