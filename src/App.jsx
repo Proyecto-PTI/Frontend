@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  // I
 //website frames imports 
 import AccessAlerts from './frames/AccessAlerts';
 import AccessLogs from './frames/AccessLogs';
-import AddEntry from './frames/AddEntry';
+import AddEntry from './frames/AddEntryPoint';
 import AddUser from './frames/AddUser';
 import AlertSettings from './frames/AlertSettings';
 import Dashboard from './frames/Dashboard';

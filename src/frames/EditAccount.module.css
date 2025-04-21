@@ -1,0 +1,363 @@
+.editAccount {
+  background-color: #222;
+  flex-direction: column;
+  align-items: center;
+  padding: 44px 49px 269px;
+  font-family:
+    Outfit,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  display: flex;
+  overflow: hidden;
+}
+@media (width<=991px) {
+  .editAccount {
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.facepass {
+  color: #ff9800;
+    letter-spacing: 5.4px;
+    align-self: flex-start;
+    font-size: 36px;
+    font-weight: 300;
+    margin: 0;
+    position: absolute;
+    top: 50px;
+    left: 40px;
+}
+.editAccount2 {
+  color: #fff;
+  text-align: center;
+  margin-top: 70px;
+  margin-left: 13px;
+  font-size: 24px;
+  font-weight: 500;
+}
+.img {
+  aspect-ratio: 1.01;
+  object-fit: contain;
+  object-position: center;
+  z-index: 10;
+  width: 147px;
+  max-width: 100%;
+  margin-top: 0px;
+  margin-left: 13px;
+  color: #fff
+}
+.div {
+  color: #fff;
+  text-align: center;
+  align-items: stretch;
+  gap: 18px;
+  width: 133px;
+  max-width: 100%;
+  margin-left: 35px;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+}
+.pepeAdmin {
+  width: 100%;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.pepeAdmin:focus {
+  outline: none;
+  border-bottom: 1px solid #fff;
+}
+.img2 {
+  aspect-ratio: 1.13;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+  align-self: start;
+  width: 17px;
+}
+.div2 {
+  align-items: center;
+  gap: 20px;
+  width: 804px;
+  max-width: 100%;
+  margin-top: 39px;
+  margin-left: 0px;
+  font-weight: 500;
+  display: flex;
+}
+.userRole {
+  color: #fff;
+  align-self: start;
+  font-size: 18px;
+  width: 150px;
+  text-align: left;
+}
+.userrolebox {
+  color: #222;
+  flex: 1 0 0;
+  padding: 9px 26px;
+  background-color: #ff9800;
+  border-radius: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  width: 600px;
+}
+
+.userrolebox:focus {
+  outline: none;
+  border: none;
+  box-shadow: 0 0 0 2px rgba(255, 152, 0, 0.5);
+}
+@media (width<=991px) {
+  .userrolebox {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.div3 {
+  align-items: center;
+  gap: 20px;
+  width: 804px;
+  max-width: 100%;
+  margin-top: 30px;
+  margin-left: 0px;
+  display: flex;
+}
+
+.email {
+  color: #fff;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 18px;
+  font-weight: 500;
+  width: 150px;
+  text-align: left;
+}
+.emailbox {
+  color: white;
+  flex: 1 0 0;
+  background-color: #036;
+  border-radius: 15px;
+  padding: 9px 26px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  width: 600px;
+  outline: none;
+  font-family:
+    Outfit,
+    -apple-system
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (width<=991px) {
+  .emailbox {
+    max-width: 100%;
+    white-space: initial;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.div4 {
+  align-items: center;
+  gap: 20px;
+  width: 804px;
+  max-width: 100%;
+  margin-top: 30px;
+  margin-left: 0px;
+  display: flex;
+}
+.phoneNumber {
+  color: #fff;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 18px;
+  font-weight: 500;
+  width: 150px;
+  text-align: left;
+}
+.numberbox {
+  color: white; 
+  background-color: #036;
+  border-radius: 15px;
+  padding: 9px 26px;
+  flex: 1 0 0;
+  width: 600px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  font-family:
+    Outfit,
+    -apple-system
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+
+@media (width<=991px) {
+  .numberbox {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.div5 {
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 804px;
+  max-width: 100%;
+  margin-top: 30px;
+  margin-left: 0px;
+  display: flex;
+}
+.changePassword {
+  color: #fff;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 18px;
+  font-weight: 500;
+  align-self: flex-start;
+  
+}
+
+.passwordbox {
+  color: #00c8c8;
+  background-color: #036;
+  border-radius: 15px;
+  border: none;
+  width: 803px;
+  max-width: 100%;
+  margin-top: 25px;
+  padding: 9px 26px;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  font-family:
+    Outfit,
+    -apple-system
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (width<=991px) {
+  .passwordbox {
+    white-space: initial;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.passwordbox::placeholder {
+  color: #00c8c8;
+  opacity: 50%;
+}
+
+.newpasswordbox {
+  color: #00c8c8;
+  background-color: #036;
+  border-radius: 15px;
+  border: none;
+  width: 803px;
+  max-width: 100%;
+  margin-top: 25px;
+  padding: 9px 26px;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  font-family:
+    Outfit,
+    -apple-system
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (width<=991px) {
+  .newpasswordbox {
+    white-space: initial;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.newpasswordbox::placeholder {
+  color: #00c8c8;
+  opacity: 50%;
+}
+
+.confirmnewpasswordbox {
+  color: #00c8c8;
+  background-color: #036;
+  border-radius: 15px;
+  border: none;
+  width: 803px;
+  max-width: 100%;
+  margin-top: 25px;
+  padding: 9px 26px;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  font-family:
+    Outfit,
+    -apple-system
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+@media (width<=991px) {
+  .confirmnewpasswordbox {
+    white-space: initial;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.confirmnewpasswordbox::placeholder {
+  color: #00c8c8;
+  opacity: 50%;
+}
+
+.updatepasswordbutton {
+  color: #222;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 12px;
+  width: 429px;
+  max-width: 100%;
+  margin-top: 36px;
+  margin-left: 10px;
+  padding: 8px 70px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+@media (width<=991px) {
+  .updatepasswordbutton {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
