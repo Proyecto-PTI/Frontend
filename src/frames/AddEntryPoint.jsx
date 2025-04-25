@@ -1,71 +1,12 @@
 import React, { useState } from "react";
 import styles from "./AddEntryPoint.module.css";
-
-// Label tag component with SVG icon
-const EntryLabel = ({ text, onRemove }) => {
-  return (
-    <div className={styles.divlabel}>
-      <div>{text}</div>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        className={styles.img}
-        onClick={onRemove}
-        style={{ cursor: "pointer" }}
-      >
-        <path
-          fillRule="evenodd"
-          d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
-          clipRule="evenodd"
-        />
-      </svg>
-    </div>
-  );
-};
+import LabelComponent from "../components/LabelComponent.jsx"; 
 
 
 
 
 
 function AddEntryPoint() {
-
-  // State for labels
-  const [labels, setLabels] = useState([{ id: 1, text: "ETSETB" }]);
-
-  // Handler for input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  // Handler to remove a specific label
-  const handleRemoveLabel = (labelId) => {
-    setLabels((prevLabels) =>
-      prevLabels.filter((label) => label.id !== labelId),
-    );
-  };
-
-  // Handler to remove all labels
-  const handleRemoveAllLabels = () => {
-    setLabels([]);
-  };
-
-  // Handler to add a new label
-  const handleAddNewLabel = () => {
-    // This would typically open a modal or prompt for the label text
-    const newLabelText = prompt("Enter new label text:");
-    if (newLabelText && newLabelText.trim() !== "") {
-      const newLabel = {
-        id: Date.now(), // Use timestamp as a simple unique ID
-        text: newLabelText.trim(),
-      };
-      setLabels((prevLabels) => [...prevLabels, newLabel]);
-    }
-  };
 
   const handleCreateEntryPoint = () => {
     console.log("Creating entry point with data:", {
@@ -158,54 +99,7 @@ function AddEntryPoint() {
         </div>
       </form>
 
-
-
-
-
-      <section>
-        <h3 className={styles.entrylabels}>Entry labels</h3>
-
-      {/*labels area*/}
-        <div className={styles.base}>
-          {labels.map((label) => (
-            <EntryLabel
-              key={label.id}
-              text={label.text}
-              onRemove={() => handleRemoveLabel(label.id)}
-            />
-          ))}
-        </div>
-
-        <div className={styles.div}>
-
-          {/*remove all button*/}
-          <button
-            className={styles.removeallbutton}
-            onClick={handleRemoveAllLabels}
-            type="button"
-            disabled={labels.length === 0}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={styles.img3}>
-              <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd"/>
-            </svg>
-            <span className={styles.removeAllLabels}>Remove All Labels</span>
-          </button>
-
-          {/*add new label button*/}
-          <button
-            className={styles.addNewEntrybutton}
-            onClick={handleAddNewLabel}
-            type="button"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={styles.img4}>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-            </svg>
-            <span className={styles.addNewEntryLabel}>Add New Entry Label</span>
-          </button>
-
-        </div>
-      </section>
-
+      <LabelComponent />
 
       <button
         className={styles.createEntryPoint}

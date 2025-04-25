@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './UserHeader.module.css';  // Assegura't d'importar els estils
+import styles from './UserHeader.module.css';  
 
 function UserProfile() {
   const [userName, setUserName] = useState("Pepe Admin.");

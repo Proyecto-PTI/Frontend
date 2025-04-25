@@ -1,6 +1,8 @@
 
 import React, { useState, useRef } from "react";
 import styles from "./UserProfile.module.css";
+import WebHeader from "../components/WebHeader.jsx"; 
+import UserHeader from "../components/UserHeader.jsx";
 
 // Main UserProfile component
 function UserProfile() {
@@ -50,9 +52,8 @@ function UserProfile() {
 
   return (
     <main className={styles.viewProfile}>
-      <Header />
-      <Userlogo />
-      <UserDetails />
+      <WebHeader subtitle="View User Profile" />
+      <UserHeader />
       <ActionButtons
         onSelectImages={triggerFileInput}
         selectedImages={selectedImages}

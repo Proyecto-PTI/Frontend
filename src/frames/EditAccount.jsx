@@ -8,11 +8,11 @@ import UserHeader from "../components/UserHeader.jsx";
 function EditAccount() {
   return (
     <section className={styles.editAccount}>
-      <WebHeader subtitle="EL COMPONENTE ESTA GUCCI" />
+      <WebHeader subtitle="Edit Account" />
       <UserHeader />
       <PasswordChangeSection />
     </section>
-  );
+  ); 
 }
 
 function Header() {

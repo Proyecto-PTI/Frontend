@@ -1,0 +1,131 @@
+
+.entrylabels {
+    color: #fff;
+    text-align: center;
+    margin-top: 70px;
+    margin-left: 13px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  
+  .base {
+  
+    background-color: #2e2e2e;
+    border-radius: 20px;
+    flex: 1 0 0;
+    flex-wrap: wrap;
+    align-self: center;
+    align-items: stretch;
+    gap: 23px;
+    max-width: 100%; 
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 23px 21px 23px 21px;
+    font-family:
+      Outfit,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    box-sizing: border-box;
+  }
+  
+  @media (width<=991px) {
+    .base {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  
+  
+  .div {
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+    margin-top: 20px;
+    flex-wrap: wrap; /* para que en pantallas chikitas se apilen */
+  }
+  @media (width<=991px) {
+    .div {
+      justify-content: end;
+    }
+  }
+  
+  .removeallbutton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #111;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 260px;
+  }
+  
+  
+  .addNewEntrybutton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #00c8c8;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 30px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 260px;
+  }
+  
+  
+  .removeallbutton:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  
+
+  .img3,
+  .img4 {
+    width: 20px;
+    height: 20px;
+  }
+  
+  
+  /*labels style*/ 
+  .divlabel {
+    background-color: #ff9800;
+    border-radius: 12px;
+    align-items: stretch;
+    gap: 29px;
+    padding: 6px 19px;
+    display: flex;
+  }
+  @media (width<=991px) {
+    .divlabel {
+      white-space: initial;
+      padding-left: 20px;
+    }
+  }
+  .crossimg {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    flex-shrink: 0;
+    align-self: start;
+    width: 24px;
+    cursor: pointer;
+  }
+  
+  
