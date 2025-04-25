@@ -1,13 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./EditAccount.module.css";
+import WebHeader from "../components/WebHeader.jsx"; 
+import UserHeader from "../components/UserHeader.jsx"; 
+
 
 function EditAccount() {
   return (
     <section className={styles.editAccount}>
-      <Header />
-      <UserProfile />
-      <UserDetails />
+      <WebHeader subtitle="EL COMPONENTE ESTA GUCCI" />
+      <UserHeader />
       <PasswordChangeSection />
     </section>
   );
