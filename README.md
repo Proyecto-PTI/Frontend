@@ -56,6 +56,7 @@ A continuación os dejo la lista con los componentes que hay disponibles actualm
 - ~~AddEntry~~
 - ~~AddUser~~
 - ~~UserProfile~~ (Aunque le faltaria algun retoque)
+- Users (CASI HECHO, MALDITO CSS)
 
 - AccessAlerts
 - AlertSettings
@@ -65,5 +66,4 @@ A continuación os dejo la lista con los componentes que hay disponibles actualm
 - SystemSettings
 - UserProfile
 - EntryPoints
-- Users
 
