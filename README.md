@@ -22,7 +22,7 @@ Cada componente/vista se conforma de 2 archivos:
 **PARA EJECUTAR :**
 
 $npm run dev
-    *Os devolvera el puerto donde se esta ejecutando, normalmente el 5173* 
+   - *Os devolvera el puerto donde se esta ejecutando, normalmente el 5173* 
 
 
 **COMPONENTES :**
