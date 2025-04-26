@@ -9,9 +9,9 @@ Se trabaja dentro del **src**, donde podreis encontrar :
 - Frames : 
     *En esta otra, tenemos las vistas como tal.*
 - App : 
-    *Este es el "main" por asi decirlo de la web bebes*
+    *Este es el "main" por asi decirlo de la web bebes.*
 -Index+Main : 
-    *Todavia no me he enterado mucho de que es, pero es el envoltorio final de la web, aqui a veces hay que añadir referencias y cosas* 
+    *Todavia no me he enterado mucho de que es, pero es el envoltorio final de la web, aqui a veces hay que añadir referencias y cosas.* 
 
 
 Cada componente/vista se conforma de 2 archivos: 
