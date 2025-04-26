@@ -1,7 +1,9 @@
 # Frontend
 
-**IMPORTANTE: ANTES DE HACER PUSH, ASEGURAROS DE TENERLO LO MAS ACTUALIZADO POSSIBLE Y DE QUE EJECUTE CORRECTAMENTE** 
-*Enserio, no me metais codigo que no funciona, vamos a tenerlo limpito >:(*
+
+## IMPORTANTE: ANTES DE HACER PUSH, ASEGURAROS DE TENERLO LO MAS ACTUALIZADO POSSIBLE Y DE QUE EJECUTE CORRECTAMENTE 
+
+*Enserio, no me metais codigo que no funciona, vamos a mantenerlo limpito >:(*
 
 **ESTRUCTURA :** 
 
