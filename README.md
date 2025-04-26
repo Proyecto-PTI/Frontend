@@ -1,5 +1,8 @@
 # Frontend
 
+**IMPORTANTE: ANTES DE HACER PUSH, ASEGURAROS DE TENERLO LO MAS ACTUALIZADO POSSIBLE Y DE QUE EJECUTE CORRECTAMENTE** 
+*Enserio, no me metais codigo que no funciona, vamos a tenerlo limpito >:(*
+
 **ESTRUCTURA :** 
 
 Se trabaja dentro del **src**, donde podreis encontrar : 
