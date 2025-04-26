@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./AddEntryPoint.module.css";
-import LabelComponent from "../components/LabelComponent.jsx"; 
+import LabelComponent from "../components/LabelComponent.jsx";
+import WebHeader from "../components/WebHeader.jsx"; 
 
 
 
@@ -28,13 +29,7 @@ function AddEntryPoint() {
 
   return (
     <section className={styles.addEntryPoint}>
-      <header>
-        <h1 className={styles.facepass}>FACEPASS</h1>
-        <h2 className={styles.addSystemEntryPoint}>Add System Entry Point</h2>
-      </header>
-
-
-
+      <WebHeader subtitle="Add System Entry Point" />
 
       <form className={styles.form}>
         <div className={styles.div2}>
@@ -99,7 +94,7 @@ function AddEntryPoint() {
         </div>
       </form>
 
-      <LabelComponent />
+      <LabelComponent subtitle="Entry Labels"/>
 
       <button
         className={styles.createEntryPoint}

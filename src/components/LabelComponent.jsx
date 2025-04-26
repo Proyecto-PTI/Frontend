@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./LabelComponent.module.css";
 
 
@@ -26,7 +26,7 @@ const EntryLabel = ({ text, onRemove }) => {
 };
 
 
-function LabelComponent() {
+function LabelComponent({subtitle}) {
   
    // State for labels
     const [labels, setLabels] = useState([{ id: 1, text: "ETSETB" }]);
@@ -68,7 +68,7 @@ function LabelComponent() {
   
     return (
     <section>
-      <h3 className={styles.entrylabels}>Entry labels</h3>
+      <h3 className={styles.subtitle}>{subtitle}</h3>
 
       {/* Labels area */}
       <div className={styles.base}>

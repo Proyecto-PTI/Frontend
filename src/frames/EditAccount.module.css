@@ -19,25 +19,7 @@
     padding-right: 20px;
   }
 }
-.facepass {
-  color: #ff9800;
-    letter-spacing: 5.4px;
-    align-self: flex-start;
-    font-size: 36px;
-    font-weight: 300;
-    margin: 0;
-    position: absolute;
-    top: 50px;
-    left: 40px;
-}
-.editAccount2 {
-  color: #fff;
-  text-align: center;
-  margin-top: 70px;
-  margin-left: 13px;
-  font-size: 24px;
-  font-weight: 500;
-}
+
 .img {
   aspect-ratio: 1.01;
   object-fit: contain;
