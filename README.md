@@ -2,10 +2,9 @@
 
 
 ## IMPORTANTE: ANTES DE HACER PUSH, ASEGURAROS DE TENERLO LO MAS ACTUALIZADO POSSIBLE Y DE QUE EJECUTE CORRECTAMENTE 
-
 *Enserio, no me metais codigo que no funciona, vamos a mantenerlo limpito >:(*
 
-**ESTRUCTURA :** 
+## ESTRUCTURA :
 
 Se trabaja dentro del **src**, donde podreis encontrar : 
 
@@ -24,13 +23,13 @@ Cada componente/vista se conforma de 2 archivos:
 - .module.css -> *los colorcitos, donde se definen los estilos de cada cosita del html*
 
 
-**PARA EJECUTAR :**
+## PARA EJECUTAR :
 
 $npm run dev
    - *Os devolvera el puerto donde se esta ejecutando, normalmente el 5173* 
 
 
-**COMPONENTES :**
+## COMPONENTES :
 
 A continuación os dejo la lista con los componentes que hay disponibles actualmente para que los useis para crear las vistas como querais bebitos. 
 
@@ -47,9 +46,9 @@ A continuación os dejo la lista con los componentes que hay disponibles actualm
 
 *Si no sabeis como usarlos, echadle un ojo a alguna de las vistas que he implementado ya* 
 
-**SI TENEIS CUALQUIER PREGUNTITA PEQUEÑOS CHATGPT <3, o a muy malas me mandais un wasa ;)** 
+## SI TENEIS CUALQUIER PREGUNTITA PEQUEÑOS CHATGPT <3, o a muy malas me mandais un wasa ;)
 
-**VISTAS A REALIZAR :**
+## VISTAS A REALIZAR :
 
 - ~~LogIn~~
 - ~~SignUp~~
