@@ -1,0 +1,15 @@
+.Users {
+    background-color: #222;
+    flex-direction: column;
+    padding: 51px 42px 257px;
+    display: flex;
+    overflow: hidden;
+    align-self: center;
+  }
+  @media (width<=991px) {
+    .Users {
+      padding-bottom: 100px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
