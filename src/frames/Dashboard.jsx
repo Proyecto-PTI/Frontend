@@ -1,22 +1,193 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import styles from "./Dashboard.module.css";
+import {
+  fetchAuthorizedAccess,
+  fetchDeniedAttempts,
+  fetchPeakHour,
+  fetchMostAccessedDoor,
+  fetchHourlyAccess,
+  fetchWeeklyEvolution,
+  fetchRecentRecords
+} from "../api/dashboardAPI";
+import NavBar from "../components/NavBar";
+import { Bar, Doughnut } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement,
+} from "chart.js";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement
+);
 
 function Dashboard() {
-    return (
+  const [authorized, setAuthorized] = useState(null);
+  const [denied, setDenied] = useState(null);
+  const [peakHour, setPeakHour] = useState(null);
+  const [mostAccessedDoor, setMostAccessedDoor] = useState(null);
+  const [recentRecords, setRecentRecords] = useState([]);
+  const [hourlyAccess, setHourlyAccess] = useState(null);
+  const [weeklyEvolution, setWeeklyEvolution] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+         const authorizedData = await fetchAuthorizedAccess();
+         const deniedData = await fetchDeniedAttempts();
+         const peakHourData = await fetchPeakHour();
+         const doorData = await fetchMostAccessedDoor();
+         const recordsData = await fetchRecentRecords();
+         const hourlyData = await fetchHourlyAccess();
+         const weeklyData = await fetchWeeklyEvolution();
+
+         setAuthorized(authorizedData);
+         setDenied(deniedData);
+         setPeakHour(peakHourData);
+         setMostAccessedDoor(doorData);
+         setRecentRecords(recordsData);
+         setHourlyAccess(hourlyData);
+         setWeeklyEvolution(weeklyData);
+
+         setLoading(false);
+      } catch (error) {
+        console.error("Error fetching dashboard data:", error);
+      }
+    };
+
+    fetchDashboardData();
+  }, []);
+
+  if (loading) return <div className={styles.loading}>Cargando...</div>;
+
+  return (
+    <div className={styles.dashboardContainer}>
+          
+      <div className={styles.background}>
+        <div className={`${styles.elipse} ${styles.elipse1}`} />
+        <div className={`${styles.elipse} ${styles.elipse2}`} />
+        <div className={`${styles.elipse} ${styles.elipse3}`} />
+        <div className={`${styles.elipse} ${styles.elipse4}`} />
+        <div className={`${styles.elipse} ${styles.elipse5}`} />
+      </div>
     
-  <div data-layer="Dashboard" className="Dashboard" style={{ width: 1440, height: 2224, position: 'relative', background: '#222222', overflow: 'hidden' }}>
-    <div data-layer="Ellipse 1" className="Ellipse1" style={{ width: 644, height: 632, left: 317.88, top: -385, position: 'absolute', transform: 'rotate(71deg)', transformOrigin: 'top left', opacity: 0.30, background: '#00C8C8', boxShadow: '200px 200px 200px', borderRadius: 9999, filter: 'blur(100px)' }} />
-    <div data-layer="Ellipse 3" className="Ellipse3" style={{ width: 538.62, height: 497.80, left: 767, top: 1218.64, position: 'absolute', transform: 'rotate(-35deg)', transformOrigin: 'top left', opacity: 0.10, background: '#00C8C8', boxShadow: '200px 200px 200px', borderRadius: 9999, filter: 'blur(100px)' }} />
-    <div data-layer="Ellipse 3" className="Ellipse3" style={{ width: 644, height: 632, left: 688.88, top: 566, position: 'absolute', transform: 'rotate(71deg)', transformOrigin: 'top left', opacity: 0.30, background: '#003366', boxShadow: '200px 200px 200px', borderRadius: 9999, filter: 'blur(100px)' }} />
-    <div data-layer="Ellipse 6" className="Ellipse6" style={{ width: 582, height: 527, left: 271.43, top: 1143.24, position: 'absolute', transform: 'rotate(135deg)', transformOrigin: 'top left', opacity: 0.30, background: '#FF9800', boxShadow: '200px 200px 200px', borderRadius: 9999, filter: 'blur(100px)' }} />
-    <div data-layer="Ellipse 5" className="Ellipse5" style={{ width: 644, height: 632, left: 285.88, top: 1569, position: 'absolute', transform: 'rotate(71deg)', transformOrigin: 'top left', opacity: 0.30, background: '#003366', boxShadow: '200px 200px 200px', borderRadius: 9999, filter: 'blur(100px)' }} />
-    <div data-layer="Ellipse 7" className="Ellipse7" style={{ width: 582, height: 527, left: 1921.43, top: 1999.24, position: 'absolute', transform: 'rotate(135deg)', transformOrigin: 'top left', opacity: 0.30, background: '#FF9800', boxShadow: '200px 200px 200px', borderRadius: 9999, filter: 'blur(100px)' }} />
-    <div data-layer="Ellipse 2" className="Ellipse2" style={{ width: 746, height: 560, left: 1586.66, top: 192, position: 'absolute', transform: 'rotate(71deg)', transformOrigin: 'top left', opacity: 0.30, background: '#003366', boxShadow: '200px 200px 200px', borderRadius: 9999, filter: 'blur(100px)' }} />
-    <div data-layer="Ellipse 1" className="Ellipse1" style={{ width: 875.06, height: 1313.66, left: 1325.83, top: 1792, position: 'absolute', transform: 'rotate(71deg)', transformOrigin: 'top left', opacity: 0.20, background: '#00C8C8', boxShadow: '200px 200px 200px', borderRadius: 9999, filter: 'blur(100px)' }} />
-    <div data-layer="Ellipse 4" className="Ellipse4" style={{ width: 746, height: 560, left: 816.66, top: -564, position: 'absolute', transform: 'rotate(71deg)', transformOrigin: 'top left', opacity: 0.30, background: '#003366', boxShadow: '200px 200px 200px', borderRadius: 9999, filter: 'blur(100px)' }} />
-  </div>
     
-    );
-  }
-  
-  export default Dashboard;
+      <h2 className={styles.title}>Access Control Dashboard</h2>
+
+      <div className={styles.metrics}>
+        <div className={styles.metricCard}>
+          <strong>Authorized access</strong>
+          <div className={styles.result}>
+            <span>{authorized}</span>
+          </div>  
+        </div>
+        <div className={styles.metricCard}>
+          <strong>Denied attempts</strong>
+          <div className={styles.result}>
+            <span>{denied}</span>
+          </div>
+        </div>
+        <div className={styles.metricCard}>
+          <strong>Peak access hour</strong>
+          <div className={styles.result}>
+            <span>{peakHour}</span>
+          </div>
+        </div>
+        <div className={styles.metricCard}>
+          <strong>Most accessed door</strong>
+          <div className={styles.result}>
+            <span>{mostAccessedDoor}</span>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.charts}>
+        <div className={styles.chartCard}>
+          <h4>Accesses per hour</h4>
+          <Bar
+            data={{
+              labels: hourlyAccess.labels,
+              datasets: [
+                {
+                  label: "Accesses",
+                  data: hourlyAccess.data,
+                  backgroundColor: "#00c8c8",
+                },
+              ],
+            }}
+            options={{ responsive: true, maintainAspectRatio: false }}
+          />
+        </div>
+
+        <div className={styles.chartCard}>
+          <h4>Weekly evolution</h4>
+          <Doughnut
+            data={{
+              labels: ["Authorized", "Denied"],
+              datasets: [
+                {
+                  data: weeklyEvolution,
+                  backgroundColor: ["#00c8c8", "#ff9800"],
+                },
+              ],
+            }}
+            options={{ responsive: true, maintainAspectRatio: false }}
+          />
+        </div>
+      </div>
+
+      <div className={styles.records}>
+        <h4>Recent records</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Hour</th>
+              <th>Result</th>
+              <th>Door</th>
+            </tr>
+          </thead>
+          <tbody>
+            {recentRecords.map((record, idx) => (
+              <tr key={idx}>
+                <td>{record.user}</td>
+                <td>{record.hour}</td>
+                <td>
+                  <span
+                    className={
+                      record.result === "Authorized"
+                        ? styles.authorized
+                        : styles.denied
+                    }
+                  >
+                    {record.result === "Authorized"
+                      ? "Authorized Access"
+                      : "Denied Access"}
+                  </span>
+                </td>
+                <td>{record.door}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+export default Dashboard;
+
+
   
