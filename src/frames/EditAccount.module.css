@@ -1,3 +1,10 @@
+
+.frameContainer {
+  display: flex;
+}
+
+
+
 .editAccount {
   background-color: #222;
   flex-direction: column;

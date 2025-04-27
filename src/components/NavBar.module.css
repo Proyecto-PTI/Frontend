@@ -1,0 +1,203 @@
+.sidebar {
+    background: linear-gradient(to bottom, #032246, #021629);
+    opacity: 0.9;
+    color: white;
+    height: 100%;
+    width: 250px;
+    padding: 20px;
+    position: fixed; /*lo mantiene fijo en pantalla aunque scrolees*/ 
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+    z-index: 1000; /*capa superior*/ 
+  }
+  
+  .visible {
+    transform: translateX(0);
+  }
+  
+  .hidden {
+    transform: translateX(-100%);
+  }
+  
+
+
+   /*logo+foto+username*/
+  .header {
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .headerfacepass {
+    margin-bottom: 40px;
+    color: #ff9800;
+      letter-spacing: 8px;
+      font-size: 16px;
+      font-weight: 600;
+  }
+  .headerfacepass:hover {
+    color: #00D9D5;
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .headeruser p {
+    margin: 0;
+  }
+
+  .headeruser {
+   margin-top: 5px;
+}
+  
+
+
+
+
+
+  .section {
+    margin-bottom: 10px;
+  }
+
+  .section2 {
+    margin-bottom: 10px;
+  }
+  
+  .section h4 {
+    font-size: 0.9rem;
+    font-weight: 400px;
+    margin-bottom: 5px;
+    color: #00D9D5;
+    transition: color 0.2s ease;
+  }
+
+  .section2 h4 {
+    font-size: 0.9rem;
+    font-weight: 400px;
+    margin-bottom: 5px;
+    color: #00D9D5;
+    transition: color 0.2s ease;
+  }
+
+  .section2 h4:hover {
+    color:#ff9800;
+  }
+  
+  .link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin: 4px 0;
+    transition: color 0.2s ease;
+  }
+  
+  .link:hover {
+    color: #ff9800;
+  }
+
+  
+  
+  .footer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .dashboardBtn {
+    background-color: #00D9D5;
+    border: none;
+    padding: 5px 10px;
+    width: 100%;
+    border-radius: 20px;
+    color: #021629;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .dashboardBtn:hover {
+    background-color: #ff9800;
+  }
+
+
+  
+  .logout {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: none;
+    border: none;
+    color: #ff9800;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 800px;
+    padding: 0;
+    transition: color 0.2s ease;
+  }
+
+  .logout:hover{
+    color: red;
+  }
+
+  .logoutimg {
+    width: 20px;           
+    margin-right: 10px;     
+  }
+  
+
+  
+ 
+
+  
+
+  /* Overlay oscuro */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 2, 10, 0.5); /* Fondo negro con transparencia */
+    z-index: 900; 
+  }
+
+
+
+
+
+  .toggleButton {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100; /* Más alto que overlay y NavBar */
+    background-color: transparent;
+    color: white; 
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    width: 60px;
+    height: 50px;
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  /* Nueva clase: botón desplazado */
+  .buttonActive {
+    left: 220px; /* Justo al lado de la sidebar (250px ancho + margen pequeño) */
+  }
+
+  .toggleButton:focus {
+    outline: none;
+  }
+  

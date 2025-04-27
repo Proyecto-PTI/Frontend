@@ -1,3 +1,8 @@
+.frameContainer {
+  display: flex;
+}
+
+
 .addUser {
     background-color: #222;
     flex-direction: column;

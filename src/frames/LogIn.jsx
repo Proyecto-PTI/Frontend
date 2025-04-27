@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./LogIn.module.css";
+import Background from "../components/Background";
 
 // FormInput component for reusable input fields
 const FormInput = ({ label, placeholder, type = "text", value, onChange }) => {
@@ -66,7 +67,10 @@ function LogIn() {
   };
 
   return (
-    <main className={styles.login}>
+
+    <div className={styles.frameContainer}>
+          <main className={styles.login}>
+
       <h1 className={styles.facepass}>FACEPASS</h1>
 
       <img
@@ -164,6 +168,8 @@ function LogIn() {
         for an admin account
       </p>
     </main>
+    <Background />
+    </div>
   );
 }
 

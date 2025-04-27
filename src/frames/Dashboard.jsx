@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar";
 import { Bar, Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from "chart.js";
 import WebHeader from "../components/WebHeader"; 
+import Background from "../components/Background";
 
 ChartJS.register(
   CategoryScale,
@@ -57,15 +58,12 @@ function Dashboard() {
   if (loading) return <div className={styles.loading}>Cargando...</div>;
 
   return (
+
+    <div className={styles.frameContainer}>
+        <NavBar />
     <div className={styles.dashboardContainer}>
           
-      <div className={styles.background}>
-        <div className={`${styles.elipse} ${styles.elipse1}`} />
-        <div className={`${styles.elipse} ${styles.elipse2}`} />
-        <div className={`${styles.elipse} ${styles.elipse3}`} />
-        <div className={`${styles.elipse} ${styles.elipse4}`} />
-        <div className={`${styles.elipse} ${styles.elipse5}`} />
-      </div>
+      <Background/>
     
     
       <WebHeader subtitle="Access Control Dashboard" />
@@ -167,6 +165,7 @@ function Dashboard() {
           </tbody>
         </table>
       </div>
+    </div>
     </div>
   );
 }

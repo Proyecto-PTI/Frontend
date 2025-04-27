@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./AddEntryPoint.module.css";
 import LabelComponent from "../components/LabelComponent.jsx";
 import WebHeader from "../components/WebHeader.jsx"; 
-
+import NavBar from "../components/NavBar.jsx"; 
 
 
 
@@ -28,6 +28,9 @@ function AddEntryPoint() {
 
 
   return (
+
+    <div className={styles.frameContainer}>
+        <NavBar />
     <section className={styles.addEntryPoint}>
       <WebHeader subtitle="Add System Entry Point" />
 
@@ -104,6 +107,7 @@ function AddEntryPoint() {
         Create Entry Point
       </button>
     </section>
+    </div>
   );
 }
 

@@ -1,10 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./WebHeader.module.css"; 
 
 function Header({ subtitle }) {
   return (
     <>
-      <h1 className={styles.facepass}>FACEPASS</h1>
+
+     <Link to="/" className={styles.facepass}>
+        FACEPASS 
+      </Link>{"  "}
       <h2 className={styles.subtitle}>{subtitle}</h2>
     </>
   );

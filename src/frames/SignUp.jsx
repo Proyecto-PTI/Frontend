@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./SignUp.module.css";
+import Background from "../components/Background";
 
 function SignUp() {
   return (
@@ -80,7 +81,7 @@ function SignUp() {
 
       </div>
 
-
+      <Background/>
     </section>
   );
 }

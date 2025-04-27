@@ -5,6 +5,7 @@ import WebHeader from "../components/WebHeader.jsx";
 import UserHeader from "../components/UserHeader.jsx";
 import LabelComponent from "../components/LabelComponent.jsx";
 import AddImages from "../components/AddImages.jsx";
+import NavBar from "../components/NavBar.jsx"; 
 
 // Main UserProfile component
 function UserProfile() {
@@ -53,6 +54,8 @@ function UserProfile() {
   };
 
   return (
+    <div className={styles.frameContainer}>
+        <NavBar />
     <main className={styles.viewProfile}>
       <WebHeader subtitle="View User Profile" />
       <UserHeader />
@@ -60,6 +63,7 @@ function UserProfile() {
       <LabelComponent subtitle="Access Permissions"/>
       <AccessLogs />
     </main>
+    </div>
   );
 }
 

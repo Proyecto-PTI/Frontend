@@ -1,8 +1,8 @@
-"use client";
 import React, { useState } from "react";
 import styles from "./EditAccount.module.css";
 import WebHeader from "../components/WebHeader.jsx"; 
-import UserHeader from "../components/UserHeader.jsx"; 
+import UserHeader from "../components/UserHeader.jsx";
+import NavBar from "../components/NavBar.jsx";  
 
 
 function EditAccount() {
@@ -99,6 +99,8 @@ function UserDetails() {
 function PasswordChangeSection() {
   return (
     <>
+    <div className={styles.frameContainer}>
+    <NavBar />
       <div className={styles.div5}> 
         <h3 className={styles.changePassword}>Change Password</h3>
         <input
@@ -118,6 +120,7 @@ function PasswordChangeSection() {
         />
         </div>
         <button className={styles.updatepasswordbutton}>Update Password</button>
+     </div>
      </>
   );
 }

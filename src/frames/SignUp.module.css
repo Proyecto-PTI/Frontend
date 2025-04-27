@@ -1,9 +1,9 @@
+
+
 .signup {
     color: #fff;
-    background-color: #222;
     flex-direction: column;
     align-items: center;
-    padding: 68px 68px 318px;
     font-family:
       Outfit,
       -apple-system,
@@ -14,10 +14,10 @@
     font-weight: 500;
     display: flex;
     overflow: hidden;
+    height: 100%;
   }
   @media (width<=991px) {
     .signup {
-      padding-bottom: 100px;
       padding-left: 20px;
       padding-right: 20px;
     }

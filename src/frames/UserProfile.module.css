@@ -1,3 +1,10 @@
+
+.frameContainer {
+  display: flex;
+}
+
+
+
 .viewProfile {
   background-color: #222;
   flex-direction: column;

@@ -1,19 +1,24 @@
 
 .facepass {
     color: #ff9800;
-      letter-spacing: 5.4px;
+      letter-spacing: 8px;
       align-self: flex-start;
       font-size: 36px;
       font-weight: 300;
       margin: 0;
       position: absolute;
-      top: 50px;
-      left: 40px;
+      top: 17px;
+      left: 100px;
   }
+
+  .facepass:hover {
+    color: #00D9D5;
+  }
+
   .subtitle {
     color: #fff;
     text-align: center;
-    margin-top: 70px;
+    margin-top: 50px;
     font-size: 24px;
     font-weight: 500;
   }
