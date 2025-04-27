@@ -4,6 +4,7 @@ import styles from './AccessLogs.module.css';
 import WebHeader from "../components/WebHeader"; 
 import Background from "../components/Background";
 import NavBar from "../components/NavBar";
+import LogCard from "../components/LogCard.jsx";  
 
 function AccessLogs() {
     const [logs, setLogs] = useState([]);
@@ -51,21 +52,7 @@ function AccessLogs() {
 
                                 <div className={styles.logList}>
                                     {groupedLogs[date].map((log, index) => (
-                                        <div key={index} className={styles.logCard}>
-                                            <div className={styles.userInfo}>
-                                                <span className={styles.username}>{log.username}</span>
-                                                <span className={styles.code}>{log.code}</span>
-                                            </div>
-                                            <div className={styles.accessInfo}>
-                                                <div className={styles.dateTime}>
-                                                    <span className={styles.time}>{log.time}</span>
-                                                    <span className={styles.date}>{log.date.split(' ')[0]}</span>
-                                                </div>
-                                                <span className={`${styles.status} ${log.status === 'Authorized Access' ? styles.authorized : styles.denied}`}>
-                                                    {log.status}
-                                                </span>
-                                            </div>
-                                        </div>
+                                        <LogCard key={index} log={log} />
                                     ))}
                                 </div>
                             </div>
@@ -77,4 +64,3 @@ function AccessLogs() {
 }
 
 export default AccessLogs;
-

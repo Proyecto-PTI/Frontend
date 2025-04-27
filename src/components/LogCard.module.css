@@ -1,0 +1,68 @@
+.logCard {
+    background-color: #036;
+    padding: 1rem;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    flex-grow: 0; 
+  }
+  
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .username {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #00c8c8;
+  }
+  
+  .code {
+    font-size: 1rem; 
+  }
+  
+  .accessInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .time {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    margin-right: 2rem;
+  }
+  
+  .status {
+    padding: 0.4rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  .authorized {
+    background-color: #0f0;
+    color: #2e2e2e;
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    font-weight: bold;
+    width: 150px;
+    margin-top: 10px;
+  }
+  
+  .denied {
+    background-color: red;
+    color: #2e2e2e;
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    font-weight: bold;
+    width: 150px;
+    margin-top: 10px;
+  }
+  
+  
+  

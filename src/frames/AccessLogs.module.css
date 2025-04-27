@@ -10,7 +10,13 @@
   padding: 2rem;
   min-height: 100vh;
   z-index: 0;
-  width: 200%;
+  width: 100%;
+  font-family:
+      Outfit,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
 }
 
 
@@ -27,11 +33,9 @@
 
 .dateSection {
   flex: 1;
-  min-width: 700px;
-  
-  background: #2e2e2e;
-  border-radius: 12px;
-  padding: 1rem;
+  max-width: 900px;
+  width: 100%;
+
 }
 
 .dateHeader {
@@ -44,10 +48,14 @@
 .dateTitle {
     font-size: 1rem;
     margin-bottom: 1rem;
+    color: white;
+    opacity: 0.6;
 }
 
 .dateTitleToday {
-    color: #ff9800;
+  color: white;
+  opacity: 0.6;
+    font-weight: 400px;
     margin-right: 10px;  
 }
 
@@ -57,71 +65,12 @@
 
 .logList {
   display: flex;
+  background: #2e2e2e;
+  border-radius: 20px;
+  width: 100%;
+  padding: 20px;
   flex-direction: column;
   gap: 1rem;
-}
-
-
-.logCard {
-  background-color: #036;
-  padding: 1rem;
-  border-radius: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  flex-grow: 0; 
-}
-
-.userInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.username {
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #00c8c8;
-}
-
-.code {
-  font-size: 1rem; 
-}
-
-.accessInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.time {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  margin-right: 2rem;
-}
-
-.status {
-  padding: 0.4rem 1rem;
-  border-radius: 9999px;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-.authorized {
-  background-color: #0f0;
-  color: #000;
-  padding: 0.25rem 0.5rem;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-.denied {
-  background-color: red;
-  color: white;
-  padding: 0.25rem 0.5rem;
-  border-radius: 6px;
-  font-weight: bold;
 }
 
 
