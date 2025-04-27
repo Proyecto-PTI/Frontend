@@ -28,7 +28,7 @@ Cada componente/vista se conforma de 2 archivos:
 $npm run dev
    - *Os devolvera el puerto donde se esta ejecutando, normalmente el 5173*
 
-### FUNCIONAMINTO DASHBOAR PARA QUE OS VAYA BIEN :
+### FUNCIONAMINTO DASHBOARD + VIEWLOGS PARA QUE OS VAYA BIEN :
 He añadido un bakend fake para que sepais como se han de pasar los datos, de hecho podeis aprovechar ya lo que hay para el backend. 
 - Hay la carpeta src/api donde dentro hay la api para el dashboard
 - Hay la carpeta src/server y en el index.js está el formato de como se ha de pasar los datos al dashboard 
@@ -37,10 +37,12 @@ PARA QUE OS FUNCIONE:
 Ir a src/server i poner 
 - npm install express cors
 - node index.js
+- node logs.js
 
 Luego ir a la carpeta Frontend
 - npm install react-chartjs-2 chart.js  (esto solo si os dice que no teneis instalado)
 - nmp run dev
+
 
 
 ## COMPONENTES :
@@ -77,11 +79,11 @@ A continuación os dejo la lista con los componentes que hay disponibles actualm
 - ~~Users~~
 - ~~Dashboard~~
 - ~~UserProfile~~
+- ~~AccessLogs~~
 
 - AccessAlerts
 - AlertSettings
 - SystemEntry
-- AccessLogs
 - SystemSettings
 - EntryPoints
 
