@@ -26,7 +26,21 @@ Cada componente/vista se conforma de 2 archivos:
 ## PARA EJECUTAR :
 
 $npm run dev
-   - *Os devolvera el puerto donde se esta ejecutando, normalmente el 5173* 
+   - *Os devolvera el puerto donde se esta ejecutando, normalmente el 5173*
+
+### FUNCIONAMINTO DASHBOAR PARA QUE OS VAYA BIEN :
+He añadido un bakend fake para que sepais como se han de pasar los datos, de hecho podeis aprovechar ya lo que hay para el backend. 
+- Hay la carpeta src/api donde dentro hay la api para el dashboard
+- Hay la carpeta src/server y en el index.js está el formato de como se ha de pasar los datos al dashboard 
+
+PARA QUE OS FUNCIONE:
+Ir a src/server i poner 
+- npm install express cors
+- node index.js
+
+Luego ir a la carpeta Frontend
+- npm install react-chartjs-2 chart.js  (esto solo si os dice que no teneis instalado)
+- nmp run dev
 
 
 ## COMPONENTES :
@@ -42,7 +56,9 @@ A continuación os dejo la lista con los componentes que hay disponibles actualm
 - LabelComponent 
     *Componente con la interaccion con las etiquetas* 
 - NavBar 
-    *Barra para navegar: Actualmente desactivada. (Activarla si quereis, lo que os vaya mejor)*
+    *Barra para navegar: *AÑADIDLA A TODAS LAS VISTAS EN LAS QUE TENGA SENTIDO*
+- Background
+     *Efecto coloritos para el fondo* 
 
 *Si no sabeis como usarlos, echadle un ojo a alguna de las vistas que he implementado ya* 
 
@@ -50,33 +66,22 @@ A continuación os dejo la lista con los componentes que hay disponibles actualm
 
 ## VISTAS A REALIZAR :
 
+### PRIMERA RONDA
+#### (*base de las vistas, falta pulirlar y conectarlas*) 
 - ~~LogIn~~
 - ~~SignUp~~
 - ~~EditAccount~~
 - ~~AddEntry~~
 - ~~AddUser~~
-- ~~UserProfile~~ (Aunque le faltaria algun retoque)
-- Users (CASI HECHO, MALDITO CSS)
+- ~~UserProfile~~ 
+- ~~Users~~
+- ~~Dashboard~~
+- ~~UserProfile~~
 
 - AccessAlerts
 - AlertSettings
 - SystemEntry
 - AccessLogs
-- ~~Dashboard~~
 - SystemSettings
-- UserProfile
 - EntryPoints
 
-## FUNCIONAMINTO DASHBOAR PARA QUE OS VAYA BIEN :
-He añadido un bakend fake para que sepais como se han de pasar los datos, de hecho podeis aprovechar ya lo que hay para el backend. 
-- Hay la carpeta src/api donde dentro hay la api para el dashboard
-- Hay la carpeta src/server y en el index.js está el formato de como se ha de pasar los datos al dashboard 
-
-PARA QUE OS FUNCIONE:
-Ir a src/server i poner 
-- npm install express cors
-- node index.js
-
-Luego ir a la carpeta Frontend
-- npm install react-chartjs-2 chart.js  (esto solo si os dice que no teneis instalado)
-- nmp run dev
