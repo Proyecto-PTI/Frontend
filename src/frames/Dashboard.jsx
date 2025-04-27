@@ -1,26 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Dashboard.module.css";
-import {
-  fetchAuthorizedAccess,
-  fetchDeniedAttempts,
-  fetchPeakHour,
-  fetchMostAccessedDoor,
-  fetchHourlyAccess,
-  fetchWeeklyEvolution,
-  fetchRecentRecords
-} from "../api/dashboardAPI";
+import { fetchAuthorizedAccess, fetchDeniedAttempts, fetchPeakHour, fetchMostAccessedDoor, fetchHourlyAccess, fetchWeeklyEvolution, fetchRecentRecords } from "../api/dashboardAPI";
 import NavBar from "../components/NavBar";
 import { Bar, Doughnut } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-} from "chart.js";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from "chart.js";
+import WebHeader from "../components/WebHeader"; 
 
 ChartJS.register(
   CategoryScale,
@@ -84,7 +68,7 @@ function Dashboard() {
       </div>
     
     
-      <h2 className={styles.title}>Access Control Dashboard</h2>
+      <WebHeader subtitle="Access Control Dashboard" />
 
       <div className={styles.metrics}>
         <div className={styles.metricCard}>
@@ -149,7 +133,7 @@ function Dashboard() {
       </div>
 
       <div className={styles.records}>
-        <h4>Recent records</h4>
+        <h4>Latest 5 Access Records</h4>
         <table>
           <thead>
             <tr>
