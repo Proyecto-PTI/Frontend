@@ -25,10 +25,15 @@ Cada componente/vista se conforma de 2 archivos:
 
 ## PARA EJECUTAR :
 
-$npm run dev
+$npm run front
    - *Os devolvera el puerto donde se esta ejecutando, normalmente el 5173*
 
-### FUNCIONAMINTO DASHBOARD + VIEWLOGS PARA QUE OS VAYA BIEN :
+$npm run back
+   - *Os devolvera el puerto donde se esta ejecutando, el 5000*
+
+### CON LO CUAL YA NO ES NECESARIO HACER LO DE ABAJO SI YA TIENES LAS DEPENDENCIAS INSTALADAS
+
+FUNCIONAMINTO DASHBOARD + VIEWLOGS PARA QUE OS VAYA BIEN :
 He añadido un bakend fake para que sepais como se han de pasar los datos, de hecho podeis aprovechar ya lo que hay para el backend. 
 - Hay la carpeta src/api donde dentro hay la api para el dashboard
 - Hay la carpeta src/server y en el index.js está el formato de como se ha de pasar los datos al dashboard 
