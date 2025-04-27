@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./ViewUsers.module.css";
+import { Link } from "react-router-dom";
 
 function UserCard({ name, email, role, profileImage }) {
     return (
@@ -27,7 +28,9 @@ function UserCard({ name, email, role, profileImage }) {
           </div>
   
           <div className={styles.actionColumn}>
+            <Link to="/user-profile">
             <button className={styles.viewProfileButton}>View profile</button>
+            </Link>
           </div>
           
         </div>

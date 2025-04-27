@@ -4,6 +4,7 @@ import UserCard from "./UserCard";
 import SearchBox from "./SearchBox";
 import AddUserButton from "./AddUserButton";
 
+
 // vector con datos de ejemplo 
 const mockUsers = [
   {
