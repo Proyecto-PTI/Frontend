@@ -36,20 +36,26 @@
     margin-bottom: 15px;
 }
 
+.setting label {
+    font-size: 1.2rem; /* Aumenta el tamaño del texto */
+    font-weight: bold; /* Opcional: Haz el texto más grueso */
+}
+
 .dropdown {
     background: #333;
     color: white;
     border: 1px solid #555;
     border-radius: 4px;
-    padding: 5px 10px;
+    padding: 10px 15px; /* Aumenta el espacio interno */
+    font-size: 1.1rem; /* Aumenta el tamaño del texto en el selector */
 }
 
 .toggleButton {
-    padding: 5px 10px;
+    padding: 10px 20px; /* Aumenta el espacio interno */
     border: none;
     border-radius: 10px; /* Igual que en UserProfile */
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1.1rem; /* Aumenta el tamaño del texto en los botones */
     font-weight: 600; /* Igual que en UserProfile */
     text-align: center;
 }
