@@ -1,0 +1,108 @@
+.frameContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    color: white;
+    background-color: #222; /* Fondo oscuro */
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.entryDetails {
+    margin-bottom: 20px;
+    background-color: #2e2e2e;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.entryTitle {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ff9800;
+}
+
+.entryInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.label {
+    background-color: #036;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.removeLabel {
+    background: none;
+    border: none;
+    color: red;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.addLabel {
+    background-color: #00c8c8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.addLogSection {
+    margin-top: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.logsSection {
+    margin-top: 20px;
+}
+
+.logsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.logEntry {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2e2e2e;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logEntry:hover {
+    background-color: #444;
+}
+
+.authorized {
+    color: #00e208;
+}
+
+.denied {
+    color: red;
+}
