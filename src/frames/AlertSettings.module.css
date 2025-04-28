@@ -15,12 +15,12 @@
 }
 
 .settingsWrapper {
-    background: transparent; /* Elimina el fondo blanco */
+    background: transparent; /* Fondo transparente */
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
 }
 
 .title {
@@ -34,4 +34,45 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+}
+
+.dropdown {
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.toggleButton {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px; /* Igual que en UserProfile */
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600; /* Igual que en UserProfile */
+    text-align: center;
+}
+
+.toggleButton.enabled {
+    background-color: #00c8c8; /* Color de fondo del botón "Add New Entry Label" */
+    color: black; /* Texto del botón */
+}
+
+.toggleButton.disabled {
+    background-color: #555; /* Color para el estado deshabilitado */
+    color: white;
+}
+
+.applyButton {
+    background-color: #ff9800;
+    color: black; /* Texto del botón */
+    border: none;
+    border-radius: 10px; /* Igual que en UserProfile */
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600; /* Igual que en UserProfile */
+    margin-top: 20px;
+    text-align: center;
 }

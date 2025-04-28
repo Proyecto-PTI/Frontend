@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import styles from './AlertSettings.module.css'; // Crea este archivo para los estilos
+import styles from './AlertSettings.module.css';
+import userProfileStyles from '../frames/UserProfile.module.css'; // Importamos estilos de UserProfile
 import WebHeader from '../components/WebHeader';
 import NavBar from '../components/NavBar';
 import Background from '../components/Background';
 
 function AlertSettings() {
     const [settings, setSettings] = useState({
+        dashboardAlerts: true,
+        muteDashboardAlerts: false,
         emailAlerts: true,
-        smsAlerts: false,
-        pushNotifications: true,
+        muteEmailAlerts: false,
     });
 
     const handleToggle = (key) => {
@@ -23,33 +25,63 @@ function AlertSettings() {
             <NavBar />
             <div className={styles.container}>
                 <Background />
-                <WebHeader subtitle="Manage Alert Settings" />
+                <WebHeader subtitle="Configure Alerts" />
                 <div className={styles.settingsWrapper}>
-                    <h2 className={styles.title}>Alert Preferences</h2>
+                    <div className={styles.setting}>
+                        <label>Alert When</label>
+                        <select className={`${styles.dropdown} ${userProfileStyles.logDetails}`}>
+                            <option>Always When Access is Denied</option>
+                            <option>Only During Business Hours</option>
+                            <option>Never</option>
+                        </select>
+                    </div>
+                    <div className={styles.setting}>
+                        <label>Dashboard Alerts</label>
+                        <button
+                            className={`${styles.toggleButton} ${
+                                settings.dashboardAlerts ? styles.enabled : styles.disabled
+                            }`}
+                            onClick={() => handleToggle('dashboardAlerts')}
+                        >
+                            {settings.dashboardAlerts ? 'Enable' : 'Disable'}
+                        </button>
+                    </div>
+                    <div className={styles.setting}>
+                        <label>Mute Dashboard Alerts</label>
+                        <button
+                            className={`${styles.toggleButton} ${
+                                settings.muteDashboardAlerts ? styles.enabled : styles.disabled
+                            }`}
+                            onClick={() => handleToggle('muteDashboardAlerts')}
+                        >
+                            {settings.muteDashboardAlerts ? 'Muted' : 'Unmuted'}
+                        </button>
+                    </div>
                     <div className={styles.setting}>
                         <label>Email Alerts</label>
-                        <input
-                            type="checkbox"
-                            checked={settings.emailAlerts}
-                            onChange={() => handleToggle('emailAlerts')}
-                        />
+                        <button
+                            className={`${styles.toggleButton} ${
+                                settings.emailAlerts ? styles.enabled : styles.disabled
+                            }`}
+                            onClick={() => handleToggle('emailAlerts')}
+                        >
+                            {settings.emailAlerts ? 'Enable' : 'Disable'}
+                        </button>
                     </div>
                     <div className={styles.setting}>
-                        <label>SMS Alerts</label>
-                        <input
-                            type="checkbox"
-                            checked={settings.smsAlerts}
-                            onChange={() => handleToggle('smsAlerts')}
-                        />
+                        <label>Mute Email Alerts</label>
+                        <button
+                            className={`${styles.toggleButton} ${
+                                settings.muteEmailAlerts ? styles.enabled : styles.disabled
+                            }`}
+                            onClick={() => handleToggle('muteEmailAlerts')}
+                        >
+                            {settings.muteEmailAlerts ? 'Muted' : 'Unmuted'}
+                        </button>
                     </div>
-                    <div className={styles.setting}>
-                        <label>Push Notifications</label>
-                        <input
-                            type="checkbox"
-                            checked={settings.pushNotifications}
-                            onChange={() => handleToggle('pushNotifications')}
-                        />
-                    </div>
+                    <button className={styles.applyButton}>
+                        Apply
+                    </button>
                 </div>
             </div>
         </div>
