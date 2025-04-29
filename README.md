@@ -86,9 +86,9 @@ A continuación os dejo la lista con los componentes que hay disponibles actualm
 - ~~UserProfile~~
 - ~~AccessLogs~~
 - ~~AlertSettings~~
+- ~~SystemEntry~~
 
 - AccessAlerts
-- SystemEntry
 - SystemSettings
 - EntryPoints
 

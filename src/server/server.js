@@ -95,7 +95,7 @@ const doors = [
     accessLockId: "45789765D",
     accessAdministrator: "pepe.admin@gmail.com",
     aula: "A5103",
-    labels: ["ETSETB", "FIB"],
+    labels: ["ESLAMIA", "FIB"],
     authorizedAccess: true, // Cambiado a booleano
     name: "Pepe Admin.",
     hora: "08:23:45", // Nuevo campo
