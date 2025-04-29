@@ -87,12 +87,91 @@ const logs = [
   }
 ];
 
+// Datos de puertas
+const doors = [
+  {
+    entryLocation: "Campus Nord",
+    accessCameraId: "89-12-LD",
+    accessLockId: "45789765D",
+    accessAdministrator: "pepe.admin@gmail.com",
+    aula: "A5103",
+    labels: ["ETSETB", "FIB"],
+    authorizedAccess: true, // Cambiado a booleano
+    name: "Pepe Admin.",
+    hora: "08:23:45", // Nuevo campo
+    día: "23/03/2025", // Nuevo campo
+  },
+  {
+    entryLocation: "Main Hall",
+    accessCameraId: "12-34-AB",
+    accessLockId: "12345678A",
+    accessAdministrator: "admin.mainhall@gmail.com",
+    aula: "C6E01",
+    labels: ["Main", "Admin"],
+    authorizedAccess: true, // Cambiado a booleano
+    name: "Yolanda Romero",
+    hora: "09:15:30", // Nuevo campo
+    día: "23/03/2025", // Nuevo campo
+  },
+  {
+    entryLocation: "Library Entrance",
+    accessCameraId: "56-78-CD",
+    accessLockId: "98765432B",
+    accessAdministrator: "library.admin@gmail.com",
+    aula: "L1E02",
+    labels: ["Library", "Study"],
+    authorizedAccess: false, // Cambiado a booleano
+    name: "Mar Puigmartí",
+    hora: "10:45:12", // Nuevo campo
+    día: "23/03/2025", // Nuevo campo
+  },
+  {
+    entryLocation: "Sports Center",
+    accessCameraId: "34-56-EF",
+    accessLockId: "45678901C",
+    accessAdministrator: "sports.admin@gmail.com",
+    aula: "S2G03",
+    labels: ["Sports", "Gym"],
+    authorizedAccess: true, // Cambiado a booleano
+    name: "Carlos López",
+    hora: "11:30:00", // Nuevo campo
+    día: "23/03/2025", // Nuevo campo
+  },
+  {
+    entryLocation: "Auditorium",
+    accessCameraId: "78-90-GH",
+    accessLockId: "11223344D",
+    accessAdministrator: "auditorium.admin@gmail.com",
+    aula: "A3H04",
+    labels: ["Events"],
+    authorizedAccess: false, // Cambiado a booleano
+    name: "Lucía Fernández",
+    hora: "12:15:20", // Nuevo campo
+    día: "23/03/2025", // Nuevo campo
+  },
+  {
+    entryLocation: "Parking Lot",
+    accessCameraId: "90-12-IJ",
+    accessLockId: "22334455E",
+    accessAdministrator: "parking.admin@gmail.com",
+    aula: "P4J05",
+    labels: ["Parking", "Vehicles"],
+    authorizedAccess: true, // Cambiado a booleano
+    name: "Albert Gómez",
+    hora: "13:45:10", // Nuevo campo
+    día: "23/03/2025", // Nuevo campo
+  },
+];
+
 // Endpoint que devuelve los logs
 app.get('/api/access-logs', (req, res) => {
   res.json(logs);
 });
 
-
+// Endpoint para devolver las puertas
+app.get('/api/doors', (req, res) => {
+  res.json(doors);
+});
 
 //endpoints para el DashBoard 
 
@@ -142,8 +221,6 @@ app.get("/api/recent-records", (req, res) => {
     { user: "Piotr Pomykalsk", hour: "12:12", result: "Authorized", door: "A5201" }
   ]);
 });
-
-
 
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);

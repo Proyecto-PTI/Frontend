@@ -1,9 +1,11 @@
 .frameContainer {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh; /* Asegura que el fondo cubra toda la ventana */
     color: white;
     background-color: #222; /* Fondo oscuro */
+    background-size: cover; /* Asegura que el fondo se ajuste */
+    width: 100%; /* Asegúrate de que ocupe todo el ancho */
 }
 
 .container {
@@ -11,6 +13,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
+    max-width: 100%; /* Asegúrate de que no limite el ancho */
 }
 
 .entryDetails {
@@ -18,18 +21,48 @@
     background-color: #2e2e2e;
     padding: 20px;
     border-radius: 10px;
+    max-width: 800px; /* Aumenta el ancho máximo */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
 }
 
 .entryTitle {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #ff9800;
+    font-size: 2rem; /* Tamaño del texto */
+    font-weight: bold;
+    color: white; /* Cambia el color del texto a blanco */
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-bottom: 20px; /* Espacio inferior */
+    display: flex; /* Cambia a flexbox para alinear el lápiz */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Alinea el lápiz verticalmente */
+    gap: 10px; /* Espacio entre el texto y el lápiz */
 }
 
 .entryInfo {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    align-items: center; /* Alinea verticalmente los elementos */
+    margin-bottom: 10px; /* Reduce el espacio entre filas */
+    font-size: 1rem;
+    color: #ccc;
+    gap: 10px; /* Añade un pequeño espacio entre las columnas */
+}
+
+.entryInfo label {
+    font-weight: bold;
+    color: white;
+    flex: 1; /* Asegura que las etiquetas ocupen el mismo espacio */
+    text-align: left;
+}
+
+.entryInfo span,
+.entryInfo input {
+    flex: 2; /* Asegura que los valores ocupen más espacio */
+    text-align: left;
+    max-width: 300px; /* Limita el ancho máximo de los valores */
 }
 
 .labels {
@@ -46,6 +79,8 @@
     border-radius: 5px;
     display: flex;
     align-items: center;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .removeLabel {
@@ -54,6 +89,7 @@
     color: red;
     margin-left: 5px;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .addLabel {
@@ -63,46 +99,166 @@
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
-}
-
-.addLogSection {
-    margin-top: 20px;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .logsSection {
     margin-top: 20px;
+    max-width: 900px; /* Reduce el ancho máximo */
+    width: 92%; /* Asegura que ocupe todo el ancho disponible */
+    margin: 0 auto; /* Centra horizontalmente */
+}
+
+.logsTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 .logsContainer {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 10px; /* Espacio entre los logs */
+    background-color: #2e2e2e;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .logEntry {
     display: flex;
     justify-content: space-between;
-    background-color: #2e2e2e;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    align-items: center;
+    background-color: #1a3d5d; /* Fondo azul oscuro */
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: white;
 }
 
-.logEntry:hover {
-    background-color: #444;
+.logUserInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea el contenido a la izquierda */
+    gap: 5px;
+}
+
+.logUsername {
+    font-weight: bold;
+    color: #00c8c8; /* Azul claro */
+}
+
+.logAula {
+    font-size: 0.9rem;
+    color: white; /* Texto en blanco */
+    text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+}
+
+.logDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.logTimeDate {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Asegura que ocupen todo el ancho disponible */
+    gap: 10px; /* Espacio entre hora y día */
+}
+
+.logTime,
+.logDate {
+    font-size: 0.9rem;
+    color: #ccc; /* Gris claro */
+}
+
+.logStatus {
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 5px; /* Espacio entre el estado y los elementos superiores */
+}
+
+.authorized,
+.denied {
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px;
+    text-align: center;
+    color: black; /* Texto negro */
+    min-width: 150px; /* Asegura que ambos tengan el mismo ancho mínimo */
+    display: inline-block; /* Asegura que se comporten como bloques alineados */
 }
 
 .authorized {
-    color: #00e208;
+    background-color: #00e208; /* Verde */
 }
 
 .denied {
-    color: red;
+    background-color: #ff4d4d; /* Rojo más claro */
+}
+
+.editableTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white; /* Cambia el color del texto a blanco */
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    text-align: center;
+}
+
+.editableInput {
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 5px 8px; /* Reduce el padding */
+    font-size: 0.9rem; /* Reduce ligeramente el tamaño del texto */
+    width: 100%;
+}
+
+.editableInput:focus {
+    outline: 2px solid #00c8c8;
+}
+
+.saveButton {
+    background-color: #00e208;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.saveButton:hover {
+    background-color: #00c800;
+}
+
+.editButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.editIcon {
+    width: 20px; /* Tamaño del ícono */
+    height: 20px;
+    color: #00c8c8;
+    transition: color 0.3s;
+}
+
+.editButton:hover .editIcon {
+    color: #00e208;
 }
