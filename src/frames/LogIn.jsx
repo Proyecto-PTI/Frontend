@@ -71,7 +71,9 @@ function LogIn() {
     <div className={styles.frameContainer}>
           <main className={styles.login}>
 
-      <h1 className={styles.facepass}>FACEPASS</h1>
+      <Link to="/" className={styles.facepass}>
+        FACEPASS 
+      </Link>{"  "}
 
       <img
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/8a4b272173daffe5ad68317cd5a6f0b9979f51a7?placeholderIfAbsent=true&apiKey=61a77727fee44ba9b3bc5c61b3d4dc53"

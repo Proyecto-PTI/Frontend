@@ -30,6 +30,7 @@ const NavBar = () => {
           </div>
         </div>
 
+      <div className={styles.content}>
         <div className={styles.section}>
           <h4>Account Settings</h4>
           <Link to="/edit-account" className={styles.link}>
@@ -78,7 +79,7 @@ const NavBar = () => {
             Alerts Settings 
           </Link>{"  "}
         </div>
-
+      </div>
         <div className={styles.footer}>
           <Link to="/dashboard">
             <button className={styles.dashboardBtn}>Return to Dashboard</button>
@@ -91,6 +92,7 @@ const NavBar = () => {
               Log out</button>
           </Link>
         </div>
+
       </div>
 
       {/* Boton de abrir/cerrar */}

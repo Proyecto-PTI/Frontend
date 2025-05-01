@@ -92,3 +92,39 @@ A continuación os dejo la lista con los componentes que hay disponibles actualm
 - SystemSettings
 - EntryPoints
 
+
+### 1º REVISIÓN 
+
+- Añadir una web principal: logo + descripcion del proyecto, info del sistema + autores. 
+
+-Log in 
+    -estetica : OK 
+    -resposive : OK 
+    -logica de backend: FALTA 
+    
+- Sign up 
+    -estetica : OK 
+    -resposive : OK 
+    -logica de backend: FALTA 
+    
+-Dashboard: 
+    -estetica : FALTARIAN DETALLES 
+    -resposive : OK 
+    -logica de backend: OK
+    
+    
+    
+    
+ESTETICA: 
+
+ESTOY CAMBIANDO LOS COLORES: 
+
+LOS GRISES : 
+  background-color: #141414; 
+  opacity: 0.8;
+  
+  alternartivamente : 
+  background-color: #181c1c; 
+  
+  EL AZUL : color: #00c8c8;
+  EL AMARILLO: color: #ff9800;

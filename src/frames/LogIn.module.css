@@ -30,15 +30,18 @@
   
   .facepass {
     color: #ff9800;
-    letter-spacing: 5.4px;
-    align-self: flex-start;
-    font-size: 36px;
-    font-weight: 300;
-    margin: 0;
-    position: absolute;
-    top: 50px;
-    left: 40px;
-    margin-bottom: 20px;
+      letter-spacing: 8px;
+      align-self: flex-start;
+      font-size: 36px;
+      font-weight: 300;
+      margin: 0;
+      position: absolute;
+      top: 17px;
+      left: 40px;
+  }
+
+  .facepass:hover {
+    color: #00D9D5;
   }
   
   
@@ -47,12 +50,12 @@
     object-fit: contain;
     object-position: center;
     width: 99px;
-    margin-top: 104px;
+    margin-top: 120px;
   }
   
   @media (width<=991px) {
     .logo {
-      margin-top: 40px;
+      margin-top: 120px;
     }
   }
   
@@ -98,7 +101,8 @@
       Helvetica,
       sans-serif;
     white-space: nowrap;
-    background-color: #036;
+    background-color: #141414; 
+  opacity: 0.8;
     border-radius: 20px;
     width: 878px;
     max-width: 100%;
@@ -147,7 +151,8 @@
   
   .passwordbox {
     white-space: nowrap;
-    background-color: #036;
+    background-color: #141414; 
+  opacity: 0.8;
     border-radius: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -222,6 +227,10 @@
     margin-top: 16px;
     text-decoration: none;
   }
+  .forgotPassword:hover {
+    color: #ff9800;
+  }
+  
   
   .loginbutton {
     text-align: center;
@@ -257,6 +266,10 @@
     text-decoration: underline;
     color: #00c8c8;
     cursor: pointer;
+  }
+  .signupLink:hover {
+    color: #ff9800;
+
   }
   
   .inputLabel {

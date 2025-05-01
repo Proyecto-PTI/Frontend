@@ -1,304 +1,299 @@
-
-
 .signup {
-    color: #fff;
-    flex-direction: column;
-    align-items: center;
-    font-family:
-      Outfit,
-      -apple-system,
-      Roboto,
-      Helvetica,
-      sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    display: flex;
-    overflow: hidden;
-    height: 100%;
-  }
-  @media (width<=991px) {
-    .signup {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
-  .facepass {
-    color: #ff9800;
-    letter-spacing: 5.4px;
-    align-self: flex-start;
-    font-size: 36px;
-    font-weight: 300;
-    margin: 0;
-    position: absolute;
-    top: 50px;
-    left: 40px;
-  }
+  color: #fff;
+  flex-direction: column;
+  align-items: center;
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  overflow: hidden;
+  height: 100%;
+}
 
+@media (width<=991px) {
+  .signup {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.facepass {
+  color: #ff9800;
+  letter-spacing: 8px;
+  align-self: flex-start;
+  font-size: 36px;
+  font-weight: 300;
+  margin: 0;
+  position: absolute;
+  top: 17px;
+  left: 40px;
+}
+
+.facepass:hover {
+  color: #00D9D5;
+}
+
+.createaNewAdminAccount {
+  text-align: center;
+  margin-top: 120px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+@media (width<=991px) {
   .createaNewAdminAccount {
-    text-align: center;
-    margin-top: 50px;
-    font-size: 24px;
-    font-weight: 500;
+    margin-top: 120px;
   }
-  @media (width<=991px) {
-    .createaNewAdminAccount {
-      margin-top: 40px;
-    }
-  }
+}
 
-  .signupForm {
-    width: 100%;
-    max-width: 878px;
-    display: flex;
-    flex-direction: column; 
-  }
+.signupForm {
+  width: 100%;
+  max-width: 878px;
+  display: flex;
+  flex-direction: column;
+}
 
-  .FormInput {
-    width: 100%;
-    margin-bottom: 16px;
-  }
+.FormInput {
+  width: 100%;
+  margin-bottom: 16px;
+}
 
+.userName {
+  align-self: flex-start;
+  margin-top: 10px;
+  margin-left: 0;
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+
+@media (width<=991px) {
   .userName {
-    align-self: flex-start;
-    margin-top: 10px;
-    margin-left: 0;
-    display: block;
-    text-align: left;
-    width: 100%;
+    margin-left: 10px;
   }
-  @media (width<=991px) {
-    .userName {
-      margin-left: 10px;
-    }
-  }
+}
+
+.userbox {
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  white-space: nowrap;
+  background-color: #141414; 
+  opacity: 0.8;
+  border-radius: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 878px;
+  max-width: 100%;
+  margin-top: 13px;
+  padding: 7px 28px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+@media (width<=991px) {
   .userbox {
-    font-family:
-      Outfit,
-      -apple-system,
-      Roboto,
-      Helvetica,
-      sans-serif;
-    white-space: nowrap;
-    background-color: #036;
-    border-radius: 20px; 
-   
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    width: 878px;
-    max-width: 100%;
-    margin-top: 13px;
-    padding: 7px 28px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    box-sizing: border-box;
+    white-space: initial;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  @media (width<=991px) {
-    .userbox {
-      white-space: initial;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
+}
+
+.email {
+  align-self: flex-start;
+  margin-top: 20px;
+  margin-left: 0;
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+
+@media (width<=991px) {
   .email {
-    align-self: flex-start;
-    margin-top: 20px;
-    margin-left: 0;
-    display: block;
-    text-align: left;
-    width: 100%;
+    margin-left: 10px;
   }
-  @media (width<=991px) {
-    .email {
-      margin-left: 10px;
-    }
-  }
+}
+
+.emailbox {
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  white-space: nowrap;
+  background-color: #141414; 
+  opacity: 0.8;
+  border-radius: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 878px;
+  max-width: 100%;
+  margin-top: 13px;
+  padding: 7px 28px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+@media (width<=991px) {
   .emailbox {
-    font-family:
-      Outfit,
-      -apple-system,
-      Roboto,
-      Helvetica,
-      sans-serif;
-    white-space: nowrap;
-    background-color: #036;
-    border-radius: 20px; 
-   
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    width: 878px;
-    max-width: 100%;
-    margin-top: 13px;
-    padding: 7px 28px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    box-sizing: border-box;
+    white-space: initial;
+    padding-right: 20px;
+    padding-left: 20px;
   }
-  @media (width<=991px) {
-    .emailbox {
-      white-space: initial;
-      padding-right: 20px;
-      padding-left: 20px;
-    }
-  }
-  
+}
+
+.password {
+  align-self: flex-start;
+  margin-top: 20px;
+  margin-left: 0;
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+
+@media (width<=991px) {
   .password {
-    align-self: flex-start;
-    margin-top: 20px;
-    margin-left: 0;
-    display: block;
-    text-align: left;
-    width: 100%;
+    margin-left: 10px;
   }
-  @media (width<=991px) {
-    .password {
-      margin-left: 10px;
-    }
-  }
+}
+
+.passwordbox {
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  white-space: nowrap;
+  background-color: #141414; 
+  opacity: 0.8;  
+  border-radius: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 878px;
+  max-width: 100%;
+  margin-top: 13px;
+  padding: 7px 28px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+@media (width<=991px) {
   .passwordbox {
-    font-family:
-      Outfit,
-      -apple-system,
-      Roboto,
-      Helvetica,
-      sans-serif;
-    white-space: nowrap;
-    background-color: #036;
-    border-radius: 20px; 
-   
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    width: 878px;
-    max-width: 100%;
-    margin-top: 13px;
-    padding: 7px 28px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    box-sizing: border-box;
+    white-space: initial;
+    padding-right: 20px;
+    padding-left: 20px;
   }
-  @media (width<=991px) {
-    .passwordbox {
-      white-space: initial;
-      padding-right: 20px;
-      padding-left: 20px;
-    }
-  }
+}
+
+.confirmPassword {
+  align-self: flex-start;
+  margin-top: 20px;
+  margin-left: 0;
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+
+@media (width<=991px) {
   .confirmPassword {
-    align-self: flex-start;
-    margin-top: 20px;
-    margin-left: 0;
-    display: block;
-    text-align: left;
-    width: 100%;
+    margin-left: 10px;
   }
-  @media (width<=991px) {
-    .confirmPassword {
-      margin-left: 10px;
-    }
-  }
+}
+
+.passwordbox2 {
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  white-space: nowrap;
+  background-color: #141414; 
+  opacity: 0.8;
+  border-radius: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 878px;
+  max-width: 100%;
+  margin-top: 13px;
+  padding: 7px 28px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+@media (width<=991px) {
   .passwordbox2 {
-    font-family:
-      Outfit,
-      -apple-system,
-      Roboto,
-      Helvetica,
-      sans-serif;
-    white-space: nowrap;
-    background-color: #036;
-    border-radius: 20px; 
-   
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    width: 878px;
-    max-width: 100%;
-    margin-top: 13px;
-    padding: 7px 28px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    box-sizing: border-box;
+    white-space: initial;
+    padding-right: 20px;
+    padding-left: 20px;
   }
-  @media (width<=991px) {
-    .passwordbox2 {
-      white-space: initial;
-      padding-right: 20px;
-      padding-left: 20px;
-    }
-  }
+}
+
+.signupbutton {
+  text-align: center;
+  background-color: #ff9800;
+  border-radius: 20px;
+  max-width: 100%;
+  margin-top: 50px;
+  width: 429px;
+  max-width: 100%;
+  padding: 13px 70px 7px;
+  font-weight: 700;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  align-self: center;
+}
+
+@media (width<=991px) {
   .signupbutton {
-    text-align: center;
-    background-color: #ff9800;
-    border-radius: 20px;
-    max-width: 100%;
-    margin-top: 50px;
-    width: 429px;
-    max-width: 100%;
-    padding: 13px 70px 7px;
-    font-weight: 700;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-    align-self: center;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  @media (width<=991px) {
-    .signupbutton {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
+}
+
+.alreadyhaveanaccount {
+  color: white;
+  text-align: center;
+  margin-top: 14px;
+  font-size: 16px;
+}
+
+@media (width<=991px) {
   .alreadyhaveanaccount {
-    color: white; 
-    text-align: center;
-    margin-top: 14px;
-    font-size: 16px;
+    max-width: 100%;
   }
-  @media (width<=991px) {
-    .alreadyhaveanaccount {
-      max-width: 100%;
-    }
-  }
-  .loginLink {
-    text-decoration: underline;
-    color: #00c8c8;;
-    cursor: pointer;
-  }
-  .loginText {
-    color: #fff;
-  }
-  .inputField {
-    width: 100%;
-    background: transparent;
-    border: none;
-    color: #fff;
-    outline: none;
-    font-size: 16px;
-    font-family:
-      Outfit,
-      -apple-system
-      Roboto,
-      Helvetica,
-      sans-serif;
-    flex: 1; 
-    min-width: 0;
-  }
-  .inputField::placeholder {
-      font-family:
-        Outfit,
-        -apple-system,
-        Roboto,
-        Helvetica,
-        sans-serif;
-      color: rgba(255, 255, 255, 0.5);
-  }
-  
+}
+
+.loginLink {
+  text-decoration: underline;
+  color: #00c8c8;
+  cursor: pointer;
+}
+
+.loginLink:hover {
+  color: #ff9800;
+}
+
+.loginText {
+  color: #fff;
+}
+
+.inputField {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #fff;
+  outline: none;
+  font-size: 16px;
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  flex: 1;
+  min-width: 0;
+}
+
+.inputField::placeholder {
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  color: rgba(255, 255, 255, 0.5);
+}

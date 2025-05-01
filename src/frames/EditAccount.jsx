@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styles from "./EditAccount.module.css";
 import WebHeader from "../components/WebHeader.jsx"; 
 import UserHeader from "../components/UserHeader.jsx";
-import NavBar from "../components/NavBar.jsx";  
+import NavBar from "../components/NavBar.jsx"; 
+import Background from "../components/Background.jsx";  
 
 
 function EditAccount() {
@@ -11,6 +12,7 @@ function EditAccount() {
       <WebHeader subtitle="Edit Account" />
       <UserHeader />
       <PasswordChangeSection />
+      <Background/>
     </section>
   ); 
 }

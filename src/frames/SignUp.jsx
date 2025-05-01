@@ -8,7 +8,10 @@ function SignUp() {
     <section className={styles.signup}>
 
       <div className={styles.header}>
-        <h1 className={styles.facepass}>FACEPASS</h1>
+        <Link to="/" className={styles.facepass}>
+                FACEPASS 
+        </Link>{"  "}
+
         <h2 className={styles.createaNewAdminAccount}>
           Create a New Admin Account
         </h2>

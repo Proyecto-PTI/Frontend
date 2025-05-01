@@ -6,6 +6,7 @@ import { Bar, Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from "chart.js";
 import WebHeader from "../components/WebHeader"; 
 import Background from "../components/Background";
+import Access from "../components/Access"; 
 
 ChartJS.register(
   CategoryScale,
@@ -132,38 +133,7 @@ function Dashboard() {
 
       <div className={styles.records}>
         <h4>Latest 5 Access Records</h4>
-        <table>
-          <thead>
-            <tr>
-              <th>User</th>
-              <th>Hour</th>
-              <th>Result</th>
-              <th>Door</th>
-            </tr>
-          </thead>
-          <tbody>
-            {recentRecords.map((record, idx) => (
-              <tr key={idx}>
-                <td>{record.user}</td>
-                <td>{record.hour}</td>
-                <td>
-                  <span
-                    className={
-                      record.result === "Authorized"
-                        ? styles.authorized
-                        : styles.denied
-                    }
-                  >
-                    {record.result === "Authorized"
-                      ? "Authorized Access"
-                      : "Denied Access"}
-                  </span>
-                </td>
-                <td>{record.door}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <Access statusFilter="" usernameFilter="" codeFilter="" dateFilter="" groupByDate={false} limit={5}/>
       </div>
     </div>
     </div>

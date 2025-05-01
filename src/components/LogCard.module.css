@@ -1,12 +1,16 @@
 .logCard {
-    background-color: #036;
+    background-color:#181c1c; 
     padding: 1rem;
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
-    flex-grow: 0; 
+    flex-grow: 1;  /* Permite que los LogCards crezcan en función del espacio disponible */
+  flex-basis: 0;  /* Asegura que los LogCards empiecen desde 0 y se expandan en función del contenedor */
+  width: 100%;  /* Asegura que el LogCard ocupe el 100% del ancho disponible */
+  max-width: 100%; /* Permite que el LogCard no sobrepase el 100% del ancho */
+  box-sizing: border-box;
     position: relative;
   }
   
@@ -14,6 +18,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    flex: 1;  /* Hace que la sección de información del usuario se adapte al espacio */
   }
   
   .username {
@@ -30,6 +35,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    flex: 1;  /* Hace que la sección de información del usuario se adapte al espacio */
   }
   
   .time {
@@ -43,11 +49,12 @@
     border-radius: 9999px;
     font-size: 0.9rem;
     font-weight: bold;
+    width: auto; /* Permite que el ancho de la caja de estado se ajuste automáticamente al contenido */
   }
   
   .authorized {
     background-color: #0f0;
-    color: #2e2e2e;
+    color:#181c1c; 
     padding: 0.25rem 0.5rem;
     border-radius: 20px;
     font-weight: bold;
@@ -57,7 +64,7 @@
   
   .denied {
     background-color: red;
-    color: #2e2e2e;
+    color:#181c1c; 
     padding: 0.25rem 0.5rem;
     border-radius: 20px;
     font-weight: bold;
