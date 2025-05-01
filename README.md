@@ -46,6 +46,7 @@ Ir a src/server i poner
 
 Luego ir a la carpeta Frontend
 - npm install react-chartjs-2 chart.js  (esto solo si os dice que no teneis instalado)
+- npm install react-icons (esto solo si os dice que no teneis instalado)
 - nmp run dev
 
 
@@ -87,8 +88,8 @@ A continuación os dejo la lista con los componentes que hay disponibles actualm
 - ~~AccessLogs~~
 - ~~AlertSettings~~
 - ~~SystemEntry~~
+- ~~AccessAlerts~~
+- ~~SystemSettings~~
 
-- AccessAlerts
-- SystemSettings
 - EntryPoints
 
