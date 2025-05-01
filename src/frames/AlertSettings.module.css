@@ -12,73 +12,124 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
+    margin: 20px;
 }
 
 .settingsWrapper {
-    background: transparent; /* Fondo transparente */
-    border-radius: 8px;
+    background: rgba(24, 28, 28, 0.5); 
+    border-radius: 20px;
     padding: 20px;
     box-shadow: none;
     width: 100%;
-    max-width: 500px;
+    max-width: 878px;
+    margin: 20px;
 }
 
-.title {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    text-align: center;
-}
+
 
 .setting {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.setting2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .setting label {
-    font-size: 1.2rem; /* Aumenta el tamaño del texto */
-    font-weight: bold; /* Opcional: Haz el texto más grueso */
+    font-size: 16px;  /* Aumenta el tamaño del texto */
+    font-weight: 500; /* Opcional: Haz el texto más grueso */
 }
 
-.dropdown {
-    background: #333;
-    color: white;
-    border: 1px solid #555;
-    border-radius: 4px;
-    padding: 10px 15px; /* Aumenta el espacio interno */
-    font-size: 1.1rem; /* Aumenta el tamaño del texto en el selector */
+.setting2 label {
+    font-size: 16px;  /* Aumenta el tamaño del texto */
+    font-weight: 500; /* Opcional: Haz el texto más grueso */
 }
+
+
+
+.dropdown {
+    font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+    background-color: #00c8c8;
+    border: none; 
+    border-radius: 20px;
+    color: #181c1c;
+    padding: 12px 18px;
+    font-size: 18px !important; /* ← aquí aumentamos el tamaño de la fuente */
+    width: 100%;
+    font-weight: 700px !important;
+    max-width: 300px;
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg fill='%23181c1c' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px 20px;
+  }
+  
+  .dropdown:focus {
+    outline: none;
+  }
+  
+
+
+
 
 .toggleButton {
     padding: 10px 20px; /* Aumenta el espacio interno */
     border: none;
-    border-radius: 10px; /* Igual que en UserProfile */
+    border-radius: 20px; /* Igual que en UserProfile */
     cursor: pointer;
-    font-size: 1.1rem; /* Aumenta el tamaño del texto en los botones */
+    font-size: 16px;  /* Aumenta el tamaño del texto en los botones */
     font-weight: 600; /* Igual que en UserProfile */
     text-align: center;
+    width: 120px;
 }
 
 .toggleButton.enabled {
     background-color: #00c8c8; /* Color de fondo del botón "Add New Entry Label" */
-    color: black; /* Texto del botón */
+    font-weight: 700;
+    color: #181c1c;/* Texto del botón */
 }
 
 .toggleButton.disabled {
-    background-color: #555; /* Color para el estado deshabilitado */
+    background-color: #181c1c;/* Color para el estado deshabilitado */
     color: white;
 }
 
+.toggleButton:focus {
+    outline: none;
+  }
+
+
+
+
+
+
 .applyButton {
     background-color: #ff9800;
-    color: black; /* Texto del botón */
+    color: white; 
     border: none;
-    border-radius: 10px; /* Igual que en UserProfile */
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600; /* Igual que en UserProfile */
-    margin-top: 20px;
+    width: 150px; 
+    padding: 0.7rem;
+    border-radius: 20px;
+    font-size: 18px; 
+    font-weight: 700;
+    cursor: pointer; 
+    align-self: center;
+    margin-top: 40px;
+    
     text-align: center;
-}
+    
+    border-radius: 20px;
+    
+    }
+    
+    .applyButton:focus {
+    outline: none;
+    }

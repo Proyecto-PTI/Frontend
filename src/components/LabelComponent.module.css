@@ -1,8 +1,17 @@
+.section {
+  background-color: rgba(24, 28, 28, 0.5); 
+  padding: 0px 20px 30px 20px;
+  margin-top: 40px;
+  border-radius: 20px;
+  max-width: 878px;
+  width: 100%;
+}
+
+
 
 .subtitle {
     color: #fff;
     text-align: start;
-    margin-top: 40px;
     margin-left: 13px;
     font-size: 18px;
     font-weight: 500;
@@ -10,7 +19,7 @@
   
   
   .base {
-    background-color: #2e2e2e;
+    background-color: #181c1c; 
     border-radius: 20px;
     flex: 1 0 0;
     flex-wrap: wrap;
@@ -100,12 +109,13 @@
   
   /*labels style*/ 
   .divlabel {
-    background-color: #ff9800;
+    background-color:  white; 
     border-radius: 12px;
     align-items: stretch;
     gap: 29px;
     padding: 6px 19px;
     display: flex;
+    color:  #181c1c; 
   }
   @media (width<=991px) {
     .divlabel {
@@ -121,6 +131,7 @@
     align-self: start;
     width: 24px;
     cursor: pointer;
+    color:  #181c1c; 
   }
   
   

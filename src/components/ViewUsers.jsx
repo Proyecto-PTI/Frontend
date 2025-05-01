@@ -11,7 +11,7 @@ const mockUsers = [
     id: 1,
     name: "Pepe Admin.",
     email: "pepe.admin.@gmail.com",
-    role: "System Administrator User",
+    role: "Administrator ",
     profileImage:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/77f4bdf909909b824ae549b22a37d02cf6df7f31?placeholderIfAbsent=true&apiKey=61a77727fee44ba9b3bc5c61b3d4dc53",
   },

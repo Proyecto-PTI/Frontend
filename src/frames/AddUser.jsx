@@ -5,6 +5,7 @@ import UserHeader from "../components/UserHeader.jsx";
 import LabelComponent from "../components/LabelComponent.jsx"; 
 import AddImages  from "../components/AddImages.jsx";
 import NavBar from "../components/NavBar.jsx";
+import Background from "../components/Background.jsx"; 
 
 function AddUser() {
 
@@ -19,7 +20,7 @@ function AddUser() {
     return (
       <div className={styles.frameContainer}>
         <NavBar />
-
+        <Background />
       <section className={styles.addUser}>
         <WebHeader subtitle="Add System User" />
         {/*provisional en realidad no es ese componente*/ }

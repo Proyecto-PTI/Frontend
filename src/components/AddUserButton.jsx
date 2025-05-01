@@ -12,7 +12,7 @@ function AddUserButton() {
           alt="Add user icon"
           className={styles.addUserIcon}
         />
-        <span className={styles.addUserText}>Add a New System User </span>
+        <span className={styles.addUserText}>Add a New User </span>
       </button>
     </Link>
   );

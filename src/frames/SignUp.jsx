@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./SignUp.module.css";
 import Background from "../components/Background";
 
+
 function SignUp() {
   return (
     <section className={styles.signup}>

@@ -3,6 +3,7 @@ import styles from "./AddEntryPoint.module.css";
 import LabelComponent from "../components/LabelComponent.jsx";
 import WebHeader from "../components/WebHeader.jsx"; 
 import NavBar from "../components/NavBar.jsx"; 
+import Background from "../components/Background.jsx";
 
 
 
@@ -31,6 +32,7 @@ function AddEntryPoint() {
 
     <div className={styles.frameContainer}>
         <NavBar />
+        <Background />
     <section className={styles.addEntryPoint}>
       <WebHeader subtitle="Add System Entry Point" />
 

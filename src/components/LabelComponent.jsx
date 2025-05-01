@@ -67,7 +67,7 @@ function LabelComponent({subtitle}) {
   
   
     return (
-    <section>
+    <section className={styles.section}>
       <h3 className={styles.subtitle}>{subtitle}</h3>
 
       {/* Labels area */}

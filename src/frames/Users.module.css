@@ -1,20 +1,17 @@
 .frameContainer {
   display: flex;
+  flex-direction: column; /* O row, según tu diseño */
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-
 .Users {
-    background-color: #222;
-    flex-direction: column;
-    padding: 51px 42px 257px;
-    display: flex;
-    overflow: hidden;
-    align-self: center;
-  }
-  @media (width<=991px) {
-    .Users {
-      padding-bottom: 100px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
+  margin: 40px auto 0 auto;
+  width: 100%;
+  display: flex; /* 'center' NO es un valor válido */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* O row, si quieres mostrar usuarios en fila */
+  padding: 0 20px; /* Espaciado lateral para pantallas pequeñas */
+  box-sizing: border-box;
+}

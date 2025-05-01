@@ -1,46 +1,54 @@
 .frameContainer {
   display: flex;
+  align-items: center;
+  justify-content: center; /* Asegura que los elementos estén centrados horizontalmente */
+  width: 100%; /* Para que ocupe todo el ancho disponible */
+}
+
+.addUser {
+  flex-direction: column;
+  padding: 5vw 8vw 10vw; /* Usa unidades relativas como 'vw' para una mejor adaptabilidad */
+  display: flex;
+  overflow: hidden;
+  align-self: center;
+  align-items: center;
+  max-width: 100%; /* Asegura que no sobrepase el 100% del contenedor */
+}
+
+/* Botón de crear usuario */
+
+.createUser {
+  color: #fff;
+  text-align: center;
+  background-color: #ff9800;
+  border-radius: 20px;
+  align-self: center;
+  width: 345px;
+  max-width: 100%;
+  margin-top: 120px;
+  padding: 12px 70px;
+  font-family:
+    Outfit,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 
-.addUser {
-    background-color: #222;
-    flex-direction: column;
-    padding: 51px 42px 257px;
-    display: flex;
-    overflow: hidden;
-    align-self: center;
+/* Media query para pantallas más pequeñas (por ejemplo, móviles) */
+@media (max-width: 768px) {
+  .addUser {
+    padding: 10vw 5vw 15vw; /* Ajusta el padding para pantallas más pequeñas */
   }
-  @media (width<=991px) {
-    .addUser {
-      padding-bottom: 100px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
+}
+
+/* Media query para pantallas muy pequeñas (por ejemplo, móviles pequeños) */
+@media (max-width: 480px) {
+  .addUser {
+    padding: 15vw 5vw 20vw; /* Aumenta el padding en pantallas más pequeñas */
   }
 
-
-
-
-
-.createUser {
-    color: #fff;
-    text-align: center;
-    background-color: #036;
-    border-radius: 20px;
-    align-self: center;
-    width: 345px;
-    max-width: 100%;
-    margin-top: 120px;
-    padding: 12px 70px;
-    font-family:
-      Outfit,
-      -apple-system,
-      Roboto,
-      Helvetica,
-      sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-  }
- 
-  
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./EditAccount.module.css";
 import WebHeader from "../components/WebHeader.jsx"; 
 import UserHeader from "../components/UserHeader.jsx";
@@ -7,46 +7,43 @@ import Background from "../components/Background.jsx";
 
 
 function EditAccount() {
+
+  const [user, setUser] = useState(null); 
+  
+  
+    // Función para obtener el usuario actual
+    const fetchCurrentUser = async () => {
+      const response = await fetch("http://localhost:5000/api/current-user");
+      if (!response.ok) throw new Error("Failed to fetch current user");
+      return await response.json();
+    };
+  
+    // Cargar usuario cuando se monte el componente
+    useEffect(() => {
+      const fetchDashboardData = async () => {
+        try {
+          const currentUser = await fetchCurrentUser();
+          setUser(currentUser); // Guarda el usuario en el estado
+        } catch (error) {
+          console.error("Error fetching current user:", error);
+        }
+      };
+  
+      fetchDashboardData();
+    }, []);
+
+
   return (
     <section className={styles.editAccount}>
-      <WebHeader subtitle="Edit Account" />
-      <UserHeader />
+      <WebHeader subtitle="Account Settings" />
+      <UserHeader user={user} />
       <PasswordChangeSection />
       <Background/>
     </section>
   ); 
 }
 
-function Header() {
-  return (
-    <>
-      <h1 className={styles.facepass}>FACEPASS</h1>
-      <h2 className={styles.editAccount2}>Edit Account</h2>
-    </>
-  );
-}
 
-function UserProfile() {
-  const [userName, setUserName] = useState("Pepe Admin.");
-
-  return (
-    <>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class={styles.img}>
-        <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" />
-      </svg>
-      <div className={styles.div}>
-        <input
-          type="text"
-          className={styles.pepeAdmin}
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-          aria-label="User name"
-        />
-        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d60f8b3faacf05ba644f410ffece2f0e8e6dc912?placeholderIfAbsent=true&apiKey=61a77727fee44ba9b3bc5c61b3d4dc53" alt="Edit icon" className={styles.img2} />
-      </div>
-    </>
-  );
-}
 
 function UserDetails() {
   const [userRole, setUserRole] = useState("System Administrator User");

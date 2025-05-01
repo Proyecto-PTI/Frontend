@@ -34,7 +34,7 @@
 
    /*logo+foto+username*/
   .header {
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
     margin-bottom: 10px;
   }
@@ -47,7 +47,7 @@
       font-weight: 600;
   }
   .headerfacepass:hover {
-    color: ##00c8c8;
+    color: #00c8c8;
   }
   
   .avatar {
@@ -118,7 +118,7 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   
   .dashboardBtn {

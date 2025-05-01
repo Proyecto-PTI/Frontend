@@ -25,7 +25,7 @@ function AlertSettings() {
             <NavBar />
             <div className={styles.container}>
                 <Background />
-                <WebHeader subtitle="Configure Alerts" />
+                <WebHeader subtitle="Alert  Settings" />
                 <div className={styles.settingsWrapper}>
                     <div className={styles.setting}>
                         <label>Alert When</label>
@@ -50,7 +50,7 @@ function AlertSettings() {
                         <label>Mute Dashboard Alerts</label>
                         <button
                             className={`${styles.toggleButton} ${
-                                settings.muteDashboardAlerts ? styles.enabled : styles.disabled
+                                settings.muteDashboardAlerts ? styles.disable : styles.enabled
                             }`}
                             onClick={() => handleToggle('muteDashboardAlerts')}
                         >
@@ -68,21 +68,21 @@ function AlertSettings() {
                             {settings.emailAlerts ? 'Enable' : 'Disable'}
                         </button>
                     </div>
-                    <div className={styles.setting}>
+                    <div className={styles.setting2}>
                         <label>Mute Email Alerts</label>
                         <button
                             className={`${styles.toggleButton} ${
-                                settings.muteEmailAlerts ? styles.enabled : styles.disabled
+                                settings.muteEmailAlerts ? styles.disabled : styles.enabled
                             }`}
                             onClick={() => handleToggle('muteEmailAlerts')}
                         >
                             {settings.muteEmailAlerts ? 'Muted' : 'Unmuted'}
                         </button>
                     </div>
-                    <button className={styles.applyButton}>
-                        Apply
-                    </button>
                 </div>
+                <button className={styles.applyButton}>
+                    Apply
+                </button>
             </div>
         </div>
     );

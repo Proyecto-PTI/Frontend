@@ -1,0 +1,203 @@
+.frameContainer {
+  display: flex;
+  min-height: 100vh; 
+}
+
+.content {
+  
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  
+  color: #ffffff;
+  flex: 1; 
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.settings {
+  max-width: 878px; 
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  
+}
+
+.options {
+
+  margin-top: 40px;
+  max-width: 878px; 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+
+.field {
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.field label {
+  font-size: 16px;  /* Aumenta el tamaño del texto */
+    font-weight: 500;
+  margin-right: 20px;
+  width: 150px; 
+  text-align: left;
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+ 
+
+  
+}
+
+.field select {
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  background-color: #181c1c;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  flex: 1;
+  text-indent: 5px;
+  min-width: 300px; 
+  appearance: none; 
+  background-repeat: no-repeat;
+  cursor: pointer; 
+  
+  padding: 12px 18px;
+  font-size: 16px !important; /* ← aquí aumentamos el tamaño de la fuente */
+  width: 100%;
+  font-weight: 600px !important;
+
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg fill='%23ffffff' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+
+  background-position: right 12px center;
+  background-size: 20px 20px;
+}
+
+.field select:focus {
+  outline: none;
+}
+
+
+
+
+
+
+.refreshButton {
+  background-color: #00c8c8;
+  color: white; 
+  border: none;
+  border-radius: 20px;
+  width: 100%;
+  padding: 12px 18px;
+  
+  margin: 1.5rem 0;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;                
+  align-items: center;          
+  justify-content: center;      
+  outline: none;
+}
+
+.refreshButton:focus {
+  outline: none;
+}
+
+.icon {
+  margin-right: 12px; 
+}
+
+.applyButton {
+  background-color: #ff9800;
+  color: white; 
+  border: none;
+  width: 150px; 
+  padding: 0.7rem;
+  border-radius: 20px;
+  font-size: 18px; 
+  font-weight: 700;
+  cursor: pointer; 
+  align-self: center;
+  margin-top: 60px;
+
+  text-align: center;
+  
+  border-radius: 20px;
+
+}
+
+.applyButton:focus {
+  outline: none;
+}
+
+.footer {
+  background-color: rgba(24, 28, 28, 0.5); 
+  margin-top: 3rem;
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  width: 100%; 
+  padding-bottom: 60px;
+}
+
+.sotaline {
+  display: flex;
+  text-align: center;
+  justify-content: space-between; /* separa las columnas */
+  gap: 2rem; /* espacio entre columnas */
+  flex-wrap: wrap; /* para que se adapten en pantallas pequeñas */
+}
+
+.sotaline p {
+  flex: 1;
+  min-width: 250px; /* evita que se encojan demasiado */
+  margin: 0;
+}
+
+.contact {
+  color: fff; 
+  text-align: left;
+  width: 100%; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  
+  
+}
+
+.contact h3 {
+  text-align: center;
+  margin: 0;
+  padding-bottom: 0.5rem;
+  width: 100%; 
+  border-bottom: 2px solid #888; 
+  margin-bottom: 20px;
+}
+
+.contact a {
+  color: #00c8c8;
+  text-decoration: none;
+}
+
+.brand {
+  margin-left: 10px;
+  color: #ff9800;
+  letter-spacing: 8px;
+}
+

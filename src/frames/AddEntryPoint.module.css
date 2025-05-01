@@ -1,25 +1,23 @@
 
 .frameContainer {
   display: flex;
+  align-items: center;
+  justify-content: center; /* Asegura que los elementos estén centrados horizontalmente */
+  width: 100%; 
 }
-
 
 
 
 .addEntryPoint {
-  background-color: #222;
   flex-direction: column;
-  padding: 51px 42px 257px;
+  padding: 5vw 8vw 10vw; /* Usa unidades relativas como 'vw' para una mejor adaptabilidad */
   display: flex;
   overflow: hidden;
+  align-self: center;
+  align-items: center;
+  max-width: 100%; /* Asegura que no sobrepase el 100% del contenedor */
 }
-@media (width<=991px) {
-  .addEntryPoint {
-    padding-bottom: 100px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
+
 
 
 
@@ -29,6 +27,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
 }
 
 .div2,
@@ -38,7 +37,7 @@
 .div6 {
   align-items: center;
   gap: 20px;
-  width: 804px;
+  width: 878px;
   max-width: 100%;
   margin-top: 30px;
   margin-left: 0px;
@@ -48,9 +47,10 @@
 
 /* Entry Name */
 .entryName {
-  color: #fff;
-  align-self: start;
-  font-size: 18px;
+  color: #00c8c8;
+ 
+  font-size: 16px;
+  font-weight: 700;
   width: 200px;
   text-align: left;
 }
@@ -58,11 +58,12 @@
 .namebox {
   color: white;
   flex: 1 0 0;
-  background-color: #036;
+  background-color:#181c1c;
   border-radius: 15px;
   padding: 9px 26px;
   box-sizing: border-box;
   font-size: 16px;
+  
   font-weight: 400;
   border: none;
   width: 600px;
@@ -85,15 +86,15 @@
 }
 
 .namebox::placeholder {
-  color: #00c8c8;
+  color: white; 
   opacity: 50%;
 }
 
 /* Entry Location */
 .entryLocation {
-  color: #fff;
-  align-self: start;
-  font-size: 18px;
+  color:#00c8c8;
+  font-size: 16px;
+  font-weight: 700;
   width: 200px;
   text-align: left;
 }
@@ -101,7 +102,7 @@
 .locationbox {
   color: white;
   flex: 1 0 0;
-  background-color: #036;
+  background-color: #181c1c;
   border-radius: 15px;
   padding: 9px 26px;
   box-sizing: border-box;
@@ -128,16 +129,16 @@
 }
 
 .locationbox::placeholder {
-  color: #00c8c8;
+  color: white; 
   opacity: 50%;
 }
 
 
 /* Access Camera ID */
 .accessCameraId {
-  color: #fff;
-  align-self: start;
-  font-size: 18px;
+  color: #00c8c8;
+  font-size: 16px;
+  font-weight: 700;
   width: 200px;
   text-align: left;
 }
@@ -145,7 +146,7 @@
 .cameraidbox {
   color: white;
   flex: 1 0 0;
-  background-color: #036;
+  background-color: #181c1c;
   border-radius: 15px;
   padding: 9px 26px;
   box-sizing: border-box;
@@ -172,16 +173,16 @@
 }
 
 .cameraidbox::placeholder {
-  color: #00c8c8;
+  color: white; 
   opacity: 50%;
 }
 
 
 /* Access Lock ID */
 .accessLockId {
-  color: #fff;
-  align-self: start;
-  font-size: 18px;
+  color: #00c8c8;
+  font-size: 16px;
+  font-weight: 700;  
   width: 200px;
   text-align: left;
 }
@@ -189,7 +190,7 @@
 .lockidbox {
   color: white;
   flex: 1 0 0;
-  background-color: #036;
+  background-color: #181c1c;
   border-radius: 15px;
   padding: 9px 26px;
   box-sizing: border-box;
@@ -216,16 +217,16 @@
 }
 
 .lockidbox::placeholder {
-  color: #00c8c8;
+  color: white; 
   opacity: 50%;
 }
 
 
 /* Access Administrator */
 .AccessAdministrator {
-  color: #fff;
-  align-self: start;
-  font-size: 18px;
+  color: #00c8c8;
+  font-size: 16px;
+  font-weight: 700;
   width: 200px;
   text-align: left;
 }
@@ -237,7 +238,7 @@
 .administratorbox {
   color: white;
   flex: 1 0 0;
-  background-color: #036;
+  background-color: #181c1c;
   border-radius: 15px;
   padding: 9px 26px;
   box-sizing: border-box;
@@ -264,7 +265,7 @@
 }
 
 .administratorbox::placeholder {
-  color: #00c8c8;
+  color: white; 
   opacity: 50%;
 }
 
@@ -280,12 +281,12 @@
 .createEntryPoint {
   color: #fff;
   text-align: center;
-  background-color: #036;
+  background-color: #ff9800;
   border-radius: 20px;
   align-self: center;
   width: 345px;
   max-width: 100%;
-  margin-top: 90px;
+  margin-top: 120px;
   padding: 12px 70px;
   font-family:
     Outfit,
@@ -296,10 +297,4 @@
   font-size: 18px;
   font-weight: 700;
 }
-@media (width<=991px) {
-  .createEntryPoint {
-    margin-top: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
+

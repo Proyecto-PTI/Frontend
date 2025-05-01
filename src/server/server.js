@@ -222,6 +222,22 @@ app.get("/api/recent-records", (req, res) => {
   ]);
 });
 
+
+
+//endpoint para la session iniciada 
+
+const current_user = {
+  name: 'Pepe Admin.',
+  role: 'System Administrator User',
+  email: 'pepe.admin@gmail.com',
+  number: '+34 666 66 66 66',
+};
+
+// Endpoint que devuelve el usuario actual
+app.get('/api/current-user', (req, res) => {
+  res.json(current_user); 
+});
+
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
 });

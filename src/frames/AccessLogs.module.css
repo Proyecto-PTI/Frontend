@@ -4,7 +4,6 @@
 
 .container {
   position: relative;
-  background-color: #222;
   overflow: hidden;
   color: white;
   padding: 2rem;
@@ -65,7 +64,7 @@
 
 .logList {
   display: flex;
-  background: #2e2e2e;
+  background:  rgba(24, 28, 28, 0.5); 
   border-radius: 20px;
   width: 100%;
   padding: 20px;

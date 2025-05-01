@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from "react";
 import styles from './UserHeader.module.css';  
 
-function UserProfile() {
-  const [userName, setUserName] = useState("Pepe Admin.");
+function UserProfile({ user })  {
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    if (user?.name) {
+      setUserName(user.name);
+    }
+  }, [user]);
 
   return (
     <>
@@ -20,10 +26,18 @@ function UserProfile() {
   );
 }
 
-function UserDetails() {
-  const [userRole, setUserRole] = useState("System Administrator User");
-  const [email, setEmail] = useState("pepe.admin@gmail.com");
-  const [phoneNumber, setPhoneNumber] = useState("+34 666 66 66 66");
+function UserDetails({ user })  {
+  const [userRole, setUserRole] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  useEffect(() => {
+    if (user) {
+      setUserRole(user.role || "");
+      setEmail(user.email || "");
+      setPhoneNumber(user.number || "");
+    }
+  }, [user]);
 
   return (
     <>
@@ -60,7 +74,7 @@ function UserDetails() {
         <div className={styles.div4}>
           <label className={styles.phoneNumber} htmlFor="phoneNumber">
             Phone Number
-          </label>
+          </label> 
           <input
             id="phoneNumber"
             type="tel"
@@ -75,11 +89,13 @@ function UserDetails() {
   );
 }
 
-export default function UserProfilePage() {
+function UserHeader({ user }) {
   return (
     <div className={styles.container}>
-      <UserProfile />
-      <UserDetails />
+      <UserProfile user={user} />
+      <UserDetails user={user} />
     </div>
   );
 }
+
+export default UserHeader;

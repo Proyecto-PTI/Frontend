@@ -74,7 +74,7 @@ A continuación os dejo la lista con los componentes que hay disponibles actualm
 ## VISTAS A REALIZAR :
 
 ### PRIMERA RONDA
-#### (*base de las vistas, falta pulirlar y conectarlas*) 
+#### (*base de las vistas, falta pulirla y conectarlas*) 
 - ~~LogIn~~
 - ~~SignUp~~
 - ~~EditAccount~~
@@ -87,9 +87,10 @@ A continuación os dejo la lista con los componentes que hay disponibles actualm
 - ~~AccessLogs~~
 - ~~AlertSettings~~
 - ~~SystemEntry~~
+- ~~AccessAlerts~~
+- ~~SystemSettings~~
 
-- AccessAlerts
-- SystemSettings
+
 - EntryPoints
 
 
@@ -113,7 +114,12 @@ A continuación os dejo la lista con los componentes que hay disponibles actualm
     -logica de backend: OK
     
     
+- Barra de Navegación: 
+    -estetica : OK  
+    -resposive : OK 
+    -logica de backend: faltaria el LOGOUT 
     
+
     
 ESTETICA: 
 
@@ -128,3 +134,12 @@ LOS GRISES :
   
   EL AZUL : color: #00c8c8;
   EL AMARILLO: color: #ff9800;
+  
+  
+  
+  
+  medidas de los inputs de login i sign up: 
+  
+  
+max-width: 878px; 
+  width: 100%;
