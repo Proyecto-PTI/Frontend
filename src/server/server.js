@@ -163,6 +163,39 @@ const doors = [
   },
 ];
 
+const entrypoints = [
+  {
+    aula: "A5103",
+    entryLocation: "Campus Nord",
+    labels: ["ESLAMIA", "FIB"]
+  },
+  {
+    aula: "C6E01",
+    entryLocation: "Main Hall",
+    labels: ["Main", "Admin"]
+  },
+  {
+    aula: "L1E02",
+    entryLocation: "Library Entrance",
+    labels: ["Library", "Study"]
+  },
+  {
+    aula: "S2G03",
+    entryLocation: "Sports Center",
+    labels: ["Sports", "Gym"]
+  },
+  {
+    aula: "A3H04",
+    entryLocation: "Auditorium",
+    labels: ["Events"]
+  },
+  {
+    aula: "P4J05",
+    entryLocation: "Parking Lot",
+    labels: ["Parking", "Vehicles"]
+  }
+];
+
 // Endpoint que devuelve los logs
 app.get('/api/access-logs', (req, res) => {
   res.json(logs);
