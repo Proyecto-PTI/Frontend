@@ -4,17 +4,15 @@
   flex-direction: column;
   align-items: center;
   display: flex;
-  overflow: hidden;
-  width: 100%;
-  max-width: 878px;
+  overflow: hidden; 
   flex: 1; 
-}
 
-
-.container {
-  max-width: 878px; 
+  max-width: 878px; /* <-- Este es el punto clave */
   width: 100%;
+  margin: 0 auto;
+  padding: 0px;
 }
+
 
 .header {
   text-align: center;
@@ -22,10 +20,11 @@
   justify-content: space-between;
   align-items: stretch;
   gap: 20px;
-  width: 100%;
   font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
   display: flex;
+  width: 100%;
+  max-width: 100%;
 }
 
 
@@ -84,7 +83,6 @@
   padding: 10px;
   margin-top: 40px;
   height: 30px;
-  max-width: 878px;
   width: 100%;
   font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
@@ -124,14 +122,13 @@
 
 /* Lista de usuarios */
 .usersList {
+
   background-color:   rgba(24, 28, 28, 0.5); 
   border-radius: 20px;
   flex: 1 0 0; 
   flex-wrap: wrap;
   align-self: center;
   align-items: stretch;
-  max-width: 878px; 
-    width: 100%;
   margin-top: 20px;
   padding: 20px;
 

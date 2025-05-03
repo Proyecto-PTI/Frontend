@@ -13,6 +13,8 @@
   z-index: 1000;
   padding: 0px;
   overflow: hidden; /* evita doble scroll */
+
+  transition: transform 0.3s ease;
 }
 
   .content {
@@ -135,6 +137,18 @@
   }
 
 
+  .iconWrapper {
+    position: absolute;
+    top: 480px; 
+    left: 55px; 
+    z-index: 1; 
+  }
+  
+  .icon {
+    width: 20px; 
+    height: 20px;
+    fill:  #ff9800; 
+  }
 
 
   

@@ -1,17 +1,16 @@
 .frameContainer {
   display: flex;
-  flex-direction: column; /* O row, según tu diseño */
+  flex-direction: column; 
   flex-wrap: wrap;
-  width: 100%;
 }
 
 .Users {
-  margin: 40px auto 0 auto;
+  max-width: 878px;
   width: 100%;
-  display: flex; /* 'center' NO es un valor válido */
+  margin: 40px auto 0 auto;
+  display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; /* O row, si quieres mostrar usuarios en fila */
-  padding: 0 20px; /* Espaciado lateral para pantallas pequeñas */
+  flex-direction: column; 
   box-sizing: border-box;
 }

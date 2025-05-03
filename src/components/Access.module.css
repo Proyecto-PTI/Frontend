@@ -1,9 +1,8 @@
 .frameContainer {
   display: flex;
   justify-content: center; /* Centra los elementos horizontalmente */
-  align-items: center;     /* Centra los elementos verticalmente */
-  width: 100%;
-  min-height: 100vh;
+  align-items: center;     /* Centra los elementos verticalmente */  
+  padding: 0px;
 
 }
 
@@ -12,11 +11,8 @@
   background-color: #181c1c; 
   overflow: hidden;
   color: white;
-
-  min-height: 100vh;
   z-index: 0;
-  width: 100%;
-  max-width: 1200px; /* Establece un ancho máximo para el contenedor */
+
   font-family: 
     Outfit, 
     -apple-system, 
@@ -83,7 +79,8 @@
   box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
   overflow: hidden;
   align-items: stretch;
-  padding: 1rem; /* Asegura que los LogCards se expandan */
+  padding: 4px;
+  
 }
 
 /* Respuesta para pantallas pequeñas: */

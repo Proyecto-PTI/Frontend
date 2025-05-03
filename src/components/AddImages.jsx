@@ -97,7 +97,7 @@ function SendDataButton({ onClick, disabled }) {
 
 
 
-function AddImages() {
+function AddImages({ onImagesSelected }) {
 
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [isUploading, setIsUploading] = useState(false);
@@ -117,41 +117,17 @@ function AddImages() {
 
   //guardar las imagenes seleccionadas 
   const handleFileChange = (event) => {
-    try {
-      const newFiles = event.target.files;
-
-      if (newFiles && newFiles.length > 0) {
-        // junta las listas de seleccionados 
-        const filesArray = Array.from(newFiles);
-
-        // Solo queremos imagenes, quitamos de las seleccionadas las que no sean de ese tipo
-        const imageFiles = filesArray.filter((file) =>
-          file.type.startsWith("image/"),
-        );
-
-        if (imageFiles.length !== filesArray.length) {
-          setError("Some files were skipped because they are not images.");
-        }
-
-        if (imageFiles.length === 0) {
-          setError("Please select image files only.");
-          event.target.value = "";
-          return;
-        }
-
-        // Add new files to existing selection
-        setSelectedFiles((prevFiles) => [...prevFiles, ...imageFiles]);
-        console.log(
-          `Added ${imageFiles.length} files. Total: ${selectedFiles.length + imageFiles.length} files`,
-        );
-      }
-    } catch (err) {
-      console.error("Error handling file selection:", err);
-      setError("There was a problem selecting the files. Please try again.");
-    } finally {
-      // Se tiene que resetear el input pa que no de problemas 
-      event.target.value = "";
+    const newFiles = Array.from(event.target.files).filter((file) =>
+      file.type.startsWith("image/")
+    );
+  
+    if (newFiles.length > 0) {
+      const updatedFiles = [...selectedFiles, ...newFiles];
+      setSelectedFiles(updatedFiles);
+      onImagesSelected(updatedFiles); 
     }
+  
+    event.target.value = "";
   };
 
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./LabelComponent.module.css";
 
 
@@ -26,19 +26,19 @@ const EntryLabel = ({ text, onRemove }) => {
 };
 
 
-function LabelComponent({subtitle}) {
+function LabelComponent({ subtitle, initialLabels = [], onLabelsChange }) {
+  const [labels, setLabels] = useState(initialLabels);
   
-   // State for labels
-    const [labels, setLabels] = useState([{ id: 1, text: "ETSETB" }]);
+
   
     // Handler for input changes
-    const handleInputChange = (e) => {
-      const { name, value } = e.target;
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    };
+    useEffect(() => {
+      if (onLabelsChange) {
+        onLabelsChange(labels);
+      }
+    }, [labels, onLabelsChange]);
+
+
   
     // Handler to remove a specific label
     const handleRemoveLabel = (labelId) => {
@@ -52,18 +52,17 @@ function LabelComponent({subtitle}) {
       setLabels([]);
     };
   
-    // Handler to add a new label
-    const handleAddNewLabel = () => {
-      // This would typically open a modal or prompt for the label text
-      const newLabelText = prompt("Enter new label text:");
-      if (newLabelText && newLabelText.trim() !== "") {
-        const newLabel = {
-          id: Date.now(), // Use timestamp as a simple unique ID
-          text: newLabelText.trim(),
-        };
-        setLabels((prevLabels) => [...prevLabels, newLabel]);
-      }
-    };
+    // Añadir nueva etiqueta
+   const handleAddNewLabel = () => {
+    const newLabelText = prompt("Enter new label text:");
+    if (newLabelText && newLabelText.trim() !== "") {
+      const newLabel = {
+        id: Date.now(), //id segun la fecha
+        text: newLabelText.trim(),
+      };
+      setLabels((prevLabels) => [...prevLabels, newLabel]);
+    }
+  };
   
   
     return (

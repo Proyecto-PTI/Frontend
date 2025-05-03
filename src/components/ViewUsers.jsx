@@ -51,8 +51,7 @@ function ViewUsers({ users = mockUsers }) {
   }, [users, searchTerm]);
 
   return (
-    <main className={styles.viewUsers}>
-      <div className={styles.container}>
+      <div className={styles.ViewUsers}>
         <header className={styles.header}>
           <AddUserButton />
           <p className={styles.userCount}>
@@ -85,7 +84,6 @@ function ViewUsers({ users = mockUsers }) {
 
 
       </div>
-    </main>
   );
 }
 
