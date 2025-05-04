@@ -12,8 +12,232 @@
   overflow: hidden;
   align-self: center;
   align-items: center;
-  max-width: 100%; /* Asegura que no sobrepase el 100% del contenedor */
+  max-width: 100%; 
+  margin: 10px; 
 }
+
+
+.userimg {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 100px;
+  max-width: 100%;
+  color: #fff;
+  margin-bottom: 10px;
+
+  }
+
+
+.form {
+  align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.div2,
+.div3,
+.div4,
+.div5 {
+  align-items: center;
+  gap: 20px;
+  width: 878px;
+  max-width: 100%;
+  margin-top: 30px;
+  margin-left: 0px;
+  font-weight: 500;
+  display: flex;
+}
+
+/* Entry Name */
+.userName {
+  color:  #00c8c8;
+ 
+  font-size: 18px;
+  font-weight: 700;
+  width: 200px;
+  text-align: left;
+}
+
+.namebox {
+  color: #181c1c;
+  flex: 1 0 0;
+  background-color: #00c8c8; 
+  border-radius: 20px;
+  padding: 9px 26px;
+  box-sizing: border-box;
+  font-size: 16px;
+  
+  font-weight: 500;
+  border: none;
+  width: 600px;
+  outline: none;
+  font-family:
+    Outfit,
+    -apple-system
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (width<=991px) {
+  .namebox {
+    max-width: 100%;
+    white-space: initial;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.namebox::placeholder {
+  color: #181c1c;
+  opacity: 80%;
+}
+
+/* Entry Location */
+.userRole {
+  color:#00c8c8;
+  font-size: 16px;
+  font-weight: 700;
+  width: 200px;
+  text-align: left;
+}
+
+
+.roleSelect {
+    color: white;
+    background-color: #111;
+    border-radius: 20px;
+    padding: 9px 26px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  
+    width: 600px;
+    flex: 1 0 0; 
+    max-width: 100%;
+  
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 20px 20px;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg fill='%23ffffff' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  
+    cursor: pointer;
+  }
+
+
+.roleSelect:focus {
+  outline: none;
+}
+
+@media (width<=991px) {
+  .roleSelect {
+    width: 100% ; 
+    max-width: 100%;  
+    white-space: initial;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Access Camera ID */
+.userEmail {
+  color: #00c8c8;
+  font-size: 16px;
+  font-weight: 700;
+  width: 200px;
+  text-align: left;
+}
+
+.emailbox {
+  color: white;
+  flex: 1 0 0;
+  background-color: #181c1c;
+  border-radius: 20px;
+  padding: 9px 26px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  width: 600px;
+  outline: none;
+  font-family:
+    Outfit,
+    -apple-system
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (width<=991px) {
+  .emailbox {
+    max-width: 100%;
+    white-space: initial;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.emailbox::placeholder {
+  color: white; 
+  opacity: 50%;
+}
+
+
+/* Access Lock ID */
+.userPhoneNumber{
+  color: #00c8c8;
+  font-size: 16px;
+  font-weight: 700;  
+  width: 200px;
+  text-align: left;
+}
+
+.numberbox {
+  color: white;
+  flex: 1 0 0;
+  background-color: #181c1c;
+  border-radius: 20px;
+  padding: 9px 26px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  width: 600px;
+  outline: none;
+  font-family:
+    Outfit,
+    -apple-system
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (width<=991px) {
+  .numberbox {
+    max-width: 100%;
+    white-space: initial;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.numberbox::placeholder {
+  color: white; 
+  opacity: 50%;
+}
+
+
+
+
+
+
 
 /* Botón de crear usuario */
 
@@ -25,7 +249,7 @@
   align-self: center;
   width: 345px;
   max-width: 100%;
-  margin-top: 120px;
+  margin-top: 20px;
   padding: 12px 70px;
   font-family:
     Outfit,
@@ -51,4 +275,32 @@
     padding: 15vw 5vw 20vw; /* Aumenta el padding en pantallas más pequeñas */
   }
 
+}
+
+
+
+.buttonmessage {
+  align-self: center;
+  width: 878px;
+  max-width: 100%;
+  margin-top: 50px;
+}
+
+
+
+
+.message {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.success {
+  color:  #0f0;
+}
+
+.error {
+  color: red; 
 }

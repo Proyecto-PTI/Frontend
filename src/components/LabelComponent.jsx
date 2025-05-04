@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./LabelComponent.module.css";
 
 
-// Label component con icono SVG 
 const EntryLabel = ({ text, onRemove }) => {
   return (
     <div className={styles.divlabel}>
@@ -25,48 +24,43 @@ const EntryLabel = ({ text, onRemove }) => {
   );
 };
 
+function LabelComponent({ subtitle, initialLabels = [], onLabelsChange }) {
+  const [labels, setLabels] = useState(initialLabels || []);
 
-function LabelComponent({subtitle}) {
-  
-   // State for labels
-    const [labels, setLabels] = useState([{ id: 1, text: "ETSETB" }]);
-  
-    // Handler for input changes
-    const handleInputChange = (e) => {
-      const { name, value } = e.target;
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    };
-  
-    // Handler to remove a specific label
-    const handleRemoveLabel = (labelId) => {
-      setLabels((prevLabels) =>
-        prevLabels.filter((label) => label.id !== labelId),
-      );
-    };
-  
-    // Handler to remove all labels
-    const handleRemoveAllLabels = () => {
-      setLabels([]);
-    };
-  
-    // Handler to add a new label
-    const handleAddNewLabel = () => {
-      // This would typically open a modal or prompt for the label text
-      const newLabelText = prompt("Enter new label text:");
-      if (newLabelText && newLabelText.trim() !== "") {
-        const newLabel = {
-          id: Date.now(), // Use timestamp as a simple unique ID
-          text: newLabelText.trim(),
-        };
-        setLabels((prevLabels) => [...prevLabels, newLabel]);
-      }
-    };
-  
-  
-    return (
+  // Sincronizar cambios desde el padre
+  useEffect(() => {
+    setLabels(initialLabels || []);
+  }, [initialLabels]);
+
+  // Notificar cambios al padre
+  useEffect(() => {
+    if (onLabelsChange) {
+      onLabelsChange(labels);
+    }
+  }, [labels, onLabelsChange]);
+
+  const handleRemoveLabel = (labelId) => {
+    setLabels((prevLabels) =>
+      prevLabels.filter((label) => label.id !== labelId),
+    );
+  };
+
+  const handleRemoveAllLabels = () => {
+    setLabels([]);
+  };
+
+  const handleAddNewLabel = () => {
+    const newLabelText = prompt("Enter new label text:");
+    if (newLabelText && newLabelText.trim() !== "") {
+      const newLabel = {
+        id: Date.now(),
+        text: newLabelText.trim(),
+      };
+      setLabels((prevLabels) => [...prevLabels, newLabel]);
+    }
+  };
+
+  return (
     <section className={styles.section}>
       <h3 className={styles.subtitle}>{subtitle}</h3>
 

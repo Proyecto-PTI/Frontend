@@ -50,7 +50,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/system-entry" element={<SystemEntry />} />
           <Route path="/system-settings" element={<SystemSettings />} />
-          <Route path="/user-profile" element={<UserProfile />} />
+          <Route path="/users/:userId" element={<UserProfile />} />
           <Route path="/users" element={<Users />} />
 
           {/* Ruta predeterminada (página no encontrada) */}

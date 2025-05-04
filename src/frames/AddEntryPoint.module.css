@@ -19,7 +19,16 @@
 }
 
 
-
+.entryimg {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 100px;
+  max-width: 100%;
+  color: #fff;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  }
 
 
 .form {
@@ -47,24 +56,24 @@
 
 /* Entry Name */
 .entryName {
-  color: #00c8c8;
+  color:  #00c8c8;
  
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   width: 200px;
   text-align: left;
 }
 
 .namebox {
-  color: white;
+  color: #181c1c;
   flex: 1 0 0;
-  background-color:#181c1c;
-  border-radius: 15px;
+  background-color: #00c8c8; 
+  border-radius: 20px;
   padding: 9px 26px;
   box-sizing: border-box;
   font-size: 16px;
   
-  font-weight: 400;
+  font-weight: 500;
   border: none;
   width: 600px;
   outline: none;
@@ -86,8 +95,8 @@
 }
 
 .namebox::placeholder {
-  color: white; 
-  opacity: 50%;
+  color: #181c1c;
+  opacity: 80%;
 }
 
 /* Entry Location */
@@ -103,7 +112,7 @@
   color: white;
   flex: 1 0 0;
   background-color: #181c1c;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 9px 26px;
   box-sizing: border-box;
   font-size: 16px;
@@ -147,7 +156,7 @@
   color: white;
   flex: 1 0 0;
   background-color: #181c1c;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 9px 26px;
   box-sizing: border-box;
   font-size: 16px;
@@ -191,7 +200,7 @@
   color: white;
   flex: 1 0 0;
   background-color: #181c1c;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 9px 26px;
   box-sizing: border-box;
   font-size: 16px;
@@ -239,7 +248,7 @@
   color: white;
   flex: 1 0 0;
   background-color: #181c1c;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 9px 26px;
   box-sizing: border-box;
   font-size: 16px;
@@ -277,6 +286,12 @@
 
 
 
+.buttonmessage {
+  align-self: center;
+  width: 878px;
+  max-width: 100%;
+  margin-top: 80px;
+}
 
 .createEntryPoint {
   color: #fff;
@@ -286,7 +301,7 @@
   align-self: center;
   width: 345px;
   max-width: 100%;
-  margin-top: 120px;
+  margin-top: 20px;
   padding: 12px 70px;
   font-family:
     Outfit,
@@ -298,3 +313,23 @@
   font-weight: 700;
 }
 
+
+
+
+
+
+.message {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.success {
+  color:  #0f0;
+}
+
+.error {
+  color: red; 
+}

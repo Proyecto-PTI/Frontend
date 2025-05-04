@@ -1,17 +1,121 @@
-.frameContainer {
-  display: flex;
-  flex-direction: column; /* O row, según tu diseño */
-  flex-wrap: wrap;
-  width: 100%;
+.container {
+  padding: 2rem;
+  color: white;
+  border-radius: 12px;
 }
 
-.Users {
-  margin: 40px auto 0 auto;
+.content {
+
   width: 100%;
-  display: flex; /* 'center' NO es un valor válido */
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; /* O row, si quieres mostrar usuarios en fila */
-  padding: 0 20px; /* Espaciado lateral para pantallas pequeñas */
-  box-sizing: border-box;
+  max-width: 878px;
+  margin: 0 auto;
+
 }
+
+.topBar {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*botton add user*/ 
+.addUserButton {
+  color: #fff;
+  background-color: #00c8c8;
+  border-radius: 20px;
+  font-size: 18px;
+  align-items: start;
+  gap: 10px;
+  padding: 10px 15px 0px 15px;
+  font-weight: 600;
+  display: flex;
+  border: none;
+  cursor: pointer;
+}
+
+.addUserIcon {
+  height: 30px;
+  width: 30px;
+}
+
+/*contador*/
+.userCount {
+  color: #00c8c8;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.countHighlight {
+  font-weight: 800;
+  font-size: 20px;
+  color: #ff9800;
+}
+
+
+
+.searchBox {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  border: none;
+  padding: 10px;
+  background-color: #111; 
+  border-radius: 20px;
+}
+
+.searchBox input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 20px;
+  color: white; 
+  background-color: transparent;
+  border: none;
+  outline: none;
+  height: 100%;
+  width: 100%;
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  flex: 1;
+}
+
+.searchBox input :placeholder {
+  color:white; 
+  opacity: 0.7;
+}
+
+.searchIcon {
+  color: #00c8c8;
+  height: 35px;
+  width: 35px;
+}
+
+
+
+
+
+
+
+.userList {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px 20px;
+  background-color: rgba(24, 28, 28, 0.5); 
+  border-radius: 20px;
+}
+
+
+
+
+
+
+
+
+
+

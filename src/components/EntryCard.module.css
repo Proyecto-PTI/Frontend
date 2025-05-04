@@ -1,0 +1,156 @@
+
+/* User card */
+.user1Box {
+    background-color: #181c1c; 
+    border-radius: 20px;
+    width: 100%;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: center;
+  
+  
+      padding: 20px 20px 20px 20px;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      flex-grow: 1;  /* Permite que los LogCards crezcan en función del espacio disponible */
+    flex-basis: 0;  /* Asegura que los LogCards empiecen desde 0 y se expandan en función del contenedor */
+      /* Asegura que el LogCard ocupe el 100% del ancho disponible */
+     /* Permite que el LogCard no sobrepase el 100% del ancho */
+    box-sizing: border-box;
+      position: relative;
+  }
+    
+  .userCardContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 40px;
+    flex-wrap: nowrap; /* <- impide el crecimiento vertical */
+    overflow: hidden; /* opcional: corta contenido que no cabe */
+  }
+  /* En pantallas más pequeñas, reduce el espacio entre columnas */
+  @media (max-width: 768px) {
+    .userCardContent {
+      gap: 10px;
+    }
+  }
+    
+  .userInfoGroup {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 20px;
+    min-width: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .userInfoGroup {
+      gap: 10px;
+    }
+  }
+    
+    .entryimg {
+      margin-left: 5px;
+      color: white; 
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 0%;
+  
+    }
+    
+   
+    .detailsColumn {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .userDetails {
+      color: #fff;
+      font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+    }
+    
+   
+    
+    .userTextInfo {
+      flex-direction: column;
+      align-items: start;
+      padding-left: 9px;
+      padding-right: 56px;
+      display: flex;
+    }
+    
+    @media (max-width: 991px) {
+      .userTextInfo {
+        padding-right: 20px;
+      }
+    }
+    
+    .userName {
+        color: #ff9800;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+    }
+    
+    .userEmail {
+      margin-top: 4px;
+      font-size: 14px;
+      font-weight: 300;
+      margin-bottom: 0;
+    }
+    
+    .roleBadge {
+      text-align: center;
+      background-color: #ff9800;
+      border-radius: 15px;
+      margin-top: 21px;
+      padding: 5px 41px;
+      font-size: 14px;
+      font-weight: 600;
+      width: 120px;
+    }
+    
+    @media (max-width: 991px) {
+      .roleBadge {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+    
+    .actionColumn {
+      display: flex;
+      align-items: center;
+      margin-left: 0; /* asegúrate que no tenga margen lateral */
+    }
+    
+    @media (max-width: 768px) {
+      .actionColumn {
+        margin-left: 0;
+      }
+    }
+    
+    @media (max-width: 991px) {
+      
+    
+      .viewProfileButton {
+        width: 20%;
+        margin-top: 20px;
+      }
+    }
+    
+    .viewProfileButton {
+      padding: 10px 20px;
+      border-radius: 20px;
+      background-color: #00c8c8;
+      color: #181c1c; 
+      font-weight: 700;
+      font-size: 14px;
+      width: 130px;
+      border: none;
+      cursor: pointer;
+    }
+    

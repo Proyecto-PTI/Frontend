@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./UserCard.module.css";
 import { Link } from "react-router-dom";
 
-function UserCard({ name, email, role, profileImage }) {
+function UserCard({ id, name, email, role, profileImage }) {
     return (
       <article className={styles.user1Box}>
         <div className={styles.userCardContent}>
@@ -27,8 +27,8 @@ function UserCard({ name, email, role, profileImage }) {
           </div>
   
           <div className={styles.actionColumn}>
-            <Link to="/user-profile">
-            <button className={styles.viewProfileButton}>View profile</button>
+            <Link to={`/users/${id}`}>
+            <button className={styles.viewProfileButton}>Edit profile</button>
             </Link>
           </div>
           
