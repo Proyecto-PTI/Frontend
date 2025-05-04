@@ -259,17 +259,40 @@ app.get("/api/recent-records", (req, res) => {
 
 //endpoint para la session iniciada 
 
-const current_user = {
+let current_user = {
   name: 'Pepe Admin.',
-  role: 'System Administrator User',
+  role: 'admin',
   email: 'pepe.admin@gmail.com',
-  number: '+34 666 66 66 66',
+  phoneNumber: '+34 666 66 66 66',
 };
 
 // Endpoint que devuelve el usuario actual
 app.get('/api/current-user', (req, res) => {
   res.json(current_user); 
 });
+
+
+
+
+// Endpoint PUT para actualizar los datos del usuario
+app.put('/api/update-user', (req, res) => {
+  const { name, role, email, phoneNumber } = req.body;
+
+  if (!name || !role || !email || !phoneNumber) {
+    return res.status(400).json({ message: "All fields are required" });
+  }
+
+  current_user = {
+    name,
+    role,
+    email,
+    phoneNumber,
+  };
+
+  res.status(200).json({ message: "OK" });
+});
+
+
 
 
 
