@@ -3,6 +3,7 @@ import styles from "./SystemEntry.module.css";
 import NavBar from "../components/NavBar";
 import WebHeader from "../components/WebHeader";
 import LabelComponent from "../components/LabelComponent";
+import Background from "../components/Background.jsx";
 
 // Helper function to convert property names to UpperCamelCase
 const toUpperCamelCase = (str) => {
@@ -54,6 +55,7 @@ function SystemEntry() {
     return (
         <div className={styles.frameContainer}>
             <NavBar />
+            <Background /> {/* Fondo colorido */}
             <div className={styles.container}>
                 <WebHeader subtitle="View System Entry" />
 

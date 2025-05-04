@@ -3,7 +3,6 @@
     flex-direction: column;
     min-height: 100vh; /* Asegura que el fondo cubra toda la ventana */
     color: white;
-    background-color: #222; /* Fondo oscuro */
     background-size: cover; /* Asegura que el fondo se ajuste */
     width: 100%; /* Asegúrate de que ocupe todo el ancho */
 }
