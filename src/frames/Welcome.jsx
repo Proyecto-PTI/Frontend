@@ -28,8 +28,12 @@ function Welcome() {
 
         {/* Section: Login/Register */}
         <section className={styles.authSection}>
-          <button className={styles.loginBtn}>Log In</button>
+          <Link to="/login">
+          <button className={styles.loginBtn}>Log In</button>        
+          </Link>
+          <Link to="/sign-up">
           <button className={styles.registerBtn}>Sign Up</button>
+          </Link>
         </section>
 
         {/* Section: Authors */}
