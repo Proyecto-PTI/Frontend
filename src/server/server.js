@@ -98,32 +98,50 @@ const entrypoints = [
   {
     aula: "A5103",
     entryLocation: "Campus Nord",
-    labels: ["ESLAMIA", "FIB"]
+    labels: ["ESLAMIA", "FIB"],
+    AccessCameraId: "89-12-LD",
+    AccessLockId: "457898765D",
+    AccessAdministrator: "pepe.admin@gmail.com"
   },
   {
     aula: "C6E01",
     entryLocation: "Main Hall",
-    labels: ["Main", "Admin"]
+    labels: ["Main", "Admin"],
+    AccessCameraId: "90-34-MH",
+    AccessLockId: "123456789A",
+    AccessAdministrator: "admin.main@gmail.com"
   },
   {
     aula: "L1E02",
     entryLocation: "Library Entrance",
-    labels: ["Library", "Study"]
+    labels: ["Library", "Study"],
+    AccessCameraId: "78-56-LE",
+    AccessLockId: "987654321B",
+    AccessAdministrator: "library.admin@gmail.com"
   },
   {
     aula: "S2G03",
     entryLocation: "Sports Center",
-    labels: ["Sports", "Gym"]
+    labels: ["Sports", "Gym"],
+    AccessCameraId: "65-43-SC",
+    AccessLockId: "456789123C",
+    AccessAdministrator: "sports.admin@gmail.com"
   },
   {
     aula: "A3H04",
     entryLocation: "Auditorium",
-    labels: ["Events"]
+    labels: ["Events"],
+    AccessCameraId: "12-34-AU",
+    AccessLockId: "789123456D",
+    AccessAdministrator: "auditorium.admin@gmail.com"
   },
   {
     aula: "P4J05",
     entryLocation: "Parking Lot",
-    labels: ["Parking", "Vehicles"]
+    labels: ["Parking", "Vehicles"],
+    AccessCameraId: "34-56-PL",
+    AccessLockId: "321654987E",
+    AccessAdministrator: "parking.admin@gmail.com"
   }
 ];
 
@@ -325,6 +343,23 @@ app.put('/api/access-logs/:code', (req, res) => {
   } else {
     res.status(404).json({ message: 'Log not found' });
   }
+});
+
+// Endpoint para actualizar un punto de entrada
+app.put('/api/doors/:aula', (req, res) => {
+    const { aula } = req.params;
+    const updatedEntry = req.body;
+
+    // Encuentra el índice del punto de entrada
+    const index = entrypoints.findIndex((entry) => entry.aula === aula);
+
+    if (index !== -1) {
+        // Actualiza los datos en memoria
+        entrypoints[index] = { ...entrypoints[index], ...updatedEntry };
+        res.json({ message: 'Entry updated successfully', entry: entrypoints[index] });
+    } else {
+        res.status(404).json({ message: 'Entry not found' });
+    }
 });
 
 app.listen(port, () => {

@@ -23,31 +23,31 @@ function SystemEntry() {
     const [editingField, setEditingField] = useState(null);
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/access-logs")
+        fetch("http://localhost:5000/api/doors")
             .then((response) => response.json())
             .then((data) => {
                 setLogs(data);
             })
-            .catch((error) => console.error("Error fetching logs:", error));
+            .catch((error) => console.error("Error fetching entry points:", error));
     }, []);
 
     useEffect(() => {
-        if (logs.length === 0) return;
+        if (logs.length === 0) return; // Cambia `logs` a `entrypoints` si renombraste la variable
 
-        const selected = logs.find((log) => log.code === aula);
+        const selected = logs.find((entry) => entry.aula === aula); // Cambia `logs` a `entrypoints`
 
         if (selected) {
             setSelectedLog((prevSelected) => {
-                if (!prevSelected || prevSelected.code !== selected.code) {
+                if (!prevSelected || prevSelected.aula !== selected.aula) {
                     setEditableAttributes({ ...selected });
                     return selected;
                 }
                 return prevSelected;
             });
         } else {
-            console.warn(`No se encontró ningún log para el aula: ${aula}`);
+            console.warn(`No se encontró ningún punto de entrada para el aula: ${aula}`);
         }
-    }, [aula, logs]);
+    }, [aula, logs]); // Cambia `logs` a `entrypoints` si renombraste la variable
 
     const handleAttributeChange = (attribute, value) => {
         setEditableAttributes((prev) => ({
@@ -56,21 +56,14 @@ function SystemEntry() {
         }));
     };
 
-    const handleSelectLog = (log) => {
-        console.log("Log clicado:", log);
-        setSelectedLog(log);
-        setEditableAttributes({ ...log });
-        setEditingField(null);
-    };
-
     const handleSaveChanges = async () => {
-        if (!editableAttributes.code) {
+        if (!editableAttributes.aula) {
             alert("El código del aula no puede estar vacío.");
             return;
         }
 
         try {
-            const response = await fetch(`http://localhost:5000/api/access-logs/${editableAttributes.code}`, {
+            const response = await fetch(`http://localhost:5000/api/doors/${editableAttributes.aula}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -85,12 +78,14 @@ function SystemEntry() {
             const data = await response.json();
             console.log('Changes saved successfully:', data);
 
-            setSelectedLog(data.log);
+            // Actualiza el estado local con los datos actualizados
             setLogs((prevLogs) =>
                 prevLogs.map((log) =>
-                    log.code === data.log.code ? data.log : log
+                    log.aula === data.entry.aula ? data.entry : log
                 )
             );
+
+            setSelectedLog(data.entry);
             setEditingField(null);
         } catch (error) {
             console.error('Error saving changes:', error);
@@ -114,22 +109,22 @@ function SystemEntry() {
                 {selectedLog && (
                     <div className={styles.entryDetails}>
                         <h2 className={styles.entryTitle}>
-                            {editingField === "code" ? (
+                            {editingField === "aula" ? ( // Cambié "code" a "aula"
                                 <input
                                     type="text"
-                                    value={editableAttributes.code || ""}
+                                    value={editableAttributes.aula || ""}
                                     onChange={(e) =>
-                                        handleAttributeChange("code", e.target.value)
+                                        handleAttributeChange("aula", e.target.value)
                                     }
                                     className={styles.editableTitle}
                                 />
                             ) : (
-                                <span>{editableAttributes.code}</span>
+                                <span>{editableAttributes.aula}</span>
                             )}
                             <button
                                 className={styles.editButton}
                                 onClick={() =>
-                                    setEditingField(editingField === "code" ? null : "code")
+                                    setEditingField(editingField === "aula" ? null : "aula")
                                 }
                             >
                                 <svg
@@ -149,7 +144,7 @@ function SystemEntry() {
                             </button>
                         </h2>
 
-                        {["username", "status", "date", "time"].map((attribute) => (
+                        {["entryLocation", "AccessCameraId", "AccessLockId", "AccessAdministrator"].map((attribute) => (
                             <div key={`attribute-${attribute}`} className={styles.entryInfo}>
                                 <label>{toUpperCamelCase(attribute)}</label>
                                 {editingField === attribute ? (
