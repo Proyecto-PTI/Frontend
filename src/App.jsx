@@ -1,12 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'; // ⬅️ Asegúrate de importar Navigate
+import './App.css';
 
-import NavBar from './components/NavBar.jsx'; 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  // Importar Router, Routes y Route
-
-//website frames imports 
+// Frames
 import AccessAlerts from './frames/AccessAlerts';
 import AccessLogs from './frames/AccessLogs';
 import AddEntry from './frames/AddEntryPoint';
@@ -21,21 +17,14 @@ import SystemEntry from './frames/SystemEntry';
 import SystemSettings from './frames/SystemSettings';
 import UserProfile from './frames/UserProfile';
 import Users from './frames/Users';
-
-
-
+import Welcome from './frames/Welcome';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <Router>
-      <div >
-        {/* Barra de navegación */}
-        {/* <NavBar /> */}
-
-
-
+      <div>
         {/* Rutas */}
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
@@ -52,13 +41,14 @@ function App() {
           <Route path="/system-settings" element={<SystemSettings />} />
           <Route path="/users/:userId" element={<UserProfile />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/" element={<Welcome/>} />
 
-          {/* Ruta predeterminada (página no encontrada) */}
-          <Route path="/" element={<h1>Bienvenido a nuestra web de pti</h1>} />
+          {/* Ruta para redirigir todo lo no definido */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
     </Router>
-  ); 
+  );
 }
 
-export default App
+export default App;

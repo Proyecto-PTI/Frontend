@@ -1,0 +1,90 @@
+.container {
+    color: #c9d1d9;
+    padding: 2rem;
+    min-height: 100vh;
+    font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  }
+  
+  .header {
+    margin-top: 80px;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .logo {
+    color: #ff9800;
+      letter-spacing: 8px;
+      align-self: center;
+      font-size: 36px;
+      font-weight: 300;
+      margin: 0;
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+    color: #00c8c8; 
+  }
+  
+  .section {
+    margin: 2rem 0;
+  }
+  
+  .section h2 {
+    color: white; 
+    margin-bottom: 0.5rem;
+  }
+  
+  .section p,
+  .section li {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .techList,
+  .authorsList {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .authSection {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 3rem 0;
+  }
+  
+  .loginBtn,
+  .registerBtn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .loginBtn {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  .loginBtn:hover {
+    background-color: #ff9800;
+  }
+  
+  .registerBtn {
+    background-color: #00c8c8; 
+    color: white;
+  }
+  
+  .registerBtn:hover {
+    background-color: #00c8c8; 
+  }
+  
+  .footer {
+    text-align: center;
+    margin-top: 4rem;
+    color: #8b949e;
+    font-size: 0.9rem;
+  }
+  
