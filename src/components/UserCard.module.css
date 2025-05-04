@@ -86,11 +86,7 @@
     font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
   }
   
-  @media (max-width: 991px) {
-    .userDetails {
-      margin-top: 31px;
-    }
-  }
+ 
   
   .userTextInfo {
     flex-direction: column;
@@ -141,7 +137,7 @@
   .actionColumn {
     display: flex;
     align-items: center;
-    margin-left: 0; /* asegúrate que no tenga margen lateral */
+    margin-left: 0;
   }
   
   @media (max-width: 768px) {

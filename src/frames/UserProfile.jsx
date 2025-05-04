@@ -1,106 +1,188 @@
-
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import styles from "./UserProfile.module.css";
-import WebHeader from "../components/WebHeader.jsx"; 
-import UserHeader from "../components/UserHeader.jsx";
+import WebHeader from "../components/WebHeader.jsx";
 import LabelComponent from "../components/LabelComponent.jsx";
 import AddImages from "../components/AddImages.jsx";
-import NavBar from "../components/NavBar.jsx"; 
+import NavBar from "../components/NavBar.jsx";
+import Background from "../components/Background.jsx"; 
+import Access from "../components/Access.jsx";
 
-// Main UserProfile component
 function UserProfile() {
-  const [selectedImages, setSelectedImages] = useState([]);
-  const [uploadStatus, setUploadStatus] = useState("idle"); // idle, loading, success, error
-  const fileInputRef = useRef(null);
+  const navigate = useNavigate();
+  const { userId } = useParams();
 
-  const handleImageUpload = (event) => {
-    const files = event.target.files;
-    if (files && files.length > 0) {
-      const newImages = Array.from(files).map((file) => ({
-        file,
-        preview: URL.createObjectURL(file),
-      }));
-      setSelectedImages((prevImages) => [...prevImages, ...newImages]);
-      setUploadStatus("idle");
+  const [userName, setUserName] = useState('');
+  const [userRole, setUserRole] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userPhoneNumber, setUserPhoneNumber] = useState('');
+  const [labels, setLabels] = useState([]);
+  const [selectedImages, setSelectedImages] = useState([]);
+
+  
+useEffect(() => {
+  const fetchUser = async () => {
+    try {
+      const res = await fetch(`http://localhost:5000/api/users/${userId}`);
+      if (!res.ok) throw new Error("Failed to fetch user data");
+      const data = await res.json();
+
+      setUserName(data.name || '');
+      setUserRole(data.role || '');
+      setUserEmail(data.email || '');
+      setUserPhoneNumber(data.phoneNumber || '');
+      setLabels(data.labels || []);
+      
+    } catch (error) {
+      console.error(error);
+      setMessage("Error fetching user data");
+      setMessageType("error");
     }
   };
 
-  const triggerFileInput = () => {
-    fileInputRef.current.click();
-  };
+  fetchUser();
+}, [userId]);
 
-  const handleSubmitImages = async () => {
-    if (selectedImages.length === 0) return;
+  // Estados para manejar los mensajes de éxito o error
+  const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState(''); // 'success' o 'error'
 
+  const handleUpdateUser = async () => {
+    if (!userName || !userEmail) {
+      setMessage("Please fill in required fields.");
+      setMessageType("error");
+      return;
+    }
+  
+    const formData = new FormData();
+    formData.append("userName", userName);
+    formData.append("userRole", userRole);
+    formData.append("userEmail", userEmail);
+    formData.append("userPhoneNumber", userPhoneNumber);
+    labels.forEach((label, index) => {
+      formData.append(`labels[${index}]`, label.text);
+    });
+    selectedImages.forEach((image) => {
+      formData.append("images", image);
+    });
+  
     try {
-      setUploadStatus("loading");
-
-      // Simulación de envío de imágenes a un servidor
-      // En un caso real, aquí se enviarían las imágenes a un endpoint de API
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      // Simular éxito después de 2 segundos
-      setUploadStatus("success");
-
-      // Opcional: limpiar las imágenes después de un envío exitoso
-      // setTimeout(() => {
-      //   setSelectedImages([]);
-      //   setUploadStatus('idle');
-      // }, 3000);
+      const response = await fetch(`http://localhost:5000/api/users/${userId}`,  {
+        method: "PUT", // o PATCH
+        body: formData,
+      });
+  
+      if (response.ok) {
+        setMessage("User updated successfully!");
+        setMessageType("success");
+      } else {
+        setMessage("Failed to update user.");
+        setMessageType("error");
+      }
     } catch (error) {
-      console.error("Error al enviar imágenes:", error);
-      setUploadStatus("error");
+      console.error("Update error", error);
+      setMessage("Error updating user.");
+      setMessageType("error");
     }
   };
 
   return (
     <div className={styles.frameContainer}>
-        <NavBar />
-    <main className={styles.viewProfile}>
-      <WebHeader subtitle="View User Profile" />
-      <UserHeader />
-      <AddImages/>
-      <LabelComponent subtitle="Access Permissions"/>
-      <AccessLogs />
-    </main>
-    </div>
-  );
-}
+      <NavBar />
+      <Background />
+      <section className={styles.addUser}>
+        <WebHeader subtitle="View User Profile" />
 
-
-
-
-
-
-
-
-
-
-// Access logs component por ahora inanimado 
-function AccessLogs() {
-  return (
-    <>
-    <div className={styles.divaccesslogs}>
-      <h3 className={styles.latestAccessLogs}>Latest Access Logs</h3>
-
-      <section className={styles.logsContainer}>
-
-        <div className={styles.logEntry}>
-
-          <div className={styles.logUserInfo}>
-            <span className={styles.logUserName}>Pepe Admin. </span>
-            <span className={styles.logLocation}>A5S103</span>
-          </div>
-
-          <div className={styles.logDetails}>
-            <time className={styles.logTimestamp}>17:08:35 23/03/2025</time>
-            <div className={styles.authorizedAccess}>Authorized Access</div>
-          </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={styles.userimg}>
+            <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clipRule="evenodd" />
+          </svg>
         </div>
+
+        <form className={styles.form}>
+          <div className={styles.div2}>
+            <label className={styles.userName} >
+              User Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              className={styles.namebox}
+              placeholder="Enter the user name..."
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </div>
+          <div className={styles.div3}>
+            <label className={styles.userRole} >
+              System Role 
+            </label>
+            <select
+              className={styles.roleSelect}
+              value={userRole}
+              onChange={(e) => setUserRole(e.target.value)}
+            >
+              <option value="">Select Role</option>
+              <option value="admin">Administrator</option>
+              <option value="user">Standard User</option>
+            </select>
+          </div>
+          <div className={styles.div4}>
+            <label className={styles.userEmail} >
+              Email
+            </label>
+            <input
+              id="email"
+              type="text"
+              className={styles.emailbox}
+              placeholder="Enter the user email..."
+              value={userEmail}
+              onChange={(e) => setUserEmail(e.target.value)}
+            />
+          </div>
+          <div className={styles.div5}>
+            <label className={styles.userPhoneNumber} >
+              Phone Number
+            </label>
+            <input
+              id="number"
+              type="text"
+              className={styles.numberbox}
+              placeholder="Enter the user phone number..."
+              value={userPhoneNumber}
+              onChange={(e) => setUserPhoneNumber(e.target.value)}
+            />
+          </div>
+        </form>
+
+        <LabelComponent subtitle="Entry Labels" initialLabels={labels} onLabelsChange={setLabels} />
+        <AddImages onImagesSelected={setSelectedImages} />
+
+
+          <div className={styles.buttonmessage}>
+          {/* Mostrar mensaje de éxito o error */}
+          {message && (
+            <div className={`${styles.message} ${styles[messageType]}`}>
+              {message}
+            </div>
+          )}
+            <button
+              className={styles.createUser}
+              onClick={handleUpdateUser}
+              type="button"
+            >
+              Save Changes
+            </button>
+
+          <div className={styles.records}>
+            <h4>Latest Access logs</h4>
+            <Access statusFilter="" usernameFilter={userName} codeFilter="" dateFilter="" groupByDate={false} limit=""/>
+          </div>
+
+          </div>
 
       </section>
     </div>
-    </>
   );
 }
 

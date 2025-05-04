@@ -27,18 +27,14 @@
     font-size: 18px;
     align-items: start;
     gap: 10px;
-    padding: 10px 15px 0px 15px;
+    padding: 10px 15px 10px 15px;
     font-weight: 600;
     display: flex;
     border: none;
     cursor: pointer;
   }
   
-  .addUserIcon {
-    height: 30px;
-    width: 30px;
-  }
-  
+
   /*contador*/
   .userCount {
     color: #00c8c8;
@@ -63,7 +59,7 @@
     margin-top: 40px;
     border: none;
     padding: 10px;
-    background-color: #181c1c; 
+    background-color: #111; 
     border-radius: 20px;
   }
   

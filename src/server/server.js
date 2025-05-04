@@ -271,6 +271,67 @@ app.get('/api/current-user', (req, res) => {
   res.json(current_user); 
 });
 
+
+
+//usuarios
+
+const users = [ 
+    {
+      id: 1,
+      name: "Pepe Admin.",
+      email: "pepe.admin@gmail.com",
+      role: "admin",
+      phoneNumber: "123456789",
+      labels: [{ "text": "Admin Access" }]
+    },
+    {
+      id: 2,
+      name: "Maria Garcia",
+      email: "maria.garcia@gmail.com",
+      role: "user",
+      phoneNumber: "987654321",
+      labels: [{ "text": "Editor" }]
+    }
+]
+
+app.get('/api/users', (req, res) => {
+  res.json(users);
+});
+
+// Endpoint que devuelve el usuario con id 
+app.get('/api/users/:id', (req, res) => {
+  const userId = parseInt(req.params.id);
+  const user = users.find(u => u.id === userId);
+  if (user) {
+    res.json(user);
+  } else {
+    res.status(404).json({ message: "User not found" });
+  }
+});
+
+// Endpoint para actualizar un usuario por ID
+app.put('/api/users/:id', (req, res) => {
+  const userId = parseInt(req.params.id);
+  const userIndex = users.findIndex(u => u.id === userId);
+
+  if (userIndex !== -1) {
+    const { name, email, role, phoneNumber, labels } = req.body;
+
+    users[userIndex] = {
+      ...users[userIndex],
+      name,
+      email,
+      role,
+      phoneNumber,
+      labels
+    };
+
+    res.json({ message: "User updated successfully", user: users[userIndex] });
+  } else {
+    res.status(404).json({ message: "User not found" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
 });

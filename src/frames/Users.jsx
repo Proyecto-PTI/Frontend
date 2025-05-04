@@ -13,17 +13,18 @@ const Users = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Simulación del fetch al backend
     const fetchUsers = async () => {
-      const data = [
-        { id: 1, name: 'Pepe Admin.', email: 'pepe.admin@gmail.com', role: 'Administrator' },
-        { id: 2, name: 'Maria Garcia', email: 'maria.garcia@gmail.com', role: 'Content Manager' },
-        { id: 3, name: 'Juan Lopez', email: 'juan.lopez@gmail.com', role: 'Editor' }
-      ];
-      setUsers(data);
-      setFiltered(data);
+      try {
+        const res = await fetch("http://localhost:5000/api/users"); // o la URL correcta
+        if (!res.ok) throw new Error("Error fetching users");
+        const data = await res.json();
+        setUsers(data);
+        setFiltered(data);
+      } catch (error) {
+        console.error("Failed to fetch users:", error);
+      }
     };
-
+  
     fetchUsers();
   }, []);
 
@@ -75,12 +76,12 @@ const Users = () => {
           />
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={styles.searchIcon}>
                   <path d="M8.25 10.875a2.625 2.625 0 1 1 5.25 0 2.625 2.625 0 0 1-5.25 0Z" />
-                  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.125 4.5a4.125 4.125 0 1 0 2.338 7.524l2.007 2.006a.75.75 0 1 0 1.06-1.06l-2.006-2.007a4.125 4.125 0 0 0-3.399-6.463Z" clip-rule="evenodd" />
+                  <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.125 4.5a4.125 4.125 0 1 0 2.338 7.524l2.007 2.006a.75.75 0 1 0 1.06-1.06l-2.006-2.007a4.125 4.125 0 0 0-3.399-6.463Z" clip-rule="evenodd" />
                 </svg>
         </div>
         <div className={styles.userList}>
         {filtered.map(user => (
-            <UserCard key={user.id} name={user.name} email={user.email} role={user.role} />
+            <UserCard key={user.id} id={user.id} name={user.name} email={user.email} role={user.role} />
           ))}
         </div>
       </div>

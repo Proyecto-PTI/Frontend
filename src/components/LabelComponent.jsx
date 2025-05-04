@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styles from "./LabelComponent.module.css";
 
 
-// Label component con icono SVG 
 const EntryLabel = ({ text, onRemove }) => {
   return (
     <div className={styles.divlabel}>
@@ -25,47 +24,43 @@ const EntryLabel = ({ text, onRemove }) => {
   );
 };
 
-
 function LabelComponent({ subtitle, initialLabels = [], onLabelsChange }) {
-  const [labels, setLabels] = useState(initialLabels);
-  
+  const [labels, setLabels] = useState(initialLabels || []);
 
-  
-    // Handler for input changes
-    useEffect(() => {
-      if (onLabelsChange) {
-        onLabelsChange(labels);
-      }
-    }, [labels, onLabelsChange]);
+  // Sincronizar cambios desde el padre
+  useEffect(() => {
+    setLabels(initialLabels || []);
+  }, [initialLabels]);
 
+  // Notificar cambios al padre
+  useEffect(() => {
+    if (onLabelsChange) {
+      onLabelsChange(labels);
+    }
+  }, [labels, onLabelsChange]);
 
-  
-    // Handler to remove a specific label
-    const handleRemoveLabel = (labelId) => {
-      setLabels((prevLabels) =>
-        prevLabels.filter((label) => label.id !== labelId),
-      );
-    };
-  
-    // Handler to remove all labels
-    const handleRemoveAllLabels = () => {
-      setLabels([]);
-    };
-  
-    // Añadir nueva etiqueta
-   const handleAddNewLabel = () => {
+  const handleRemoveLabel = (labelId) => {
+    setLabels((prevLabels) =>
+      prevLabels.filter((label) => label.id !== labelId),
+    );
+  };
+
+  const handleRemoveAllLabels = () => {
+    setLabels([]);
+  };
+
+  const handleAddNewLabel = () => {
     const newLabelText = prompt("Enter new label text:");
     if (newLabelText && newLabelText.trim() !== "") {
       const newLabel = {
-        id: Date.now(), //id segun la fecha
+        id: Date.now(),
         text: newLabelText.trim(),
       };
       setLabels((prevLabels) => [...prevLabels, newLabel]);
     }
   };
-  
-  
-    return (
+
+  return (
     <section className={styles.section}>
       <h3 className={styles.subtitle}>{subtitle}</h3>
 
