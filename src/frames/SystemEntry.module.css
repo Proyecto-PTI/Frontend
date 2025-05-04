@@ -1,43 +1,74 @@
 .frameContainer {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Asegura que el fondo cubra toda la ventana */
-    color: white;
-    background-size: cover; /* Asegura que el fondo se ajuste */
-    width: 100%; /* Asegúrate de que ocupe todo el ancho */
+
+    align-items: center;
+    justify-content: center; 
+
 }
 
 .container {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    max-width: 100%; /* Asegúrate de que no limite el ancho */
+    align-self: center;
+    align-items: center;
+    margin: 10px 20px;
+
+    overflow: hidden;
+    padding: 2rem;
+    min-height: 100vh;
+    z-index: 0;
+    width: 100%;
+
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-self: center;
+    align-items: center;
+    width: 100%;
+    max-width: 878px; 
+    margin: 0 auto; 
+    margin: 10px 20px;
+    padding: 10px 20px;
 }
 
 .entryDetails {
     margin-bottom: 20px;
-    background-color: #2e2e2e;
+    background-color: #181c1c;
     padding: 20px;
     border-radius: 10px;
-    max-width: 800px; /* Aumenta el ancho máximo */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    width: 100%;
 }
 
 .entryTitle {
-    font-size: 2rem; /* Tamaño del texto */
+    font-size: 2rem;
     font-weight: bold;
-    color: white; /* Cambia el color del texto a blanco */
+    color: white;
     background: none;
     border: none;
     outline: none;
     width: 100%;
-    text-align: center; /* Centra el texto horizontalmente */
-    margin-bottom: 20px; /* Espacio inferior */
-    display: flex; /* Cambia a flexbox para alinear el lápiz */
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center; /* Alinea el lápiz verticalmente */
-    gap: 10px; /* Espacio entre el texto y el lápiz */
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.editableTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    text-align: center;
 }
 
 .entryimg {
@@ -54,159 +85,25 @@
 .entryInfo {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Alinea verticalmente los elementos */
-    margin-bottom: 10px; /* Reduce el espacio entre filas */
+    align-items: center;
+    margin-bottom: 10px;
     font-size: 1rem;
     color: #ccc;
-    gap: 10px; /* Añade un pequeño espacio entre las columnas */
+    gap: 10px;
 }
 
 .entryInfo label {
     font-weight: bold;
     color: white;
-    flex: 1; /* Asegura que las etiquetas ocupen el mismo espacio */
+    flex: 1;
     text-align: left;
 }
 
 .entryInfo span,
 .entryInfo input {
-    flex: 2; /* Asegura que los valores ocupen más espacio */
+    flex: 2;
     text-align: left;
-    max-width: 300px; /* Limita el ancho máximo de los valores */
-}
-
-.labels {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.label {
-    background-color: #036;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.removeLabel {
-    background: none;
-    border: none;
-    color: red;
-    margin-left: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.addLabel {
-    background-color: #00c8c8;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.logsTitle {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.logEntry {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1a3d5d; /* Fondo azul oscuro */
-    padding: 10px 15px;
-    border-radius: 8px;
-    color: white;
-}
-
-.logUserInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Alinea el contenido a la izquierda */
-    gap: 5px;
-}
-
-.logUsername {
-    font-weight: bold;
-    color: #00c8c8; /* Azul claro */
-}
-
-.logAula {
-    font-size: 0.9rem;
-    color: white; /* Texto en blanco */
-    text-align: left; /* Asegura que el texto esté alineado a la izquierda */
-}
-
-.logDetails {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 5px;
-}
-
-.logTimeDate {
-    display: flex;
-    justify-content: space-between;
-    width: 100%; /* Asegura que ocupen todo el ancho disponible */
-    gap: 10px; /* Espacio entre hora y día */
-}
-
-.logTime,
-.logDate {
-    font-size: 0.9rem;
-    color: #ccc; /* Gris claro */
-}
-
-.logStatus {
-    font-size: 0.9rem;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-    text-align: center;
-    margin-top: 5px; /* Espacio entre el estado y los elementos superiores */
-}
-
-.authorized,
-.denied {
-    font-size: 0.9rem;
-    font-weight: bold;
-    padding: 10px 20px; /* Espaciado interno */
-    border-radius: 5px;
-    text-align: center;
-    color: black; /* Texto negro */
-    min-width: 150px; /* Asegura que ambos tengan el mismo ancho mínimo */
-    display: inline-block; /* Asegura que se comporten como bloques alineados */
-}
-
-.authorized {
-    background-color: #00e208; /* Verde */
-}
-
-.denied {
-    background-color: #ff4d4d; /* Rojo más claro */
-}
-
-.editableTitle {
-    font-size: 2rem;
-    font-weight: bold;
-    color: white; /* Cambia el color del texto a blanco */
-    background: none;
-    border: none;
-    outline: none;
-    width: 100%;
-    text-align: center;
+    max-width: 300px;
 }
 
 .editableInput {
@@ -214,9 +111,10 @@
     color: white;
     border: 1px solid #555;
     border-radius: 5px;
-    padding: 5px 8px; /* Reduce el padding */
-    font-size: 0.9rem; /* Reduce ligeramente el tamaño del texto */
+    padding: 5px 8px;
+    font-size: 0.9rem;
     width: 100%;
+    margin-bottom: 30px;
 }
 
 .editableInput:focus {
@@ -224,18 +122,19 @@
 }
 
 .saveButton {
-    background-color: #00e208;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 20px;
-}
 
-.saveButton:hover {
-    background-color: #00c800;
+    color: #fff;
+    text-align: center;
+    background-color: #ff9800;
+    border-radius: 20px;
+    align-self: center;
+    width: 345px;
+    max-width: 100%;
+    margin-top: 80px;
+    padding: 12px 70px;
+    font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .editButton {
@@ -247,7 +146,7 @@
 }
 
 .editIcon {
-    width: 20px; /* Tamaño del ícono */
+    width: 20px;
     height: 20px;
     color: #00c8c8;
     transition: color 0.3s;
@@ -255,4 +154,13 @@
 
 .editButton:hover .editIcon {
     color: #00e208;
+}
+
+.records {
+    margin-top: 70px; 
+    background-color: rgba(24, 28, 28, 0.5); 
+    border-radius: 20px;
+    padding: 10px 20px; 
+    width: 100%;
+    max-width: 878px;
 }

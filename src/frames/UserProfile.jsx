@@ -1,87 +1,84 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import styles from "./UserProfile.module.css";
-import WebHeader from "../components/WebHeader.jsx";
-import LabelComponent from "../components/LabelComponent.jsx";
-import AddImages from "../components/AddImages.jsx";
-import NavBar from "../components/NavBar.jsx";
-import Background from "../components/Background.jsx"; 
-import Access from "../components/Access.jsx";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import styles from "./SystemEntry.module.css";
+import NavBar from "../components/NavBar";
+import WebHeader from "../components/WebHeader";
+import LabelComponent from "../components/LabelComponent";
+import Background from "../components/Background.jsx";
+import Access from "../components/Access";
 
-function UserProfile() {
-  const navigate = useNavigate();
-  const { userId } = useParams();
+// Helper function to convert property names to UpperCamelCase
+const toUpperCamelCase = (str) => {
+  return str
+    .replace(/([A-Z])/g, " $1")
+    .replace(/^./, (char) => char.toUpperCase())
+    .replace(/\bId\b/, "ID");
+};
 
-  const [userName, setUserName] = useState('');
-  const [userRole, setUserRole] = useState('');
-  const [userEmail, setUserEmail] = useState('');
-  const [userPhoneNumber, setUserPhoneNumber] = useState('');
-  const [labels, setLabels] = useState([]);
-  const [selectedImages, setSelectedImages] = useState([]);
+function SystemEntry() {
+  const { aula } = useParams();
+  const [logs, setLogs] = useState([]);
+  const [selectedLog, setSelectedLog] = useState(null);
+  const [editableAttributes, setEditableAttributes] = useState({});
+  const [editingField, setEditingField] = useState(null);
+  const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState('');
 
-  
-useEffect(() => {
-  const fetchUser = async () => {
-    try {
-      const res = await fetch(`http://localhost:5000/api/users/${userId}`);
-      if (!res.ok) throw new Error("Failed to fetch user data");
-      const data = await res.json();
+  useEffect(() => {
+    fetch("http://localhost:5000/api/access-logs")
+      .then((response) => response.json())
+      .then((data) => setLogs(data))
+      .catch((error) => console.error("Error fetching logs:", error));
+  }, []);
 
-      setUserName(data.name || '');
-      setUserRole(data.role || '');
-      setUserEmail(data.email || '');
-      setUserPhoneNumber(data.phoneNumber || '');
-      setLabels(data.labels || []);
-      
-    } catch (error) {
-      console.error(error);
-      setMessage("Error fetching user data");
-      setMessageType("error");
+  useEffect(() => {
+    if (logs.length === 0) return;
+
+    const selected = logs.find((log) => log.code === aula);
+    if (selected) {
+      setSelectedLog(selected);
+      setEditableAttributes({ ...selected });
+    } else {
+      console.warn(`No se encontró ningún log para el aula: ${aula}`);
     }
+  }, [aula, logs]);
+
+  const handleAttributeChange = (attribute, value) => {
+    setEditableAttributes((prev) => ({
+      ...prev,
+      [attribute]: value,
+    }));
   };
 
-  fetchUser();
-}, [userId]);
-
-  // Estados para manejar los mensajes de éxito o error
-  const [message, setMessage] = useState('');
-  const [messageType, setMessageType] = useState(''); // 'success' o 'error'
-
-  const handleUpdateUser = async () => {
-    if (!userName || !userEmail) {
-      setMessage("Please fill in required fields.");
+  const handleSaveChanges = async () => {
+    if (!editableAttributes.code) {
+      setMessage("El código del aula no puede estar vacío.");
       setMessageType("error");
       return;
     }
-  
-    const formData = new FormData();
-    formData.append("userName", userName);
-    formData.append("userRole", userRole);
-    formData.append("userEmail", userEmail);
-    formData.append("userPhoneNumber", userPhoneNumber);
-    labels.forEach((label, index) => {
-      formData.append(`labels[${index}]`, label.text);
-    });
-    selectedImages.forEach((image) => {
-      formData.append("images", image);
-    });
-  
+
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${userId}`,  {
-        method: "PUT", // o PATCH
-        body: formData,
+      const response = await fetch(`http://localhost:5000/api/access-logs/${editableAttributes.code}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(editableAttributes),
       });
-  
-      if (response.ok) {
-        setMessage("User updated successfully!");
-        setMessageType("success");
-      } else {
-        setMessage("Failed to update user.");
-        setMessageType("error");
-      }
+
+      if (!response.ok) throw new Error("Failed to save changes");
+
+      const data = await response.json();
+      setSelectedLog(data.log);
+      setLogs((prevLogs) =>
+        prevLogs.map((log) =>
+          log.code === data.log.code ? data.log : log
+        )
+      );
+      setMessage("Changes saved successfully!");
+      setMessageType("success");
+      setEditingField(null);
     } catch (error) {
-      console.error("Update error", error);
-      setMessage("Error updating user.");
+      console.error("Error saving changes:", error);
+      setMessage("Error saving changes.");
       setMessageType("error");
     }
   };
@@ -90,100 +87,115 @@ useEffect(() => {
     <div className={styles.frameContainer}>
       <NavBar />
       <Background />
+
       <section className={styles.addUser}>
-        <WebHeader subtitle="View User Profile" />
+        <WebHeader subtitle={`View System Entry for ${aula}`} />
 
         <div>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={styles.userimg}>
-            <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clipRule="evenodd" />
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 487.757" fill="white" className={styles.entryimg}>
+            <path d="M237.677.127L11.494 33.889C5.199 34.824 0 41.34 0 47.811v398.691c0 6.437 5.131 8.928 11.494 9.806l226.183 31.384c6.357.878 11.493-7.394 11.493-13.922V9.933c0-6.528-5.267-10.729-11.493-9.806zM454.192 145.453c-8.147-9.561 6.322-21.841 14.424-12.326..."/>
           </svg>
         </div>
 
-        <form className={styles.form}>
-          <div className={styles.div2}>
-            <label className={styles.userName} >
-              User Name
-            </label>
-            <input
-              id="name"
-              type="text"
-              className={styles.namebox}
-              placeholder="Enter the user name..."
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-            />
-          </div>
-          <div className={styles.div3}>
-            <label className={styles.userRole} >
-              System Role 
-            </label>
-            <select
-              className={styles.roleSelect}
-              value={userRole}
-              onChange={(e) => setUserRole(e.target.value)}
-            >
-              <option value="">Select Role</option>
-              <option value="admin">Administrator</option>
-              <option value="user">Standard User</option>
-            </select>
-          </div>
-          <div className={styles.div4}>
-            <label className={styles.userEmail} >
-              Email
-            </label>
-            <input
-              id="email"
-              type="text"
-              className={styles.emailbox}
-              placeholder="Enter the user email..."
-              value={userEmail}
-              onChange={(e) => setUserEmail(e.target.value)}
-            />
-          </div>
-          <div className={styles.div5}>
-            <label className={styles.userPhoneNumber} >
-              Phone Number
-            </label>
-            <input
-              id="number"
-              type="text"
-              className={styles.numberbox}
-              placeholder="Enter the user phone number..."
-              value={userPhoneNumber}
-              onChange={(e) => setUserPhoneNumber(e.target.value)}
-            />
-          </div>
-        </form>
+        {selectedLog && (
+          <div className={styles.entryDetails}>
+            <h2 className={styles.entryTitle}>
+              {editingField === "code" ? (
+                <input
+                  type="text"
+                  value={editableAttributes.code || ""}
+                  onChange={(e) => handleAttributeChange("code", e.target.value)}
+                  className={styles.editableTitle}
+                />
+              ) : (
+                <span>{editableAttributes.code}</span>
+              )}
+              <button
+                className={styles.editButton}
+                onClick={() =>
+                  setEditingField(editingField === "code" ? null : "code")
+                }
+              >
+                ✎
+              </button>
+            </h2>
 
-        <LabelComponent subtitle="Entry Labels" initialLabels={labels} onLabelsChange={setLabels} />
-        <AddImages onImagesSelected={setSelectedImages} />
-
-
-          <div className={styles.buttonmessage}>
-          {/* Mostrar mensaje de éxito o error */}
-          {message && (
-            <div className={`${styles.message} ${styles[messageType]}`}>
-              {message}
-            </div>
-          )}
-            <button
-              className={styles.createUser}
-              onClick={handleUpdateUser}
-              type="button"
-            >
-              Save Changes
-            </button>
-
-          <div className={styles.records}>
-            <h4>Latest Access logs</h4>
-            <Access statusFilter="" usernameFilter={userName} codeFilter="" dateFilter="" groupByDate={false} limit=""/>
+            {["username", "status", "date", "time"].map((attribute) => (
+              <div key={attribute} className={styles.entryInfo}>
+                <label>{toUpperCamelCase(attribute)}</label>
+                {editingField === attribute ? (
+                  <input
+                    type="text"
+                    value={editableAttributes[attribute] || ""}
+                    onChange={(e) => handleAttributeChange(attribute, e.target.value)}
+                    className={styles.editableInput}
+                  />
+                ) : (
+                  <span>{editableAttributes[attribute]}</span>
+                )}
+                <button
+                  className={styles.editButton}
+                  onClick={() =>
+                    setEditingField(editingField === attribute ? null : attribute)
+                  }
+                >
+                  ✎
+                </button>
+              </div>
+            ))}
           </div>
+        )}
 
+        {selectedLog && (
+          <LabelComponent
+            subtitle="Entry Labels"
+            labels={editableAttributes.labels || []}
+            onAddLabel={(newLabel) =>
+              handleAttributeChange("labels", [
+                ...(editableAttributes.labels || []),
+                newLabel,
+              ])
+            }
+            onRemoveLabel={(labelToRemove) =>
+              handleAttributeChange(
+                "labels",
+                (editableAttributes.labels || []).filter(
+                  (label) => label !== labelToRemove
+                )
+              )
+            }
+          />
+        )}
+
+        {message && (
+          <div className={styles.message + " " + styles[messageType]}>
+            {message}
           </div>
+        )}
 
+        {selectedLog && (
+          <button
+            onClick={handleSaveChanges}
+            className={styles.saveButton}
+          >
+            Save Changes
+          </button>
+        )}
       </section>
+
+      <div className={styles.records}>
+        <h4>Latest Access logs</h4>
+        <Access
+          statusFilter=""
+          usernameFilter=""
+          codeFilter={aula}
+          dateFilter=""
+          groupByDate={false}
+          limit=""
+        />
+      </div>
     </div>
   );
 }
 
-export default UserProfile;
+export default SystemEntry;
