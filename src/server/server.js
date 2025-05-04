@@ -10,157 +10,88 @@ app.use(express.json());
 const logs = [
   {
     username: 'Pepe Admin.',
-    code: 'A5S1O3',
-    time: '17:08:35',
+    code: 'A5103',
+    time: '08:23:45',
     date: '2025-03-23',
     status: 'Authorized Access'
   },
   {
     username: 'Yolanda Romero',
-    code: 'C6S1O2',
-    time: '14:08:25',
+    code: 'C6E01',
+    time: '09:15:30',
     date: '2025-03-23',
     status: 'Authorized Access'
   },
   {
     username: 'Mar Puigmartí',
-    code: 'A5S1O3',
-    time: '13:09:02',
+    code: 'L1E02',
+    time: '10:45:12',
     date: '2025-03-23',
     status: 'Access Denied'
-  },
-  {
-    username: 'Pepe Admin.',
-    code: 'B6E001',
-    time: '11:12:41',
-    date: '2025-03-23',
-    status: 'Authorized Access'
-  },
-  {
-    username: 'Pepe Admin.',
-    code: 'A5S1O3',
-    time: '23:00:41',
-    date: '2025-03-23',
-    status: 'Authorized Access'
-  },
-  {
-    username: 'Albert Gómez',
-    code: 'A5S1O3',
-    time: '22:03:55',
-    date: '2025-03-22',
-    status: 'Access Denied'
-  },
-  {
-    username: 'Yolanda Romero',
-    code: 'C6S1O2',
-    time: '13:55:36',
-    date: '2025-03-22',
-    status: 'Authorized Access'
-  },
-  {
-    username: 'Mar Puigmartí',
-    code: 'A5S1O3',
-    time: '13:09:02',
-    date: '2025-03-22',
-    status: 'Authorized Access'
   },
   {
     username: 'Carlos López',
-    code: 'D7H8I9',
-    time: '10:05:00',
-    date: '2025-04-27',
+    code: 'S2G03',
+    time: '11:30:00',
+    date: '2025-03-23',
     status: 'Authorized Access'
   },
   {
     username: 'Lucía Fernández',
-    code: 'J9K1L2',
-    time: '12:45:30',
-    date: '2025-04-27',
+    code: 'A3H04',
+    time: '12:15:20',
+    date: '2025-03-23',
     status: 'Access Denied'
   },
   {
+    username: 'Albert Gómez',
+    code: 'P4J05',
+    time: '13:45:10',
+    date: '2025-03-23',
+    status: 'Authorized Access'
+  },
+  {
     username: 'Pepe Admin.',
-    code: 'F4G5H6',
-    time: '15:30:15',
-    date: '2025-04-27',
+    code: 'A5103',
+    time: '14:00:00',
+    date: '2025-03-24',
+    status: 'Authorized Access'
+  },
+  {
+    username: 'Yolanda Romero',
+    code: 'C6E01',
+    time: '15:30:00',
+    date: '2025-03-24',
+    status: 'Authorized Access'
+  },
+  {
+    username: 'Mar Puigmartí',
+    code: 'L1E02',
+    time: '16:45:00',
+    date: '2025-03-24',
+    status: 'Access Denied'
+  },
+  {
+    username: 'Carlos López',
+    code: 'S2G03',
+    time: '17:30:00',
+    date: '2025-03-24',
+    status: 'Authorized Access'
+  },
+  {
+    username: 'Lucía Fernández',
+    code: 'A3H04',
+    time: '18:15:00',
+    date: '2025-03-24',
+    status: 'Access Denied'
+  },
+  {
+    username: 'Albert Gómez',
+    code: 'P4J05',
+    time: '19:45:00',
+    date: '2025-03-24',
     status: 'Authorized Access'
   }
-];
-
-// Datos de puertas
-const doors = [
-  {
-    entryLocation: "Campus Nord",
-    accessCameraId: "89-12-LD",
-    accessLockId: "45789765D",
-    accessAdministrator: "pepe.admin@gmail.com",
-    aula: "A5103",
-    labels: ["ESLAMIA", "FIB"],
-    authorizedAccess: true, // Cambiado a booleano
-    name: "Pepe Admin.",
-    hora: "08:23:45", // Nuevo campo
-    día: "23/03/2025", // Nuevo campo
-  },
-  {
-    entryLocation: "Main Hall",
-    accessCameraId: "12-34-AB",
-    accessLockId: "12345678A",
-    accessAdministrator: "admin.mainhall@gmail.com",
-    aula: "C6E01",
-    labels: ["Main", "Admin"],
-    authorizedAccess: true, // Cambiado a booleano
-    name: "Yolanda Romero",
-    hora: "09:15:30", // Nuevo campo
-    día: "23/03/2025", // Nuevo campo
-  },
-  {
-    entryLocation: "Library Entrance",
-    accessCameraId: "56-78-CD",
-    accessLockId: "98765432B",
-    accessAdministrator: "library.admin@gmail.com",
-    aula: "L1E02",
-    labels: ["Library", "Study"],
-    authorizedAccess: false, // Cambiado a booleano
-    name: "Mar Puigmartí",
-    hora: "10:45:12", // Nuevo campo
-    día: "23/03/2025", // Nuevo campo
-  },
-  {
-    entryLocation: "Sports Center",
-    accessCameraId: "34-56-EF",
-    accessLockId: "45678901C",
-    accessAdministrator: "sports.admin@gmail.com",
-    aula: "S2G03",
-    labels: ["Sports", "Gym"],
-    authorizedAccess: true, // Cambiado a booleano
-    name: "Carlos López",
-    hora: "11:30:00", // Nuevo campo
-    día: "23/03/2025", // Nuevo campo
-  },
-  {
-    entryLocation: "Auditorium",
-    accessCameraId: "78-90-GH",
-    accessLockId: "11223344D",
-    accessAdministrator: "auditorium.admin@gmail.com",
-    aula: "A3H04",
-    labels: ["Events"],
-    authorizedAccess: false, // Cambiado a booleano
-    name: "Lucía Fernández",
-    hora: "12:15:20", // Nuevo campo
-    día: "23/03/2025", // Nuevo campo
-  },
-  {
-    entryLocation: "Parking Lot",
-    accessCameraId: "90-12-IJ",
-    accessLockId: "22334455E",
-    accessAdministrator: "parking.admin@gmail.com",
-    aula: "P4J05",
-    labels: ["Parking", "Vehicles"],
-    authorizedAccess: true, // Cambiado a booleano
-    name: "Albert Gómez",
-    hora: "13:45:10", // Nuevo campo
-    día: "23/03/2025", // Nuevo campo
-  },
 ];
 
 const entrypoints = [
@@ -203,7 +134,7 @@ app.get('/api/access-logs', (req, res) => {
 
 // Endpoint para devolver las puertas
 app.get('/api/doors', (req, res) => {
-  res.json(doors);
+  res.json(entrypoints);
 });
 
 //endpoints para el DashBoard 
@@ -352,6 +283,47 @@ app.put('/api/users/:id', (req, res) => {
     res.json({ message: "User updated successfully", user: users[userIndex] });
   } else {
     res.status(404).json({ message: "User not found" });
+  }
+});
+
+// Estado inicial de las configuraciones de alertas
+let alertSettings = {
+  dashboardAlerts: true,
+  muteDashboardAlerts: false,
+  emailAlerts: true,
+  muteEmailAlerts: false,
+};
+
+// Endpoint para obtener las configuraciones de alertas
+app.get('/api/alert-settings', (req, res) => {
+  res.json(alertSettings);
+});
+
+// Endpoint para actualizar las configuraciones de alertas
+app.put('/api/alert-settings', (req, res) => {
+  const { dashboardAlerts, muteDashboardAlerts, emailAlerts, muteEmailAlerts } = req.body;
+
+  // Actualiza los valores en el backend
+  alertSettings = {
+    dashboardAlerts: dashboardAlerts ?? alertSettings.dashboardAlerts,
+    muteDashboardAlerts: muteDashboardAlerts ?? alertSettings.muteDashboardAlerts,
+    emailAlerts: emailAlerts ?? alertSettings.emailAlerts,
+    muteEmailAlerts: muteEmailAlerts ?? alertSettings.muteEmailAlerts,
+  };
+
+  res.json({ message: 'Alert settings updated successfully', alertSettings });
+});
+
+app.put('/api/access-logs/:code', (req, res) => {
+  const { code } = req.params;
+  const updatedLog = req.body;
+
+  const logIndex = logs.findIndex((log) => log.code === code);
+  if (logIndex !== -1) {
+    logs[logIndex] = { ...logs[logIndex], ...updatedLog };
+    res.json({ message: 'Log updated successfully', log: logs[logIndex] });
+  } else {
+    res.status(404).json({ message: 'Log not found' });
   }
 });
 

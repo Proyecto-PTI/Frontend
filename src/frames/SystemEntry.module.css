@@ -113,28 +113,12 @@
     font-weight: 600;
 }
 
-.logsSection {
-    margin-top: 20px;
-    max-width: 900px; /* Reduce el ancho máximo */
-    width: 92%; /* Asegura que ocupe todo el ancho disponible */
-    margin: 0 auto; /* Centra horizontalmente */
-}
-
 .logsTitle {
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
     margin-bottom: 15px;
     text-align: center;
-}
-
-.logsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Espacio entre los logs */
-    background-color: #2e2e2e;
-    padding: 15px;
-    border-radius: 10px;
 }
 
 .logEntry {
