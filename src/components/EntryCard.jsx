@@ -35,8 +35,8 @@ function EntryCard({ aula, entryLocation }) {
         </div>
 
         <div className={styles.actionColumn}>
-          <Link to="/system-entry">
-            <button className={styles.viewProfileButton}>Edit entry</button>
+        <Link to={`/system-entry/${aula}`}>
+        <button className={styles.viewProfileButton}>Edit entry</button>
           </Link>
         </div>
         

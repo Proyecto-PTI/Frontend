@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './AlertSettings.module.css';
-import userProfileStyles from '../frames/UserProfile.module.css'; // Importamos estilos de UserProfile
+import userProfileStyles from '../frames/UserProfile.module.css';
 import WebHeader from '../components/WebHeader';
 import NavBar from '../components/NavBar';
 import Background from '../components/Background';
@@ -13,11 +13,50 @@ function AlertSettings() {
         muteEmailAlerts: false,
     });
 
+    // Cargar configuraciones iniciales desde el backend
+    useEffect(() => {
+        const fetchSettings = async () => {
+            try {
+                const res = await fetch('http://localhost:5000/api/alert-settings');
+                if (!res.ok) throw new Error('Failed to fetch alert settings');
+                const data = await res.json();
+                setSettings(data);
+            } catch (error) {
+                console.error('Error fetching alert settings:', error);
+            }
+        };
+
+        fetchSettings();
+    }, []);
+
+    // Actualizar configuraciones en el backend
+    const updateSettings = async (updatedSettings) => {
+        try {
+            const res = await fetch('http://localhost:5000/api/alert-settings', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedSettings),
+            });
+
+            if (!res.ok) throw new Error('Failed to update alert settings');
+            const data = await res.json();
+            console.log('Settings updated:', data);
+        } catch (error) {
+            console.error('Error updating alert settings:', error);
+        }
+    };
+
+    // Manejar el cambio de estado de los botones
     const handleToggle = (key) => {
-        setSettings((prev) => ({
-            ...prev,
-            [key]: !prev[key],
-        }));
+        const updatedSettings = {
+            ...settings,
+            [key]: !settings[key],
+        };
+
+        setSettings(updatedSettings);
+        updateSettings(updatedSettings); // Enviar los cambios al backend
     };
 
     return (
@@ -25,7 +64,7 @@ function AlertSettings() {
             <NavBar />
             <div className={styles.container}>
                 <Background />
-                <WebHeader subtitle="Alert  Settings" />
+                <WebHeader subtitle="Alert Settings" />
                 <div className={styles.settingsWrapper}>
                     <div className={styles.setting}>
                         <label>Alert When</label>
@@ -50,7 +89,7 @@ function AlertSettings() {
                         <label>Mute Dashboard Alerts</label>
                         <button
                             className={`${styles.toggleButton} ${
-                                settings.muteDashboardAlerts ? styles.disable : styles.enabled
+                                settings.muteDashboardAlerts ? styles.disabled : styles.enabled
                             }`}
                             onClick={() => handleToggle('muteDashboardAlerts')}
                         >
