@@ -10,4 +10,8 @@ COPY . .
 
 EXPOSE 5173
 
-CMD ["npm", "run", "front"]
+CMD ["npm", "run", "build"]
+
+FROM nginx:alpine
+
+COPY dist/ /usr/share/nginx/html/
