@@ -5,11 +5,10 @@ import WebHeader from "../components/WebHeader.jsx";
 import LabelComponent from "../components/LabelComponent.jsx";
 import AddImages from "../components/AddImages.jsx";
 import NavBar from "../components/NavBar.jsx";
-import Background from "../components/Background.jsx"; 
+import Background from "../components/Background.jsx";
 
 function AddUser() {
   const navigate = useNavigate();
-
   const [userName, setUserName] = useState('');
   const [userRole, setUserRole] = useState('');
   const [userEmail, setUserEmail] = useState('');
@@ -18,7 +17,7 @@ function AddUser() {
   const [selectedImages, setSelectedImages] = useState([]);
 
   
-  // Estados para manejar los mensajes de éxito o error
+
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState(''); // 'success' o 'error'
 
