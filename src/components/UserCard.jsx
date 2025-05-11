@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./UserCard.module.css";
 import { Link } from "react-router-dom";
 
-function UserCard({ id, name, email, role, profileImage }) {
+function UserCard({ id, name, email, role}) {
     return (
       <article className={styles.user1Box}>
         <div className={styles.userCardContent}>

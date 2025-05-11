@@ -67,6 +67,23 @@ function AddUser() {
     }
   };
 
+
+
+
+  const handleAddLabel = (newLabel) => {
+        setEditableAttributes((prevState) => ({
+            ...prevState,
+            labels: [...(prevState.labels || []), newLabel]
+        }));
+    };
+
+    const handleRemoveLabel = (labelToRemove) => {
+        setEditableAttributes((prevState) => ({
+            ...prevState,
+            labels: (prevState.labels || []).filter(label => label !== labelToRemove)
+        }));
+    };
+
   return (
     <div className={styles.frameContainer}>
       <NavBar />
@@ -133,8 +150,12 @@ function AddUser() {
         </form>
 
         <AddImages onImagesSelected={setSelectedImages} />
-        <LabelComponent subtitle="Entry Labels" initialLabels={[]} onLabelsChange={setLabels} />
-
+<LabelComponent
+                        subtitle="Access Permissions"
+                        initialLabels={labels || []}
+                        onAddLabel={handleAddLabel}
+                        onRemoveLabel={handleRemoveLabel}
+/>
 
 
           <div className={styles.buttonmessage}>

@@ -310,11 +310,135 @@
 
 .records {
   margin-top: 70px; 
-  background-color: rgba(24, 28, 28, 0.5); 
-  border-radius: 20px;
-  padding: 10px 20px; 
+    background-color: rgba(24, 28, 28, 0.5); 
+    border-radius: 20px;
+    padding: 10px 20px; 
+    width: 100%;
+    max-width: 878px;
 }
 
 .record h4 {
   align-self: start !important; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.frameContainer {
+  display: flex;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center;     /* Centra los elementos verticalmente */  
+  padding: 0px;
+
+}
+
+.container {
+  position: relative;
+  background-color: #181c1c; 
+  overflow: hidden;
+  color: white;
+  z-index: 0;
+
+  font-family: 
+    Outfit, 
+    -apple-system, 
+    Roboto, 
+    Helvetica, 
+    sans-serif;
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total del contenedor */
+}
+
+
+
+/* Logs Wrapper se adapta al contenedor y es flexible */
+.logsWrapper {
+  display: flex;
+  flex-direction: column; /* Asegura que los LogCards estén apilados en columnas */
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center; /* Centra los elementos dentro de logsWrapper */
+  width: 100%;
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+/* Se asegura de que las secciones de fecha se adapten a tamaños pequeños */
+.dateSection {
+  flex: 1;
+  width: 100%;  /* El ancho será 100% del contenedor */
+  max-width: 900px;  /* Limita el ancho máximo */
+  margin: 0 auto; /* Centra las secciones */
+}
+
+/* Asegura que el header de la fecha esté bien organizado */
+.dateHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Títulos de fecha más pequeños y ligeros */
+.dateTitle {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: white;
+  opacity: 0.6;
+}
+
+/* Título del día de hoy, un poco más opaco */
+.dateTitleToday {
+  color: white;
+  opacity: 0.6;
+  font-weight: 400;
+  margin-right: 10px;  
+}
+
+.dateTitle:last-child {
+  margin-left: auto; 
+}
+
+/* Adaptación flexible del contenedor de los LogCards */
+.logList {
+  display: flex;
+  border-radius: 20px;
+  width: 100%;  /* Se ajusta al 100% del contenedor */
+  flex-direction: column;
+  gap: 1rem;
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+  overflow: hidden;
+  align-items: stretch;
+  padding: 4px;
+  padding-top: 12px;
+  
+}
+
+/* Respuesta para pantallas pequeñas: */
+@media screen and (max-width: 768px) {
+  .logsWrapper {
+    flex-direction: column; /* Pone los LogCards en una sola columna en pantallas pequeñas */
+    align-items: center;
+  }
+
+  .dateSection {
+    width: 100%; /* Se adapta al 100% del ancho */
+    max-width: 100%; /* Elimina el límite de 900px */
+  }
 }
