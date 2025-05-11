@@ -12,20 +12,28 @@ const EntryPoints = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    const fetchEntries = async () => {
-      try {
-        const response = await fetch('http://localhost:5000/api/doors');
-        if (!response.ok) throw new Error("Failed to fetch entries");
-        const data = await response.json();
-        setEntries(data);
-        setFiltered(data);
-      } catch (error) {
-        console.error("Error fetching entries:", error);
-      }
-    };
-  
-    fetchEntries();
-  }, []);
+  const fetchEntries = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/entries');
+      if (!response.ok) throw new Error("Failed to fetch entries");
+      const data = await response.json();
+
+      // Transformar el objeto en un array de entradas
+      const parsedEntries = Object.values(data).map(entry => ({
+        id: entry.id,
+        aula: entry.code,
+        entryLocation: entry.location,
+      }));
+
+      setEntries(parsedEntries);
+      setFiltered(parsedEntries);
+    } catch (error) {
+      console.error("Error fetching entries:", error);
+    }
+  };
+
+  fetchEntries(); 
+}, []);
 
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
@@ -69,7 +77,7 @@ const EntryPoints = () => {
         </div>
         <div className={styles.userList}>
           {filtered.map(entry => (
-            <EntryCard key={entry.aula} aula={entry.aula} entryLocation={entry.entryLocation} />
+            <EntryCard key={entry.id} id={entry.id} aula={entry.aula} entryLocation={entry.entryLocation} />
           ))}
         </div>
       </div>

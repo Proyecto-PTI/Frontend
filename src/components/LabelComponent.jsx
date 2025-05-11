@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./LabelComponent.module.css";
 
-
 const EntryLabel = ({ text, onRemove }) => {
   return (
     <div className={styles.divlabel}>
@@ -39,9 +38,9 @@ function LabelComponent({ subtitle, initialLabels = [], onLabelsChange }) {
     }
   }, [labels, onLabelsChange]);
 
-  const handleRemoveLabel = (labelId) => {
+  const handleRemoveLabel = (labelText) => {
     setLabels((prevLabels) =>
-      prevLabels.filter((label) => label.id !== labelId),
+      prevLabels.filter((label) => label !== labelText)
     );
   };
 
@@ -52,11 +51,9 @@ function LabelComponent({ subtitle, initialLabels = [], onLabelsChange }) {
   const handleAddNewLabel = () => {
     const newLabelText = prompt("Enter new label text:");
     if (newLabelText && newLabelText.trim() !== "") {
-      const newLabel = {
-        id: Date.now(),
-        text: newLabelText.trim(),
-      };
-      setLabels((prevLabels) => [...prevLabels, newLabel]);
+      setLabels((prevLabels) => [...prevLabels, newLabelText.trim()]);
+    } else {
+      alert("Please enter a valid label text.");
     }
   };
 
@@ -66,11 +63,11 @@ function LabelComponent({ subtitle, initialLabels = [], onLabelsChange }) {
 
       {/* Labels area */}
       <div className={styles.base}>
-        {labels.map((label) => (
+        {labels.map((label, index) => (
           <EntryLabel
-            key={label.id}
-            text={label.text}
-            onRemove={() => handleRemoveLabel(label.id)}
+            key={index}
+            text={label}
+            onRemove={() => handleRemoveLabel(label)}
           />
         ))}
       </div>

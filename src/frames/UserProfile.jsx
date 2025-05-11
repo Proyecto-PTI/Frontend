@@ -25,7 +25,7 @@ function SystemEntry() {
   const [messageType, setMessageType] = useState('');
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/access-logs")
+    fetch("http://localhost:5000/userlogs/${id}")
       .then((response) => response.json())
       .then((data) => setLogs(data))
       .catch((error) => console.error("Error fetching logs:", error));
