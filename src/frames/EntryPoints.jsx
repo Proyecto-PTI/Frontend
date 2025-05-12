@@ -14,7 +14,7 @@ const EntryPoints = () => {
   useEffect(() => {
   const fetchEntries = async () => {
     try {
-      const response = await fetch('http://backend-service:8000/entries');
+      const response = await fetch('http://nattech.fib.upc.edu:40407/entries');
       if (!response.ok) throw new Error("Failed to fetch entries");
       const data = await response.json();
 

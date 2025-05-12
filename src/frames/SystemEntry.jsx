@@ -23,7 +23,7 @@ function SystemEntry() {
     const [editingField, setEditingField] = useState(null);
 
     useEffect(() => {
-        fetch(`http://backend-service:8000/entries/${id}`)
+        fetch(`http://nattech.fib.upc.edu:40407/entries/${id}`)
             .then((response) => response.json())
             .then((data) => {
                 setLogs([data]); // Cambié a un array para que funcione con el mapeo
@@ -47,7 +47,7 @@ function SystemEntry() {
         }
 
         try {
-            const response = await fetch(`http://backend-service:8000/entries/${editableAttributes.id}`, {
+            const response = await fetch(`http://nattech.fib.upc.edu:40407/entries/${editableAttributes.id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ function SystemEntry() {
     // Obtener los logs relacionados con el sistema
     const fetchRecentLogs = async () => {
       try {
-        const response = await fetch(`http://backend-service:8000/entrylogs/${id}`);
+        const response = await fetch(`http://nattech.fib.upc.edu:40407/entrylogs/${id}`);
         const data = await response.json();
         setLogs(data); // Cambié logs aquí
       } catch (error) {

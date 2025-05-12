@@ -11,7 +11,7 @@ function AccessLogs() {
 
     useEffect(() => {
         // Simulación de fetch, reemplazar por llamada real al backend
-        fetch('http://backend-service:8000/logs')
+        fetch('http://nattech.fib.upc.edu:40407/logs')
             .then(response => response.json())
             .then(data => setLogs(data))
             .catch(error => console.error('Error fetching logs:', error));

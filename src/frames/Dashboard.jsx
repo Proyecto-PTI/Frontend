@@ -33,7 +33,7 @@ function Dashboard() {
     // Primero, obtenemos las métricas
     const fetchMetrics = async () => {
       try {
-        const response = await fetch("http://backend-service:8000/metrics"); // Endpoint de métricas
+        const response = await fetch("http://nattech.fib.upc.edu:40407/metrics"); // Endpoint de métricas
         const data = await response.json();
         setMetrics({
           authorized: data.authorized,
@@ -51,7 +51,7 @@ function Dashboard() {
     // Luego, obtenemos los últimos 5 accesos
     const fetchRecentRecords = async () => {
       try {
-        const response = await fetch("http://backend-service:8000/last5logs"); // Endpoint de últimos 5 accesos
+        const response = await fetch("http://nattech.fib.upc.edu:40407/last5logs"); // Endpoint de últimos 5 accesos
         const data = await response.json();
         setRecentRecords(data);
       } catch (error) {
