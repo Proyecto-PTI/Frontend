@@ -7,7 +7,6 @@ import Background from "../components/Background";
 
 function SignUp() {
   const { signUp, signIn } = useAuth();
-  const { createAdminData } = useAdmin();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");

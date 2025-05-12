@@ -6,6 +6,9 @@ import LabelComponent from "../components/LabelComponent.jsx";
 import NavBar from "../components/NavBar.jsx";
 import Background from "../components/Background.jsx";
 import { useUsers } from "../contexts/UserContext.jsx"; // hook to add user
+import AddImages from "../components/AddImages.jsx";
+
+
 
 function AddUser() {
     const { addUser } = useUsers();
@@ -19,7 +22,57 @@ function AddUser() {
     const [message, setMessage] = useState('');
     const [messageType, setMessageType] = useState(''); // 'success' or 'error'
 
+
+    const [selectedImages, setSelectedImages] = useState([]);
+
+
     const handleCreateUser = async () => {
+        if (!userName || !userEmail || selectedImages.length === 0) {
+            setMessage("Please fill all fields and upload at least one image.");
+            setMessageType("error");
+            return;
+        }
+
+        try {
+            const formData = new FormData();
+            formData.append("userName", userName);
+            formData.append("userRole", userRole);
+            formData.append("userEmail", userEmail);
+            formData.append("userPhoneNumber", userPhoneNumber);
+
+            labels.forEach((label, index) => {
+                formData.append(`labels[${index}]`, label.text);
+            });
+
+            selectedImages.forEach((image, index) => {
+                const extension = image.name.split('.').pop();
+                const customFileName = `${userName}_${index + 1}.${extension}`;
+                const renamedFile = new File([image], customFileName, {
+                    type: image.type,
+                });
+
+                formData.append("images", renamedFile);
+            });
+
+            const response = await fetch("http://backend-service:8000/new-user", {
+                //const response = await fetch("http://localhost:8000/new-user", {
+                method: "POST",
+                body: formData,
+            });
+
+            if (response.ok) {
+                setMessage("User created successfully!");
+                setMessageType("success");
+                setTimeout(() => navigate("/users"), 1000);
+            } else {
+                setMessage("Failed to create user. Please try again.");
+                setMessageType("error");
+            }
+        } catch (error) {
+            console.error(error);
+            setMessage("An error occurred. Please try again.");
+            setMessageType("error");
+        }
         if (!userName || !userEmail) {
             setMessage("Please fill in at least name and email.");
             setMessageType("error");
@@ -72,7 +125,9 @@ function AddUser() {
 
                 <form className={styles.form}>
                     <div className={styles.div2}>
-                        <label className={styles.userName}>User Name</label>
+                        <label className={styles.userName} >
+                            User Name
+                        </label>
                         <input
                             id="name"
                             type="text"
@@ -82,7 +137,9 @@ function AddUser() {
                         />
                     </div>
                     <div className={styles.div3}>
-                        <label className={styles.userRole}>System Role</label>
+                        <label className={styles.userRole} >
+                            System Role
+                        </label>
                         <select
                             className={styles.roleSelect}
                             onChange={(e) => setUserRole(e.target.value)}
@@ -93,17 +150,21 @@ function AddUser() {
                         </select>
                     </div>
                     <div className={styles.div4}>
-                        <label className={styles.userEmail}>Email</label>
+                        <label className={styles.userEmail} >
+                            Email
+                        </label>
                         <input
                             id="email"
-                            type="email"
+                            type="text"
                             className={styles.emailbox}
                             placeholder="Enter the user email..."
                             onChange={(e) => setUserEmail(e.target.value)}
                         />
                     </div>
                     <div className={styles.div5}>
-                        <label className={styles.userPhoneNumber}>Phone Number</label>
+                        <label className={styles.userPhoneNumber} >
+                            Phone Number
+                        </label>
                         <input
                             id="number"
                             type="text"
@@ -114,14 +175,17 @@ function AddUser() {
                     </div>
                 </form>
 
+                <AddImages onImagesSelected={setSelectedImages} />
                 <LabelComponent
                     subtitle="Access Permissions"
-                    initialLabels={labels}
+                    initialLabels={labels || []}
                     onAddLabel={handleAddLabel}
                     onRemoveLabel={handleRemoveLabel}
                 />
 
+
                 <div className={styles.buttonmessage}>
+                    {/* Mostrar mensaje de éxito o error */}
                     {message && (
                         <div className={`${styles.message} ${styles[messageType]}`}>
                             {message}

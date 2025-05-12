@@ -3,7 +3,7 @@ import React, { createContext, useState, useContext } from "react";
 import { auth, db } from "../firebaseConfig";
 import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
 
-const UserContext = createContext();
+const AdminContext = createContext();
 
 export const AdminProvider = ({ children }) => {
     const [userData, setUserData] = useState({});
