@@ -177,10 +177,6 @@ function AddImages({ onImagesSelected }) {
         selectedFiles={selectedFiles}
         onRemoveFile={handleRemoveFile}
       />
-      <SendDataButton
-        onClick={handleSendData}
-        disabled={isUploading || selectedFiles.length === 0}
-      />
       {isUploading && (
         <p className={styles.uploadingMessage}>Uploading images...</p>
       )}
