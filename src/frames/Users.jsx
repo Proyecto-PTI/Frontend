@@ -39,12 +39,6 @@ const Users = () => {
 
 
 
-
-
-
-
-
-
   return (
     <div className={styles.container}>
       <Background />

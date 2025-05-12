@@ -5,22 +5,21 @@ import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
 
 const UserContext = createContext();
 
-export const UserProvider = ({ children }) => {
+export const AdminProvider = ({ children }) => {
     const [userData, setUserData] = useState({});
 
-    const createUserData = async (username, email, phone, role) => {
-        const user = auth.currentUser;
+    const createAdminData = async (username, language, theme) => {
+        const admin = auth.currentUser;
 
-        if (!user) {
+        if (!admin) {
             throw new Error("No user is signed in");
         }
 
         try {
             await setDoc(doc(db, "Users", user.uid), {
-                Username: username,
-                Email: email,
-                Phone: phone,
-                Role: role
+                username: username,
+                language: language,
+                theme: theme,
             });
 
             const userDoc = await getDoc(doc(db, "Users", user.uid));
@@ -29,13 +28,13 @@ export const UserProvider = ({ children }) => {
                 setUserData(data);
             }
 
-            console.log("User profile created successfully!");
+            console.log("User profile created/updated successfully!");
         } catch (error) {
-            console.error("Error creating profile:", error);
+            console.error("Error creating/updating profile:", error);
             throw error;
         }
     };
-    const updateUserData = async (username, email, phone, role) => {
+    const updateAdminData = async (username, language, theme) => {
         const user = auth.currentUser;
 
         if (!user) {
@@ -44,10 +43,9 @@ export const UserProvider = ({ children }) => {
 
         try {
             await updateDoc(doc(db, "Users", user.uid), {
-                Username: username,
-                Email: email,
-                Phone: phone,
-                Role: role
+                username: username,
+                language: language,
+                theme: theme,
             });
 
             const userDoc = await getDoc(doc(db, "Users", user.uid));
@@ -63,13 +61,13 @@ export const UserProvider = ({ children }) => {
         }
     };
 
-    const getUserData = async () => {
+    const getAdminData = async () => {
         const user = auth.currentUser;
 
         try {
-        if (!user) {
-            throw new Error("No user is signed in");
-        }
+            if (!user) {
+                throw new Error("No user is signed in");
+            }
 
             const userDoc = await getDoc(doc(db, "Users", user.uid));
             if (userDoc.exists()) {
@@ -93,4 +91,4 @@ export const UserProvider = ({ children }) => {
     );
 };
 
-export const useUser = () => useContext(UserContext);
+export const useAdmin = () => useContext(AdminContext);

@@ -26,37 +26,37 @@ function Dashboard() {
   const [recentRecords, setRecentRecords] = useState([]);
   const [hourlyAccess, setHourlyAccess] = useState(null);
   const [weeklyEvolution, setWeeklyEvolution] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchDashboardData = async () => {
-      try {
-         const authorizedData = await fetchAuthorizedAccess();
-         const deniedData = await fetchDeniedAttempts();
-         const peakHourData = await fetchPeakHour();
-         const doorData = await fetchMostAccessedDoor();
-         const recordsData = await fetchRecentRecords();
-         const hourlyData = await fetchHourlyAccess();
-         const weeklyData = await fetchWeeklyEvolution();
+  // useEffect(() => {
+  //   const fetchDashboardData = async () => {
+  //     try {
+  //        const authorizedData = await fetchAuthorizedAccess();
+  //        const deniedData = await fetchDeniedAttempts();
+  //        const peakHourData = await fetchPeakHour();
+  //        const doorData = await fetchMostAccessedDoor();
+  //        const recordsData = await fetchRecentRecords();
+  //        const hourlyData = await fetchHourlyAccess();
+  //        const weeklyData = await fetchWeeklyEvolution();
+  //
+  //        setAuthorized(authorizedData);
+  //        setDenied(deniedData);
+  //        setPeakHour(peakHourData);
+  //        setMostAccessedDoor(doorData);
+  //        setRecentRecords(recordsData);
+  //        setHourlyAccess(hourlyData);
+  //        setWeeklyEvolution(weeklyData);
+  //
+  //        setLoading(false);
+  //     } catch (error) {
+  //       console.error("Error fetching dashboard data:", error);
+  //     }
+  //   };
+  //
+  //   fetchDashboardData();
+  // }, []);
 
-         setAuthorized(authorizedData);
-         setDenied(deniedData);
-         setPeakHour(peakHourData);
-         setMostAccessedDoor(doorData);
-         setRecentRecords(recordsData);
-         setHourlyAccess(hourlyData);
-         setWeeklyEvolution(weeklyData);
-
-         setLoading(false);
-      } catch (error) {
-        console.error("Error fetching dashboard data:", error);
-      }
-    };
-
-    fetchDashboardData();
-  }, []);
-
-  if (loading) return <div className={styles.loading}>Cargando...</div>;
+  // if (loading) return <div className={styles.loading}>Cargando...</div>;
 
   return (
 

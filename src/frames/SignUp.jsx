@@ -7,7 +7,7 @@ import Background from "../components/Background";
 
 function SignUp() {
   const { signUp, signIn } = useAuth();
-  const { setUser } = useUser();
+  const { createUserData } = useUser();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -33,7 +33,6 @@ function SignUp() {
           setAuthenticated(true);
 
         }
-        //setUser(user);
         navigate("/dashboard");
       } else {
         const user = await signIn(email, password);
@@ -41,7 +40,6 @@ function SignUp() {
           setAuthenticated(true);
 
         }
-        //setUser(user);
         navigate("/dashboard");
       }
     } catch (err) {
