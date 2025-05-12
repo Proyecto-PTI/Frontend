@@ -22,6 +22,7 @@ function AddUser() {
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState(''); // 'success' o 'error'
 
+/*
   const handleCreateUser = async () => {
     if (!userName || !userEmail || selectedImages.length === 0) {
       setMessage("Please fill all fields and upload at least one image.");
@@ -66,6 +67,55 @@ function AddUser() {
         setMessageType("error");
     }
   };
+*/
+const handleCreateUser = async () => {
+  if (!userName || !userEmail || selectedImages.length === 0) {
+    setMessage("Please fill all fields and upload at least one image.");
+    setMessageType("error");
+    return;
+  }
+
+  try {
+    const formData = new FormData();
+    formData.append("userName", userName);
+    formData.append("userRole", userRole);
+    formData.append("userEmail", userEmail);
+    formData.append("userPhoneNumber", userPhoneNumber);
+
+    labels.forEach((label, index) => {
+      formData.append(`labels[${index}]`, label.text);
+    });
+
+    selectedImages.forEach((image, index) => {
+      const extension = image.name.split('.').pop();
+      const customFileName = `${userName}_${index + 1}.${extension}`;
+      const renamedFile = new File([image], customFileName, {
+        type: image.type,
+      });
+
+      formData.append("images", renamedFile);
+    });
+
+    const response = await fetch("http://backend-service:8000/new-user", {
+    //const response = await fetch("http://localhost:8000/new-user", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      setMessage("User created successfully!");
+      setMessageType("success");
+      setTimeout(() => navigate("/users"), 1000);
+    } else {
+      setMessage("Failed to create user. Please try again.");
+      setMessageType("error");
+    }
+  } catch (error) {
+    console.error(error);
+    setMessage("An error occurred. Please try again.");
+    setMessageType("error");
+  }
+};
 
 
 
