@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext.jsx";
-import { useUser } from "../contexts/UserContext.jsx";
+import { useAdmin } from "../contexts/AdminContext.jsx";
 import styles from "./SignUp.module.css";
 import Background from "../components/Background";
 
 function SignUp() {
   const { signUp, signIn } = useAuth();
-  const { createUserData } = useUser();
+  const { createAdminData } = useAdmin();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");

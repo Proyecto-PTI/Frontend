@@ -1,96 +1,40 @@
-// UserContext.jsx
-import React, { createContext, useState, useContext } from "react";
-import { auth, db } from "../firebaseConfig";
-import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
+import { createContext, useContext, useEffect, useState } from "react";
+import { collection, getDocs, addDoc, doc, deleteDoc } from "firebase/firestore";
+import { db } from "../firebaseConfig.js";
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-    const [userData, setUserData] = useState({});
+    const [users, setUsers] = useState([]);
 
-    const createUserData = async (username, email, phone, role) => {
-        const user = auth.currentUser;
-
-        if (!user) {
-            throw new Error("No user is signed in");
-        }
-
-        try {
-            await setDoc(doc(db, "Users", user.uid), {
-                Username: username,
-                Email: email,
-                Phone: phone,
-                Role: role
-            });
-
-            const userDoc = await getDoc(doc(db, "Users", user.uid));
-            if (userDoc.exists()) {
-                const data = userDoc.data();
-                setUserData(data);
-            }
-
-            console.log("User profile created successfully!");
-        } catch (error) {
-            console.error("Error creating profile:", error);
-            throw error;
-        }
-    };
-    const updateUserData = async (username, email, phone, role) => {
-        const user = auth.currentUser;
-
-        if (!user) {
-            throw new Error("No user is signed in");
-        }
-
-        try {
-            await updateDoc(doc(db, "Users", user.uid), {
-                Username: username,
-                Email: email,
-                Phone: phone,
-                Role: role
-            });
-
-            const userDoc = await getDoc(doc(db, "Users", user.uid));
-            if (userDoc.exists()) {
-                const data = userDoc.data();
-                setUserData(data);
-            }
-
-            console.log("User profile updated successfully!");
-        } catch (error) {
-            console.error("Error updating profile:", error);
-            throw error;
-        }
+    const fetchUsers = async () => {
+        const querySnapshot = await getDocs(collection(db, "users"));
+        const usersData = querySnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+        setUsers(usersData);
     };
 
-    const getUserData = async () => {
-        const user = auth.currentUser;
-
-        try {
-        if (!user) {
-            throw new Error("No user is signed in");
-        }
-
-            const userDoc = await getDoc(doc(db, "Users", user.uid));
-            if (userDoc.exists()) {
-                const data = userDoc.data();
-                setUserData(data);
-            }
-
-            console.log("User profile updated successfully!");
-        } catch (error) {
-            console.error("Error updating profile:", error);
-            throw error;
-        }
+    const addUser = async (user) => {
+        const docRef = await addDoc(collection(db, "users"), user);
+        setUsers(prev => [...prev, { id: docRef.id, ...user }]);
     };
 
+    const deleteUser = async (userId) => {
+        await deleteDoc(doc(db, "users", userId));
+        setUsers(prev => prev.filter(user => user.id !== userId));
+    };
 
+    useEffect(() => {
+        fetchUsers();
+    }, []);
 
     return (
-        <UserContext.Provider value={{ userData, setUserData, createUserData, updateUserData, getUserData }}>
+        <UserContext.Provider value={{ users, addUser, deleteUser }}>
             {children}
         </UserContext.Provider>
     );
 };
 
-export const useUser = () => useContext(UserContext);
+export const useUsers = () => useContext(UserContext);
