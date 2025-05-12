@@ -33,7 +33,7 @@ function AddEntryPoint() {
     };
 
     try {
-      const response = await fetch('https://tu-api.com/new-entry', {
+      const response = await fetch('https://localhost:5000/addentry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,6 +60,22 @@ function AddEntryPoint() {
         setMessageType("error"); // Tipo de mensaje es 'error' 
     }
   };
+
+
+
+   const handleAddLabel = (newLabel) => {
+        setEditableAttributes((prevState) => ({
+            ...prevState,
+            labels: [...(prevState.labels || []), newLabel]
+        }));
+    };
+
+    const handleRemoveLabel = (labelToRemove) => {
+        setEditableAttributes((prevState) => ({
+            ...prevState,
+            labels: (prevState.labels || []).filter(label => label !== labelToRemove)
+        }));
+    };
 
   return (
     <div className={styles.frameContainer}>
@@ -137,8 +153,12 @@ function AddEntryPoint() {
           </div>
         </form>
 
-        <LabelComponent subtitle="Entry Labels" initialLabels={[]} onLabelsChange={setLabels} />
-
+        <LabelComponent
+  subtitle="Entry Labels"
+  initialLabels={[]}
+  onAddLabel={handleAddLabel}
+  onRemoveLabel={handleRemoveLabel}
+/>
 
         <div className={styles.buttonmessage}>
           {/* Mensaje de éxito o error */}

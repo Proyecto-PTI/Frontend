@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./EntryCard.module.css";
 import { Link } from "react-router-dom";
 
-function EntryCard({ aula, entryLocation }) {
+function EntryCard({ id, aula, entryLocation }) {
   return (
     <article className={styles.user1Box}>
       <div className={styles.userCardContent}>
@@ -35,7 +35,7 @@ function EntryCard({ aula, entryLocation }) {
         </div>
 
         <div className={styles.actionColumn}>
-        <Link to={`/system-entry/${aula}`}>
+        <Link to={`/system-entry/${id}`}>
         <button className={styles.viewProfileButton}>Edit entry</button>
           </Link>
         </div>

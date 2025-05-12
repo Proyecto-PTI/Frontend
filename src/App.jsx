@@ -37,7 +37,7 @@ function App() {
           <Route path="/entry-points" element={<EntryPoints />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/system-entry/:aula" element={<SystemEntry />} />
+          <Route path="/system-entry/:id" element={<SystemEntry />} />
           <Route path="/system-settings" element={<SystemSettings />} />
           <Route path="/users/:userId" element={<UserProfile />} />
           <Route path="/users" element={<Users />} />

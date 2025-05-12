@@ -11,22 +11,31 @@ function AccessLogs() {
 
     useEffect(() => {
         // Simulación de fetch, reemplazar por llamada real al backend
-        fetch('http://localhost:5000/api/access-logs')
+        fetch('http://localhost:8000/logs')
             .then(response => response.json())
             .then(data => setLogs(data))
             .catch(error => console.error('Error fetching logs:', error));
     }, []);
 
     // Agrupar accesos por fecha
-    const groupedLogs = logs.reduce((acc, log) => {
-        const date = log.date.split(' ')[0]; // Asumimos que date incluye fecha y hora
+   const groupedLogs = logs.reduce((acc, log) => {
+        const date = log.dia;
         if (!acc[date]) acc[date] = [];
         acc[date].push(log);
         return acc;
     }, {});
 
+    Object.keys(groupedLogs).forEach(date => {
+        groupedLogs[date].sort((a, b) => {
+            const dateTimeA = new Date(`${a.dia}T${a.hora}`);
+            const dateTimeB = new Date(`${b.dia}T${b.hora}`);
+            return dateTimeB - dateTimeA; // Descendente
+        });
+    });
+
     const today = new Date().toISOString().split('T')[0]; // "YYYY-MM-DD"
 
+    console.log("Logs agrupados:", groupedLogs);
     return (
         <div className={styles.frameContainer}>
             <NavBar />

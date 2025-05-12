@@ -17,7 +17,7 @@ function AlertSettings() {
     useEffect(() => {
         const fetchSettings = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/alert-settings');
+                const res = await fetch('http://localhost:5000/alertsettings');
                 if (!res.ok) throw new Error('Failed to fetch alert settings');
                 const data = await res.json();
                 setSettings(data);
@@ -32,8 +32,8 @@ function AlertSettings() {
     // Actualizar configuraciones en el backend
     const updateSettings = async (updatedSettings) => {
         try {
-            const res = await fetch('http://localhost:5000/api/alert-settings', {
-                method: 'PUT',
+            const res = await fetch('http://localhost:5000/alertsettings', {
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
