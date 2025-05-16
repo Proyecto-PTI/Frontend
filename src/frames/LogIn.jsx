@@ -1,178 +1,108 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./LogIn.module.css";
+import { useAuth } from "../contexts/AuthContext.jsx";
 import Background from "../components/Background";
-
-// FormInput component for reusable input fields
-const FormInput = ({ label, placeholder, type = "text", value, onChange }) => {
-  return (
-    <>
-      <label className={styles.inputLabel}>{label}</label>
-      <input
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        className={styles.inputField}
-      />
-    </>
-  );
-};
-
-// PasswordInput component with visibility toggle
-const PasswordInput = ({ value, onChange }) => {
-  const [showPassword, setShowPassword] = useState(false);
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
-  return (
-    <>
-      <label className={styles.inputLabel}>Password</label>
-      <div className={styles.passwordbox}>
-        <input
-          type={showPassword ? "text" : "password"}
-          placeholder="yourpassword..."
-          value={value}
-          onChange={onChange}
-          className={styles.passwordInput}
-        />
-        <button
-          type="button"
-          onClick={togglePasswordVisibility}
-          className={styles.visibilityToggle}
-          aria-label={showPassword ? "Hide password" : "Show password"}
-        >
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/4be7d2e9cb14dddd5add59ee81b01b835de0aa5f?placeholderIfAbsent=true&apiKey=61a77727fee44ba9b3bc5c61b3d4dc53"
-            className={styles.visibilityIcon}
-            alt="Toggle password visibility"
-          />
-        </button>
-      </div>
-    </>
-  );
-};
+import {auth} from "../firebaseConfig.js";
 
 function LogIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+    const { signIn } = useAuth();
+    const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle login logic here
-    console.log("Login attempt with:", { email, password });
-  };
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState("");
 
-  return (
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError("");
 
-    <div className={styles.frameContainer}>
-          <main className={styles.login}>
+        try {
+            await signIn(email, password);
+            console.log("Login successful");
+            console.log("User email:");
+            console.log(auth.currentUser);
 
-      <Link to="/" className={styles.facepass}>
-        FACEPASS 
-      </Link>{"  "}
+            navigate("/dashboard");
+        } catch (err) {
+            console.error("Login error:", err.message);
+            setError(err.message);
+        }
+    };
 
-      <img
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/8a4b272173daffe5ad68317cd5a6f0b9979f51a7?placeholderIfAbsent=true&apiKey=61a77727fee44ba9b3bc5c61b3d4dc53"
-        className={styles.logo}
-        alt="FacePass Logo"
-      />
+    return (
+        <div className={styles.frameContainer}>
+            <main className={styles.login}>
+                <Link to="/" className={styles.facepass}>FACEPASS</Link>{" "}
+                <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8a4b272173daffe5ad68317cd5a6f0b9979f51a7?placeholderIfAbsent=true&apiKey=61a77727fee44ba9b3bc5c61b3d4dc53"
+                    className={styles.logo}
+                    alt="FacePass Logo"
+                />
 
-      <h2 className={styles.loginHeading}>Log in with your email</h2>
+                <h2 className={styles.loginHeading}>Log in with your email</h2>
 
-      <form className={styles.loginForm} onSubmit={handleSubmit}>
-        <div className={styles.formGroup}>
-          <label className={styles.email}>Email</label>
-          <input
-            type="email"
-            placeholder="youremail@email.com..."
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className={styles.emailbox}
-            required
-          />
-        </div>
+                {error && <p className={styles.errorMessage}>{error}</p>}
 
-        <div className={styles.formGroup}>
-          <label className={styles.password}>Password</label>
-          <div className={styles.passwordbox}>
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="yourpassword..."
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className={styles.passwordInput}
-              required
-            />
-            <button
-              type="button"
-              className={styles.visibilityButton}
-              onClick={() => setShowPassword(!showPassword)}
-              aria-label={showPassword ? "Hide password" : "Show password"}
-            >
-                {showPassword ? (
-                    <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        fill="none" 
-                        viewBox="0 0 24 24" 
-                        stroke-width="1.5" 
-                        stroke="currentColor" 
-                        className={styles.eyeIcon}
-                    >
-                        <path 
-                            stroke-linecap="round" 
-                            stroke-linejoin="round" 
-                            d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" 
+                <form className={styles.loginForm} onSubmit={handleSubmit}>
+                    <div className={styles.formGroup}>
+                        <label className={styles.email}>Email</label>
+                        <input
+                            type="email"
+                            placeholder="youremail@email.com..."
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className={styles.emailbox}
+                            required
+                        />
+                    </div>
+
+                    <div className={styles.formGroup}>
+                        <label className={styles.password}>Password</label>
+                        <div className={styles.passwordbox}>
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                placeholder="yourpassword..."
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className={styles.passwordInput}
+                                required
                             />
-                    </svg>
-                ):(
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className={styles.eyeIcon}
-                    >
-                        <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
-                        />
-                        <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                        />
-                    </svg>
-                )}
-            </button>
-          </div>
+                            <button
+                                type="button"
+                                className={styles.visibilityButton}
+                                onClick={() => setShowPassword(!showPassword)}
+                                aria-label={showPassword ? "Hide password" : "Show password"}
+                            >
+                                {showPassword ? (
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={styles.eyeIcon}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                                    </svg>
+                                ) : (
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={styles.eyeIcon}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                    </svg>
+                                )}
+                            </button>
+                        </div>
+                    </div>
+
+                    <a href="#" className={styles.forgotPassword}>Forgot Password?</a>
+
+                    <button type="submit" className={styles.loginbutton}>Log in</button>
+                </form>
+
+                <p className={styles.createadminacount}>
+                    Not registered yet?{" "}
+                    <Link to="/sign-up" className={styles.signupLink}>Sign up</Link>{" "}
+                    for an admin account
+                </p>
+            </main>
+            <Background />
         </div>
-
-        <a href="#" className={styles.forgotPassword}>
-          Forgot Password?
-        </a>
-
-        <button type="submit" className={styles.loginbutton}>
-          Log in
-        </button>
-      </form>
-
-      <p className={styles.createadminacount}>
-        Not registered yet?{"  "}
-        <Link to="/sign-up" className={styles.signupLink}>
-            Sign up
-        </Link>{"  "}
-        for an admin account
-      </p>
-    </main>
-    <Background />
-    </div>
-  );
+    );
 }
 
 export default LogIn;
