@@ -1,4 +1,3 @@
-// UserContext.jsx
 import React, { createContext, useState, useContext } from "react";
 import { auth, db } from "../firebaseConfig";
 import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";

@@ -1,27 +1,26 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./EditAccount.module.css";
 import WebHeader from "../components/WebHeader.jsx"; 
 import UserHeader from "../components/UserHeader.jsx";
 import NavBar from "../components/NavBar.jsx"; 
-import Background from "../components/Background.jsx"; 
+import Background from "../components/Background.jsx";
+import {Link} from "react-router-dom";
 
 function EditAccount() {
 
   const [user, setUser] = useState(null); 
 
-  // Función para obtener el usuario actual
   const fetchCurrentUser = async () => {
     const response = await fetch("http://localhost:5000/api/current-user");
     if (!response.ok) throw new Error("Failed to fetch current user");
     return await response.json();
   };
 
-  // Cargar usuario cuando se monte el componente
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
         const currentUser = await fetchCurrentUser();
-        setUser(currentUser); // Guarda el usuario en el estado
+        setUser(currentUser);
       } catch (error) {
         console.error("Error fetching current user:", error);
       }
@@ -48,14 +47,24 @@ function EditAccount() {
   return (
     <section className={styles.editAccount}>
       <WebHeader subtitle="Edit Account" />
+
+
       <Background />
       <NavBar />
       <UserProfile />
+
       {user && <UserDetails user={user} setUser={setUser} />}
       <PasswordChangeSection />
       <button className={styles.updatepasswordbutton} onClick={saveChanges}>
         Save Changes
       </button>
+      <Link to="/sign-up">
+        <button className={styles.updatepasswordbutton}>
+          Add New Account
+        </button>
+      </Link>
+
+
     </section>
   );
 }
@@ -65,6 +74,8 @@ function Header() {
     <>
       <h1 className={styles.facepass}>FACEPASS</h1>
       <h2 className={styles.editAccount2}>Edit Account</h2>
+      <h2 className={styles.editAccount2}>Add new Account</h2>
+
     </>
   );
 }
@@ -83,14 +94,14 @@ function UserDetails({ user, setUser }) {
   const [userName, setUserName] = useState(user?.name || "");
   const [userRole, setUserRole] = useState(user?.role || "");
   const [email, setEmail] = useState(user?.email || "");
-  const [phoneNumber, setPhoneNumber] = useState(user?.phoneNumber || ""); // Cambié "phone" por "phoneNumber"
+  const [phoneNumber, setPhoneNumber] = useState(user?.phoneNumber || "");
 
   useEffect(() => {
     if (user) {
       setUserName(user.name || "");
       setUserRole(user.role || "");
       setEmail(user.email || "");
-      setPhoneNumber(user.phoneNumber || ""); // Cambié "phone" por "phoneNumber"
+      setPhoneNumber(user.phoneNumber || "");
     }
   }, [user]);
 
@@ -155,7 +166,7 @@ function UserDetails({ user, setUser }) {
             placeholder="Enter the user phone number..."
             onChange={(e) => {
               setPhoneNumber(e.target.value);
-              handleChange("phoneNumber", e.target.value); // Cambié "phone" por "phoneNumber"
+              handleChange("phoneNumber", e.target.value);
             }}
           />
         </div>

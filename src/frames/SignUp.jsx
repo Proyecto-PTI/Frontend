@@ -107,13 +107,15 @@ function SignUp() {
 
         <div className={styles.footer}>
           <button type="button" className={styles.signupbutton} onClick={handleAuth}>
-            {isSignUp ? "Sign up" : "Sign in"}
+            Sign up
+
           </button>
 
           <p className={styles.alreadyhaveanaccount}>
-            {isSignUp ? (
+
+            {(
                 <>
-                  Already have an account?{" "}
+                  Want to change into another existing account?{" "}
                   <span
                       onClick={() => setIsSignUp(false)}
                       className={styles.loginLink}
@@ -122,21 +124,11 @@ function SignUp() {
                 Log in
               </span>
                 </>
-            ) : (
-                <>
-                  New user?{" "}
-                  <span
-                      onClick={() => setIsSignUp(true)}
-                      className={styles.loginLink}
-                      style={{ cursor: "pointer" }}
-                  >
-                Sign up
-              </span>
-                </>
             )}
+
+            }
           </p>
         </div>
-
         <Background />
       </section>
   );
