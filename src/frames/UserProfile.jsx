@@ -29,7 +29,7 @@ function UserProfile() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/user/${userId}`);
+        const res = await fetch(`http://backend-service:8000/user/${userId}`);
         if (!res.ok) throw new Error("Failed to fetch user data");
         const data = await res.json();
 
@@ -57,7 +57,7 @@ function UserProfile() {
     if (userName) { 
       const fetchRecentRecords = async () => {
         try {
-          const response = await fetch(`http://localhost:8000/userlogs/${userName}`);
+          const response = await fetch(`http://backend-service:8000/userlogs/${userName}`);
           const data = await response.json();
           setRecentRecords(data);
         } catch (error) {
@@ -89,7 +89,7 @@ function UserProfile() {
     });
   
     try {
-      const response = await fetch(`http://localhost:8000/adduser`,  {
+      const response = await fetch(`http://backend-service:8000/adduser`,  {
         method: "PUT", // or PATCH
         body: formData,
       });

@@ -97,7 +97,7 @@ const handleCreateUser = async () => {
     });
 
     //const response = await fetch("http://backend-service:8000/new-user", {
-    const response = await fetch("http://localhost:8000/new-user", {
+    const response = await fetch("http://backend-service:8000/new-user", {
       method: "POST",
       body: formData,
     });

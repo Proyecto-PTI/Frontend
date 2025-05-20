@@ -11,7 +11,7 @@ function AccessAlerts() {
 
     useEffect(() => {
         // Simulación de fetch, reemplazar por llamada real al backend
-        fetch('http://localhost:8000/deniedlogs')
+        fetch('http://backend-service:8000/deniedlogs')
             .then(response => response.json())
             .then(data => setLogs(data))
             .catch(error => console.error('Error fetching logs:', error));

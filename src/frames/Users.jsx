@@ -15,7 +15,7 @@ const Users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch("http://localhost:8000/users"); // o la URL correcta
+        const res = await fetch("http://backend-service:8000/users"); // o la URL correcta
         if (!res.ok) throw new Error("Error fetching users");
         const data = await res.json();
         setUsers(data);
