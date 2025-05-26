@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./AddUser.module.css";
+import stylesAdmin from "./SignUp.module.css";
+
 import WebHeader from "../components/WebHeader.jsx";
 import LabelComponent from "../components/LabelComponent.jsx";
 import NavBar from "../components/NavBar.jsx";
 import Background from "../components/Background.jsx";
-import { useUsers } from "../contexts/UserContext.jsx"; // hook to add user
+import { useUsers } from "../../../../Frontend/src/contexts/UserContext.jsx";
 import AddImages from "../components/AddImages.jsx";
+import { useAuth } from "../../../../Frontend/src/contexts/AuthContext.jsx";
 
 
 
 function AddUser() {
     const { addUser } = useUsers();
     const navigate = useNavigate();
-
+    const { signUp, signIn } = useAuth();
     const [userName, setUserName] = useState('');
     const [userRole, setUserRole] = useState('');
     const [userEmail, setUserEmail] = useState('');
@@ -21,6 +24,9 @@ function AddUser() {
     const [labels, setLabels] = useState([]);
     const [message, setMessage] = useState('');
     const [messageType, setMessageType] = useState(''); // 'success' or 'error'
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [error, setError] = useState("");
 
 
     const [selectedImages, setSelectedImages] = useState([]);
@@ -101,7 +107,22 @@ function AddUser() {
             setMessageType("error");
         }
     };
+    const handleAuth = async () => {
 
+        if (password !== confirmPassword) {
+            setError("Passwords do not match");
+            return;
+        }
+
+        try {
+                const user = await signUp(userEmail, password);
+
+                navigate("/edit-account");
+
+        } catch (err) {
+            setError(err.message || "Authentication failed");
+        }
+    };
     const handleAddLabel = (newLabel) => {
         setLabels((prev) => [...prev, newLabel]);
     };
@@ -142,7 +163,11 @@ function AddUser() {
                         </label>
                         <select
                             className={styles.roleSelect}
-                            onChange={(e) => setUserRole(e.target.value)}
+                            onChange={(e) => {
+                                setUserRole(e.target.value)
+                                console.log(userRole);
+                            }
+                            }
                         >
                             <option value="">Select Role</option>
                             <option value="admin">Administrator</option>
@@ -157,40 +182,79 @@ function AddUser() {
                             id="email"
                             type="text"
                             className={styles.emailbox}
-                            placeholder="Enter the user email..."
+                            placeholder={userRole !== 'admin' ? "Enter the user email..." : "Enter the administrator email..."}
                             onChange={(e) => setUserEmail(e.target.value)}
                         />
                     </div>
-                    <div className={styles.div5}>
-                        <label className={styles.userPhoneNumber} >
-                            Phone Number
-                        </label>
-                        <input
-                            id="number"
-                            type="text"
-                            className={styles.numberbox}
-                            placeholder="Enter the user phone number..."
-                            onChange={(e) => setUserPhoneNumber(e.target.value)}
-                        />
-                    </div>
-                </form>
+                    {userRole !== 'admin' ?
+                        <div className={styles.div5}>
+                            <label className={styles.userPhoneNumber} >
+                                Phone Number
+                            </label>
+                            <input
+                                id="number"
+                                type="text"
+                                className={styles.numberbox}
+                                placeholder="Enter the user phone number..."
+                                onChange={(e) => setUserPhoneNumber(e.target.value)}
+                            />
+                        </div>
+                        :
+                        <div>
+                        <div className={stylesAdmin.FormInput}>
+                            <label className={stylesAdmin.password}>Password</label>
+                            <div className={stylesAdmin.passwordbox}>
+                                <input
+                                    type="password"
+                                    placeholder="yourpassword..."
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className={stylesAdmin.inputField}
+                                />
+                            </div>
+                        </div>
 
-                <AddImages onImagesSelected={setSelectedImages} />
-                <LabelComponent
+                        <div className={stylesAdmin.FormInput}>
+                            <label className={stylesAdmin.confirmPassword}>Confirm Password</label>
+                            <div className={stylesAdmin.passwordbox2}>
+                                <input
+                                type="password"
+                                placeholder="yourpassword..."
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                className={stylesAdmin.inputField}
+                                />
+                            </div>
+                        </div>
+                        </div>
+                    }
+
+                </form>
+                {userRole !== 'admin' &&
+                    <div>
+                    <AddImages onImagesSelected={setSelectedImages}/>
+                    <LabelComponent
                     subtitle="Access Permissions"
                     initialLabels={labels || []}
                     onAddLabel={handleAddLabel}
                     onRemoveLabel={handleRemoveLabel}
-                />
+                    />
 
 
-                <div className={styles.buttonmessage}>
-                    {/* Mostrar mensaje de éxito o error */}
-                    {message && (
-                        <div className={`${styles.message} ${styles[messageType]}`}>
-                            {message}
-                        </div>
+                    <div className={styles.buttonmessage}>
+                {/* Mostrar mensaje de éxito o error */}
+                {message && (
+                    <div className={`${styles.message} ${styles[messageType]}`}>
+                {message}
+                    </div>
                     )}
+
+                    </div>
+                    </div>
+                }
+                {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
+
+                {userRole !== 'admin' ?
                     <button
                         className={styles.createUser}
                         onClick={handleCreateUser}
@@ -198,7 +262,16 @@ function AddUser() {
                     >
                         Create User
                     </button>
-                </div>
+                    :
+                    <button
+                        className={styles.createUser}
+                        onClick={handleAuth}
+                        type="button"
+                    >
+                        Add System Administrator
+                    </button>
+                }
+
             </section>
         </div>
     );

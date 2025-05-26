@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./LogIn.module.css";
-import { useAuth } from "../contexts/AuthContext.jsx";
+import { useAuth } from "../../../../Frontend/src/contexts/AuthContext.jsx";
 import Background from "../components/Background";
-import {auth} from "../firebaseConfig.js";
+import {auth} from "../../../../Frontend/src/firebaseConfig.js";
 
 function LogIn() {
     const { signIn } = useAuth();
@@ -24,7 +24,7 @@ function LogIn() {
             console.log("User email:");
             console.log(auth.currentUser);
 
-            navigate("/dashboard");
+            navigate("/add-user");
         } catch (err) {
             console.error("Login error:", err.message);
             setError(err.message);

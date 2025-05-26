@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext.jsx";
-import { useAdmin } from "../contexts/AdminContext.jsx";
+import { useAuth } from "../../../../Frontend/src/contexts/AuthContext.jsx";
+import { useAdmin } from "../../../../Frontend/src/contexts/AdminContext.jsx";
 import styles from "./SignUp.module.css";
 import Background from "../components/Background";
 
@@ -87,7 +87,6 @@ function SignUp() {
             </div>
           </div>
 
-          {isSignUp && (
               <div className={styles.FormInput}>
                 <label className={styles.confirmPassword}>Confirm Password</label>
                 <div className={styles.passwordbox2}>
@@ -100,7 +99,6 @@ function SignUp() {
                   />
                 </div>
               </div>
-          )}
         </form>
 
         {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}

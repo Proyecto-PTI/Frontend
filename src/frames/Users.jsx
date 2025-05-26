@@ -7,7 +7,7 @@ import WebHeader from "../components/WebHeader.jsx";
 import NavBar from "../components/NavBar.jsx";
 import UserCard from '../components/UserCard';
 import { collection, getDocs } from "firebase/firestore";
-import { db} from "../firebaseConfig.js";
+import { db} from "../../../../Frontend/src/firebaseConfig.js";
 
 const Users = () => {
     const [users, setUsers] = useState([]);
