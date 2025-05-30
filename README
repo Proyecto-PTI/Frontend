@@ -1,0 +1,26 @@
+viteREADME.md: Documentación específica de Vite.
+vite.config.js: configuración de Vite.
+package.json: lista de dependencias y scripts 
+node_modules: Librerías instaladas del proyecto (dependencias).
+Dockerfile: Define cómo construir la imagen Docker del frontend.
+nginx.config: Configuración de Nginx para servir la app.
+frontend-deployment.yaml: Despliega y expone la app frontend vía NodePort.
+/public:  
+	index.html: Archivo HTML principal de entrada de la app.
+/src: 
+	App.jsx: componente principal
+	main.jsx: renderiza el componente principal
+	/frame: 
+		Welcome.jsx: Página principal con acceso a LogIn y SignUp.
+		LogIn / SignUp.jsx: Formularios de inicio de sesión y registro.
+		Dashboard.jsx: Gráficos y resumen de métricas del sistema.
+		AccessLogs / AccessAlerts.jsx: Listado de intentos de acceso.
+		Users.jsx: Gestión y búsqueda de usuarios.
+		UserProfile.jsx: Consulta y edición de perfil de usuario.
+		AddUser.jsx: Registro de nuevo usuario con imágenes faciales.
+		EntryPoints.jsx: Consulta y gestión de entradas (puertas).
+		SystemEntry.jsx: Edición de detalles de una entrada.
+		AddEntryPoint.jsx: Añadir nueva entrada al sistema.
+		SystemSettings.jsx: Configuración de tema e idioma.
+		AlertSettings.jsx: Configuración básica de alarmas.
+		EditAccount.jsx: Cambio de contraseña del usuario.
